@@ -258,14 +258,6 @@ export class GameRoom extends Room<GameState> {
         // Cứ 10 điểm = 1 đốt. Mới vào có 0 đốt.
         const targetLength = Math.floor(player.score / 10);
         
-        if (player.segments.length > targetLength) {
-          // Xóa đuôi nếu dài hơn mức cho phép
-          const tail = player.segments.pop();
-          if (tail) {
-            this.gridManager.free(tail.x, tail.y);
-          }
-        }
-
         // 4. Va chạm Mồi & Rắn
         let isFood = false;
         let eatenFoodId: string | null = null;
@@ -277,28 +269,43 @@ export class GameRoom extends Room<GameState> {
         });
 
         if (!isFood && this.gridManager.isOccupied(nextX, nextY)) {
-          // It's a snake! (occupied but not a food and not a wall)
-          if (player.hasShield) {
-            player.hasShield = false;
+          // Check if hitting self
+          let isSelf = false;
+          player.segments.forEach((seg: SnakeSegment) => {
+            if (seg.x === nextX && seg.y === nextY) isSelf = true;
+          });
+
+          if (!isSelf) {
+            // It's another snake!
+            if (player.hasShield) {
+              player.hasShield = false;
+              player.moveAccumulator = 0;
+              break;
+            }
+            
+            // Revert the head we just added
+            const headToRemove = player.segments.shift(); 
+            if (headToRemove) {
+              player.x = oldX;
+              player.y = oldY;
+            }
+            
+            player.state = "STUNNED";
+            player.stunnedUntil = Date.now() + 2000;
             player.moveAccumulator = 0;
-            break;
+            break; // Stop moving
           }
-          
-          // Bỏ phần đầu vừa đi tới, vì nó va chạm nên không được occupy ô này
-          const headToRemove = player.segments.shift(); 
-          if (headToRemove) {
-            // Revert new head position
-            player.x = oldX;
-            player.y = oldY;
-          }
-          
-          player.state = "STUNNED";
-          player.stunnedUntil = Date.now() + 2000;
-          player.moveAccumulator = 0;
-          break; // Stop moving
         }
 
-        // Cập nhật tọa độ mới cho đầu rắn nếu không va chạm rắn
+        // 5. Cập nhật mảng thân (Xóa đuôi nếu cần) - CHỈ LÀM KHI KHÔNG BỊ STUN
+        if (player.segments.length > targetLength) {
+          const tail = player.segments.pop();
+          if (tail) {
+            this.gridManager.free(tail.x, tail.y);
+          }
+        }
+
+        // Cập nhật tọa độ mới cho đầu rắn nếu không va chạm rắn (hoặc tự cắn mình)
         player.x = nextX;
         player.y = nextY;
         this.gridManager.occupy(nextX, nextY);

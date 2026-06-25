@@ -50,8 +50,13 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
+      let lastUpdateTime = 0;
       r.onStateChange((state) => {
-        updateState(state.toJSON());
+        const now = Date.now();
+        if (now - lastUpdateTime > 500) {
+          updateState(state.toJSON());
+          lastUpdateTime = now;
+        }
       });
 
       r.onMessage("questionStarted", (payload) => {
