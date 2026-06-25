@@ -27,6 +27,13 @@ export class MatchLogger {
   logFoodCollected(userId: string) {
     const current = this.foodsCollected.get(userId) || 0;
     this.foodsCollected.set(userId, current + 1);
+    
+    // Append to backup file for full durability
+    try {
+      fs.appendFileSync(this.logFilePath, JSON.stringify({ event: "FOOD_COLLECTED", userId }) + '\n', { encoding: 'utf-8' });
+    } catch (e) {
+      console.error("[MatchLogger] Failed to write to backup file:", e);
+    }
   }
 
   logQuestionAnswer(userId: string, questionId: string, answeredChoice: string, isCorrect: boolean) {
@@ -85,6 +92,13 @@ export class MatchLogger {
       foodsCollected: this.foodsCollected.get(p.id) || 0,
       rank: index + 1
     }));
+
+    // Log the final aggregate to the file BEFORE attempting DB save
+    try {
+      fs.appendFileSync(this.logFilePath, JSON.stringify({ event: "MATCH_END_STATS", matchData, matchPlayers }) + '\n', { encoding: 'utf-8' });
+    } catch (e) {
+      console.error("[MatchLogger] Failed to write end stats to backup file:", e);
+    }
 
     // Save to DB
     const success = await SupabaseService.saveMatch(matchData, matchPlayers, this.questionLogs);

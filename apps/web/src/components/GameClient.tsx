@@ -52,8 +52,17 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
       let lastUpdateTime = 0;
       r.onStateChange((state) => {
+        // Immediate UI updates for critical HUD/Phase states to prevent desync
+        useGameStore.setState({
+          phase: state.phase,
+          countdown: state.countdown,
+          timeRemaining: state.timeRemaining,
+          hostId: state.hostId
+        });
+
         const now = Date.now();
         if (now - lastUpdateTime > 500) {
+          // Throttle heavy dictionary operations (Scoreboard/Lobby Players) to 500ms
           updateState(state.toJSON());
           lastUpdateTime = now;
         }
