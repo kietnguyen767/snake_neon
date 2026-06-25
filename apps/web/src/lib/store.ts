@@ -11,6 +11,7 @@ interface GameState {
   timeRemaining: number;
   setRoom: (room: Colyseus.Room) => void;
   updateState: (state: any) => void;
+  clearStore: () => void;
 }
 
 export const useGameStore = create<GameState>((set) => ({
@@ -30,4 +31,5 @@ export const useGameStore = create<GameState>((set) => ({
     countdown: state.countdown || 3,
     timeRemaining: state.timeRemaining || 600
   }),
+  clearStore: () => set({ room: null, players: {}, foods: {}, phase: 0, hostId: "", countdown: 3, timeRemaining: 600 }),
 }));

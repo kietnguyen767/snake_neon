@@ -10,7 +10,7 @@ import { GameState } from "@/game/GameState";
 
 export default function GameClient({ roomId }: { roomId: string }) {
   const [status, setStatus] = useState("Connecting...");
-  const { setRoom, updateState, players, room: currentRoom, phase, hostId, countdown, timeRemaining } = useGameStore();
+  const { setRoom, updateState, clearStore, players, room: currentRoom, phase, hostId, countdown, timeRemaining } = useGameStore();
   const gameRef = useRef<Phaser.Game | null>(null);
   const [activeQuestion, setActiveQuestion] = useState<{
     questionId: string;
@@ -111,8 +111,9 @@ export default function GameClient({ roomId }: { roomId: string }) {
         gameRef.current.destroy(true);
         gameRef.current = null;
       }
+      clearStore();
     };
-  }, [roomId, setRoom, updateState]);
+  }, [roomId, setRoom, updateState, clearStore]);
 
   const handleAnswerSubmit = (questionId: string, choice: string) => {
     if (currentRoom) {
