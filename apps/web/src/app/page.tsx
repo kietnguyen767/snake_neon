@@ -34,13 +34,16 @@ export default function Home() {
     return () => subscription.unsubscribe();
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     if (user) {
       const saved = localStorage.getItem('snakevnr_display_name');
       if (saved) {
+        // eslint-disable-next-line
         setDisplayName(saved);
       } else {
         const defaultName = user.user_metadata?.full_name || user.email?.split('@')[0] || "Player";
+        // eslint-disable-next-line
         setDisplayName(defaultName);
         localStorage.setItem('snakevnr_display_name', defaultName);
       }

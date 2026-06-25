@@ -1,16 +1,35 @@
 import { create } from 'zustand';
 import * as Colyseus from 'colyseus.js';
 
+export interface PlayerState {
+  id: string;
+  name: string;
+  x: number;
+  y: number;
+  state: string;
+  score: number;
+  hasShield: boolean;
+  shieldUntil?: number;
+  segments: { x: number; y: number }[];
+}
+
+export interface FoodState {
+  id: string;
+  x: number;
+  y: number;
+  type: number;
+}
+
 interface GameState {
   room: Colyseus.Room | null;
-  players: Record<string, any>;
-  foods: Record<string, any>;
+  players: Record<string, PlayerState>;
+  foods: Record<string, FoodState>;
   phase: number;
   hostId: string;
   countdown: number;
   timeRemaining: number;
   setRoom: (room: Colyseus.Room) => void;
-  updateState: (state: any) => void;
+  updateState: (state: Partial<GameState>) => void;
   clearStore: () => void;
 }
 

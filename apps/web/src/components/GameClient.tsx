@@ -1,3 +1,4 @@
+import { PlayerState } from "@/lib/store";
 "use client";
 
 import { useEffect, useState, useRef } from "react";
@@ -19,12 +20,12 @@ export default function GameClient({ roomId }: { roomId: string }) {
     type: number;
     deadline: number
   } | null>(null);
-  const [matchStats, setMatchStats] = useState<any[] | null>(null);
+  const [matchStats, setMatchStats] = useState<{ id: string; name: string; score: number; rank: number; isMe: boolean }[] | null>(null);
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: "", visible: false });
 
   useEffect(() => {
     const serverUrl = process.env.NEXT_PUBLIC_GAME_SERVER_URL || "ws://localhost:2567";
-    let client = new Colyseus.Client(serverUrl);
+    const client = new Colyseus.Client(serverUrl);
     let room: Colyseus.Room<GameState>;
     let isMounted = true;
 
@@ -74,7 +75,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
         setActiveQuestion(payload);
       });
 
-      r.onMessage("answerResult", (payload) => {
+      r.onMessage("answerResult", () => {
         if (answerTimeout) clearTimeout(answerTimeout);
         answerTimeout = setTimeout(() => setActiveQuestion(null), 500);
       });
@@ -100,7 +101,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
-      r.onMessage("playerAttacked", (data: any) => {
+      r.onMessage("playerAttacked", (data: { targetId: string, blocked: boolean, damage: number, attackerId: string }) => {
         if (data.targetId === r.sessionId && !data.blocked) {
           const attackerName = r.state.players.get(data.attackerId)?.name || "Một người chơi";
           setToast({ message: `⚠️ BẠN VỪA BỊ ${attackerName.toUpperCase()} TẤN CÔNG!`, visible: true });
@@ -222,7 +223,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
               <div style={{
                 display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "var(--spacing-md)"
               }}>
-                {Object.values(players).map((p: any) => {
+                {Object.values(players).map((p: PlayerState) => {
                   const isHost = p.id === hostId;
                   const isLocal = currentRoom && p.id === currentRoom.sessionId;
                   const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=${isHost ? 'ffdb40' : '2ae500'}&color=${isHost ? '3a3000' : '053900'}&bold=true`;
