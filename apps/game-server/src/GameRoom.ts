@@ -262,17 +262,16 @@ export class GameRoom extends Room<GameState> {
 
           if (hitStunnableSnake) {
             // It's another active snake!
-            if (player.hasShield) {
-              player.hasShield = false;
-              player.moveAccumulator = 0;
-              break;
-            }
-            
-            // Revert the head we just added
             const headToRemove = player.segments.shift(); 
             if (headToRemove) {
               player.x = oldX;
               player.y = oldY;
+            }
+
+            if (player.hasShield) {
+              player.hasShield = false;
+              player.moveAccumulator = 0;
+              break;
             }
             
             player.state = "STUNNED";
