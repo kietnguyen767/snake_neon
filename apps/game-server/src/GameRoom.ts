@@ -364,7 +364,7 @@ export class GameRoom extends Room<GameState> {
               // Shield (type 5)
               if (appliedEffect === 5) {
                 player.hasShield = true;
-                player.shieldUntil = Date.now() + 10000;
+                player.shieldUntil = Date.now() + 30000;
               }
               
               // Attack (type 7)
