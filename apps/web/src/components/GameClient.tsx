@@ -29,7 +29,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
     let isMounted = true;
 
     const playerName = typeof window !== "undefined" ? (localStorage.getItem('snakevnr_display_name') || "Player") : "Player";
-    client.joinOrCreate<GameState>("game_room", { roomId, name: playerName }, GameState).then(async (r) => {
+    client.joinOrCreate<GameState>("game_room", { customRoomId: roomId, name: playerName }, GameState).then(async (r) => {
       if (!isMounted) {
         r.leave();
         return;

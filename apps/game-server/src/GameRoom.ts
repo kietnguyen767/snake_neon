@@ -15,7 +15,7 @@ export class GameRoom extends Room<GameState> {
 
   onCreate (options: any) {
     this.setState(new GameState());
-    this.matchLogger = new MatchLogger(this.roomId);
+    this.matchLogger = new MatchLogger(options.customRoomId || this.roomId);
     
     // Create grid of 100x100 for a massive map
     this.gridManager = new GridManager(100, 100);

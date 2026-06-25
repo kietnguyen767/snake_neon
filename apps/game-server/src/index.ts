@@ -19,7 +19,7 @@ const gameServer = new Server({
 });
 
 // Register room
-gameServer.define('game_room', GameRoom).filterBy(['roomId']);
+gameServer.define('game_room', GameRoom).filterBy(['customRoomId']);
 
 gameServer.listen(port).then(() => {
   console.log(`[GameServer] Listening on port: ${port}`);
