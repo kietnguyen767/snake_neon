@@ -1,11 +1,11 @@
 "use client";
-import { PlayerState } from "@/lib/store";
+import { PlayerState, StoreGameState } from "@/lib/store";
 
 import { useEffect, useState, useRef } from "react";
 import * as Colyseus from "colyseus.js";
 import { useGameStore } from "@/lib/store";
 import QuestionOverlay from "./QuestionOverlay";
-import MatchEndOverlay from "./MatchEndOverlay";
+import MatchEndOverlay, { MatchPlayer } from "./MatchEndOverlay";
 import BackgroundShader from "./BackgroundShader";
 import { GameState } from "@/game/GameState";
 
@@ -20,7 +20,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
     type: number;
     deadline: number
   } | null>(null);
-  const [matchStats, setMatchStats] = useState<{ id: string; name: string; score: number; rank: number; isMe: boolean }[] | null>(null);
+  const [matchStats, setMatchStats] = useState<MatchPlayer[] | null>(null);
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: "", visible: false });
 
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
       setStatus("Connected!");
 
       r.onStateChange.once(async (state) => {
-        updateState(state.toJSON());
+        updateState(state.toJSON() as unknown as Partial<StoreGameState>);
 
         const Phaser = (await import("phaser")).default;
         const { gameConfig } = await import("@/game/config");
@@ -64,7 +64,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
         const now = Date.now();
         if (now - lastUpdateTime > 500) {
           // Throttle heavy dictionary operations (Scoreboard/Lobby Players) to 500ms
-          updateState(state.toJSON());
+          updateState(state.toJSON() as unknown as Partial<StoreGameState>);
           lastUpdateTime = now;
         }
       });

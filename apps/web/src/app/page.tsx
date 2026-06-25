@@ -79,7 +79,7 @@ export default function Home() {
       id: "guest-" + Math.floor(Math.random() * 10000),
       email: "khach@snakevnr.local",
       user_metadata: { full_name: "Người chơi Khách" }
-    } as User);
+    } as unknown as User);
     setMsg("");
   };
 

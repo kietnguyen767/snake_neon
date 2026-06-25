@@ -81,7 +81,7 @@ export class GameScene extends Phaser.Scene {
     if (!this.sys || !this.sys.isActive() || !this.add) return;
 
     console.log(`[GameScene] Player Added: ${sessionId} at ${player.x}, ${player.y}`);
-    const isMe = sessionId === this.room.sessionId;
+    const isMe = sessionId === this.room?.sessionId;
     const headColor = isMe ? 0x39ff14 : 0x00d2fd;
         
     const headRect = this.add.rectangle(
@@ -150,12 +150,13 @@ export class GameScene extends Phaser.Scene {
   }
 
   syncPlayerBodies() {
-    if (!this.room || !this.room.state.players) return;
+    const room = this.room;
+    if (!room || !room.state.players) return;
     
-    this.room.state.players.forEach((player: ColyseusPlayer, sessionId: string) => {
+    room.state.players.forEach((player: ColyseusPlayer, sessionId: string) => {
       if (player.state === "DISCONNECTED") return;
       
-      const isMe = sessionId === this.room.sessionId;
+      const isMe = sessionId === this.room?.sessionId;
       const bodyColor = isMe ? 0x2ae500 : 0x00a8cc;
       const currentBodyColor = player.state === "STUNNED" ? 0x666666 : (isMe ? 0x2ae500 : 0x00a8cc);
       
@@ -222,18 +223,21 @@ export class GameScene extends Phaser.Scene {
   }
 
   attachListeners() {
+    const room = this.room;
+    if (!room) return;
+
     // Process existing players
-    if (this.room.state.players) {
-      this.room.state.players.forEach((player: ColyseusPlayer, sessionId: string) => {
+    if (room.state.players) {
+      room.state.players.forEach((player: ColyseusPlayer, sessionId: string) => {
         this.addPlayer(player, sessionId);
       });
       // Listen for new players
-      this.room.state.players.onAdd((player: ColyseusPlayer, sessionId: string) => {
+      room.state.players.onAdd((player: ColyseusPlayer, sessionId: string) => {
         this.addPlayer(player, sessionId);
       });
     }
 
-    this.room.state.players.onRemove((player: ColyseusPlayer, sessionId: string) => {
+    room.state.players.onRemove((player: ColyseusPlayer, sessionId: string) => {
       const headRect = this.playersHead.get(sessionId);
       if (headRect) headRect.destroy();
       this.playersHead.delete(sessionId);
@@ -250,7 +254,7 @@ export class GameScene extends Phaser.Scene {
       this.playersBody.delete(sessionId);
     });
 
-    if (this.room.state.foods) {
+    if (room.state.foods) {
       const addFood = (food: ColyseusFood, foodId: string) => {
         if (this.foods.has(foodId)) return;
         if (!this.sys || !this.sys.isActive() || !this.add) return;
@@ -298,17 +302,17 @@ export class GameScene extends Phaser.Scene {
         this.foods.set(foodId, circle);
       };
 
-      this.room.state.foods.forEach(addFood);
-      this.room.state.foods.onAdd(addFood);
+      room.state.foods.forEach(addFood);
+      room.state.foods.onAdd(addFood);
 
-      this.room.state.foods.onRemove((food: ColyseusFood, foodId: string) => {
+      room.state.foods.onRemove((food: ColyseusFood, foodId: string) => {
         const circle = this.foods.get(foodId);
         if (circle) circle.destroy();
         this.foods.delete(foodId);
       });
     }
 
-    this.room.onMessage("playerAttacked", (data: { targetId: string, blocked: boolean, damage: number, attackerId: string }) => {
+    room.onMessage("playerAttacked", (data: { targetId: string, blocked: boolean, damage: number, attackerId: string }) => {
       const targetHead = this.playersHead.get(data.targetId);
       if (targetHead) {
         if (data.blocked) {

@@ -20,7 +20,7 @@ export interface FoodState {
   type: number;
 }
 
-interface GameState {
+export interface StoreGameState {
   room: Colyseus.Room | null;
   players: Record<string, PlayerState>;
   foods: Record<string, FoodState>;
@@ -29,11 +29,11 @@ interface GameState {
   countdown: number;
   timeRemaining: number;
   setRoom: (room: Colyseus.Room) => void;
-  updateState: (state: Partial<GameState>) => void;
+  updateState: (state: Partial<StoreGameState>) => void;
   clearStore: () => void;
 }
 
-export const useGameStore = create<GameState>((set) => ({
+export const useGameStore = create<StoreGameState>((set) => ({
   room: null,
   players: {},
   foods: {},
