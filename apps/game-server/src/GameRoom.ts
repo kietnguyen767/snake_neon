@@ -60,27 +60,7 @@ export class GameRoom extends Room<GameState> {
       
       if (player.state === "MOVING") {
         player.state = "PAUSED";
-        this.freePlayerCells(player);
       } else if (player.state === "PAUSED") {
-        let collision = this.gridManager.isOccupied(player.x, player.y);
-        player.segments.forEach((seg: SnakeSegment) => {
-          if (seg && this.gridManager.isOccupied(seg.x, seg.y)) {
-            collision = true;
-          }
-        });
-        
-        if (collision) {
-          player.segments.clear();
-          const spawnCoords = this.gridManager.getRandomFreeCell();
-          if (spawnCoords) {
-            player.x = spawnCoords.x;
-            player.y = spawnCoords.y;
-            this.gridManager.occupy(spawnCoords.x, spawnCoords.y);
-          }
-        } else {
-          this.gridManager.occupy(player.x, player.y);
-          player.segments.forEach((seg: SnakeSegment) => this.gridManager.occupy(seg.x, seg.y));
-        }
         player.state = "MOVING";
       }
     });
@@ -269,14 +249,19 @@ export class GameRoom extends Room<GameState> {
         });
 
         if (!isFood && this.gridManager.isOccupied(nextX, nextY)) {
-          // Check if hitting self
-          let isSelf = false;
-          player.segments.forEach((seg: SnakeSegment) => {
-            if (seg.x === nextX && seg.y === nextY) isSelf = true;
+          let hitStunnableSnake = false;
+          this.state.players.forEach(p => {
+            if (p.id === player.id) return; // isSelf -> ignore
+            if (p.state === "ANSWERING" || p.state === "PAUSED") return; // ghost -> ignore
+            
+            if (p.x === nextX && p.y === nextY) hitStunnableSnake = true;
+            p.segments.forEach((seg: SnakeSegment) => {
+              if (seg.x === nextX && seg.y === nextY) hitStunnableSnake = true;
+            });
           });
 
-          if (!isSelf) {
-            // It's another snake!
+          if (hitStunnableSnake) {
+            // It's another active snake!
             if (player.hasShield) {
               player.hasShield = false;
               player.moveAccumulator = 0;
@@ -314,6 +299,7 @@ export class GameRoom extends Room<GameState> {
           const food = this.state.foods.get(eatenFoodId);
           if (food) {
             this.state.foods.delete(eatenFoodId);
+            this.gridManager.free(food.x, food.y);
             this.maintainFoodCount();
             
             // Types 1, 2, 3 are normal foods (require questions)
@@ -325,11 +311,6 @@ export class GameRoom extends Room<GameState> {
                 this.usedQuestionIds.add(question.id);
                 
                 player.state = "ANSWERING";
-                
-                // Free body cells so others can pass through
-                player.segments.forEach((seg: SnakeSegment) => {
-                  this.gridManager.free(seg.x, seg.y);
-                });
                 
                 player.pendingFoodId = food.id;
                 player.pendingQuestionId = question.id;
