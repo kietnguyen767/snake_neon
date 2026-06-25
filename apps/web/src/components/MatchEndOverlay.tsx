@@ -1,4 +1,11 @@
-import { MatchPlayer } from "../../../game-server/src/services/SupabaseService";
+export interface MatchPlayer {
+  userId: string;
+  score: number;
+  correctAnswers: number;
+  wrongAnswers: number;
+  foodsCollected: number;
+  rank: number;
+}
 
 interface MatchEndOverlayProps {
   stats: MatchPlayer[];
