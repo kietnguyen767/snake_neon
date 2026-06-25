@@ -34,16 +34,15 @@ export default function Home() {
     return () => subscription.unsubscribe();
   }, []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
+    useEffect(() => {
     if (user) {
       const saved = localStorage.getItem('snakevnr_display_name');
       if (saved) {
-        // eslint-disable-next-line
+                // eslint-disable-next-line
         setDisplayName(saved);
       } else {
         const defaultName = user.user_metadata?.full_name || user.email?.split('@')[0] || "Player";
-        // eslint-disable-next-line
+                // eslint-disable-next-line
         setDisplayName(defaultName);
         localStorage.setItem('snakevnr_display_name', defaultName);
       }
@@ -80,7 +79,7 @@ export default function Home() {
       id: "guest-" + Math.floor(Math.random() * 10000),
       email: "khach@snakevnr.local",
       user_metadata: { full_name: "Người chơi Khách" }
-    } as any);
+    } as User);
     setMsg("");
   };
 

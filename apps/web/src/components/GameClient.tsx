@@ -1,5 +1,5 @@
-import { PlayerState } from "@/lib/store";
 "use client";
+import { PlayerState } from "@/lib/store";
 
 import { useEffect, useState, useRef } from "react";
 import * as Colyseus from "colyseus.js";
