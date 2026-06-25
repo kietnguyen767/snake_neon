@@ -59,13 +59,15 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
+      let answerTimeout: NodeJS.Timeout | null = null;
       r.onMessage("questionStarted", (payload) => {
+        if (answerTimeout) clearTimeout(answerTimeout);
         setActiveQuestion(payload);
       });
 
       r.onMessage("answerResult", (payload) => {
-        // Here we could show correct/wrong feedback (e.g., sound or screen flash)
-        setTimeout(() => setActiveQuestion(null), 500);
+        if (answerTimeout) clearTimeout(answerTimeout);
+        answerTimeout = setTimeout(() => setActiveQuestion(null), 500);
       });
 
       r.onMessage("itemCollected", (payload) => {
