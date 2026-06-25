@@ -199,7 +199,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
                 <span><span style={{ color: "#3cd7ff", fontWeight: "bold" }}>● Xanh:</span> Thường</span>
                 <span><span style={{ color: "#ffdb40", fontWeight: "bold" }}>● Vàng:</span> Khá</span>
                 <span><span style={{ color: "#d84eff", fontWeight: "bold" }}>● Tím:</span> Khó</span>
-                <span><span style={{ color: "#33ff33", fontWeight: "bold" }}>🛡️ Khiên:</span> Chặn đòn (10s)</span>
+                <span><span style={{ color: "#33ff33", fontWeight: "bold" }}>🛡️ Khiên:</span> Chặn đòn (30s)</span>
                 <span><span style={{ color: "#ff3333", fontWeight: "bold" }}>⚔️ Kiếm:</span> Công kích</span>
                 <span><span style={{ color: "#ffffff", fontWeight: "bold" }}>🎁 Hộp:</span> Ngẫu nhiên</span>
               </div>

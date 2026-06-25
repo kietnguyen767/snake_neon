@@ -251,7 +251,7 @@ export class GameRoom extends Room<GameState> {
         if (!isFood && this.gridManager.isOccupied(nextX, nextY)) {
           let hitStunnableSnake = false;
           this.state.players.forEach(p => {
-            if (p.id === player.id) return; // isSelf -> ignore
+            if (p.id === player.id) return; // Theo yêu cầu, rắn có thể đi xuyên qua thân mình. Trạng thái trùng lặp được GridManager ref-count xử lý an toàn.
             if (p.state === "ANSWERING" || p.state === "PAUSED") return; // ghost -> ignore
             
             if (p.x === nextX && p.y === nextY) hitStunnableSnake = true;
@@ -289,7 +289,7 @@ export class GameRoom extends Room<GameState> {
           }
         }
 
-        // Cập nhật tọa độ mới cho đầu rắn nếu không va chạm rắn (hoặc tự cắn mình)
+        // 6. Cập nhật tọa độ mới cho đầu rắn (bao gồm cả trường hợp đi xuyên qua thân mình)
         player.x = nextX;
         player.y = nextY;
         this.gridManager.occupy(nextX, nextY);
