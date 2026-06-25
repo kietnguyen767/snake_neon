@@ -104,14 +104,6 @@ export class GameScene extends Phaser.Scene {
     }
 
     player.onChange(() => {
-      const nx = player.x * this.tileSize + this.tileSize/2;
-      const ny = player.y * this.tileSize + this.tileSize/2;
-      headRect.x = nx;
-      headRect.y = ny;
-      
-      nameText.x = nx;
-      nameText.y = ny - 15;
-      
       let alpha = 1.0;
       if (player.state === "ANSWERING") alpha = 0.3;
       if (player.state === "PAUSED") alpha = 0.2;
@@ -163,6 +155,23 @@ export class GameScene extends Phaser.Scene {
       if (player.state === "ANSWERING") alpha = 0.3;
       if (player.state === "PAUSED") alpha = 0.2;
       
+      const headRect = this.playersHead.get(sessionId);
+      const nameText = this.playersName.get(sessionId);
+      if (headRect) {
+        const htx = player.x * this.tileSize + this.tileSize/2;
+        const hty = player.y * this.tileSize + this.tileSize/2;
+        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
+          headRect.x = htx; headRect.y = hty;
+        } else {
+          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
+          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
+        }
+        if (nameText) {
+          nameText.x = headRect.x;
+          nameText.y = headRect.y - 15;
+        }
+      }
+
       let bodyArr = this.playersBody.get(sessionId);
       if (!bodyArr) {
         bodyArr = [];
@@ -172,21 +181,26 @@ export class GameScene extends Phaser.Scene {
       const segments = player.segments;
       const len = segments ? segments.length : 0;
       
-      // Update or create rects
       for (let i = 0; i < len; i++) {
         const seg = segments[i];
+        const tx = seg.x * this.tileSize + this.tileSize/2;
+        const ty = seg.y * this.tileSize + this.tileSize/2;
+        
         if (i >= bodyArr.length) {
           const bodyRect = this.add.rectangle(
-            seg.x * this.tileSize + this.tileSize/2, 
-            seg.y * this.tileSize + this.tileSize/2, 
-            this.tileSize * 0.9, this.tileSize * 0.9, currentBodyColor
+            tx, ty, this.tileSize * 0.9, this.tileSize * 0.9, currentBodyColor
           );
           bodyArr.push(bodyRect);
         }
         
         const rect = bodyArr[i];
-        rect.x = seg.x * this.tileSize + this.tileSize/2;
-        rect.y = seg.y * this.tileSize + this.tileSize/2;
+        if (Phaser.Math.Distance.Between(rect.x, rect.y, tx, ty) > this.tileSize * 1.5) {
+          rect.x = tx; rect.y = ty;
+        } else {
+          rect.x = Phaser.Math.Linear(rect.x, tx, 0.35);
+          rect.y = Phaser.Math.Linear(rect.y, ty, 0.35);
+        }
+        
         rect.setAlpha(alpha * 0.8);
         rect.fillColor = currentBodyColor;
         rect.setVisible(true);
