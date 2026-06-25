@@ -61,7 +61,7 @@ export class SupabaseService {
           room_id: match.roomId,
           started_at: match.startedAt,
           ended_at: match.endedAt,
-          winner_id: match.winnerId, // can be null if tie or no points
+          winner_id: match.winnerId || null, // Ensure empty string becomes null
           player_count: match.playerCount
         })
         .select("id")
