@@ -78,6 +78,28 @@ export class GameScene extends Phaser.Scene {
         this.listenersAttached = true;
       }
     }
+    
+    if (this.listenersAttached && this.room) {
+      this.playersHead.forEach((headRect, sessionId) => {
+        const player = this.room!.state.players.get(sessionId);
+        if (!player || player.state === "DISCONNECTED") return;
+        
+        const htx = player.x * this.tileSize + this.tileSize/2;
+        const hty = player.y * this.tileSize + this.tileSize/2;
+        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
+          headRect.x = htx; headRect.y = hty;
+        } else {
+          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
+          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
+        }
+        
+        const nameText = this.playersName.get(sessionId);
+        if (nameText) {
+          nameText.x = headRect.x;
+          nameText.y = headRect.y - 15;
+        }
+      });
+    }
   }
 
   private addPlayer(player: ColyseusPlayer, sessionId: string) {
@@ -116,11 +138,6 @@ export class GameScene extends Phaser.Scene {
     }
 
     player.onChange(() => {
-      // Snap head position directly when server state changes!
-      headRect.x = player.x * this.tileSize + this.tileSize/2;
-      headRect.y = player.y * this.tileSize + this.tileSize/2;
-      nameText.x = headRect.x;
-      nameText.y = headRect.y - 15;
 
       let alpha = 1.0;
       if (player.state === "ANSWERING") alpha = 0.3;
