@@ -136,7 +136,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
       <div className="hud-container">
 
         {/* Top Left Info */}
-        <div style={{ position: "absolute", top: "var(--spacing-md)", left: "var(--spacing-md)" }}>
+        <div className="hud-top-left">
           <h2 className="display-lg-mobile" style={{ margin: 0, color: "var(--secondary-container)", textShadow: "var(--glow-secondary)" }}>ARENA: {roomId}</h2>
           <p className="label-caps" style={{ margin: "4px 0", color: "var(--on-surface-variant)" }}>Status: {status}</p>
           <p className="score-display" style={{ margin: "4px 0", color: "var(--primary)" }}>Players: {Object.keys(players).length}</p>

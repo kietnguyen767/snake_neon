@@ -12,6 +12,35 @@ export class GameRoom extends Room<GameState> {
   private gridManager!: GridManager;
   private usedQuestionIds = new Set<string>();
   private matchLogger!: MatchLogger;
+  private foodGrid = new Map<number, string>();
+  private playerGrid = new Map<number, Map<string, number>>();
+
+  
+  private addPlayerToGrid(x: number, y: number, playerId: string) {
+    if (x < 0 || x >= this.gridManager.width || y < 0 || y >= this.gridManager.height) return;
+    const idx = this.gridManager.getIndex(x, y);
+    let cellMap = this.playerGrid.get(idx);
+    if (!cellMap) {
+      cellMap = new Map<string, number>();
+      this.playerGrid.set(idx, cellMap);
+    }
+    cellMap.set(playerId, (cellMap.get(playerId) || 0) + 1);
+  }
+
+  private removePlayerFromGrid(x: number, y: number, playerId: string) {
+    if (x < 0 || x >= this.gridManager.width || y < 0 || y >= this.gridManager.height) return;
+    const idx = this.gridManager.getIndex(x, y);
+    const cellMap = this.playerGrid.get(idx);
+    if (cellMap) {
+      const count = cellMap.get(playerId) || 0;
+      if (count <= 1) {
+        cellMap.delete(playerId);
+        if (cellMap.size === 0) this.playerGrid.delete(idx);
+      } else {
+        cellMap.set(playerId, count - 1);
+      }
+    }
+  }
 
   onCreate (options: any) {
     this.setState(new GameState());
@@ -115,6 +144,7 @@ export class GameRoom extends Room<GameState> {
 
     this.state.foods.set(food.id, food);
     this.gridManager.occupy(coords.x, coords.y);
+    this.foodGrid.set(this.gridManager.getIndex(coords.x, coords.y), food.id);
   }
 
   maintainFoodCount() {
@@ -140,6 +170,7 @@ export class GameRoom extends Room<GameState> {
       player.x = coords.x;
       player.y = coords.y;
       this.gridManager.occupy(coords.x, coords.y);
+      this.addPlayerToGrid(coords.x, coords.y, player.id);
     }
     
     this.state.players.set(client.sessionId, player);
@@ -173,8 +204,10 @@ export class GameRoom extends Room<GameState> {
 
   freePlayerCells(player: Player) {
     this.gridManager.free(player.x, player.y);
+    this.removePlayerFromGrid(player.x, player.y, player.id);
     player.segments.forEach((seg: SnakeSegment) => {
       this.gridManager.free(seg.x, seg.y);
+      this.removePlayerFromGrid(seg.x, seg.y, player.id);
     });
   }
 
@@ -223,6 +256,7 @@ export class GameRoom extends Room<GameState> {
             player.x = spawnCoords.x;
             player.y = spawnCoords.y;
             this.gridManager.occupy(spawnCoords.x, spawnCoords.y);
+            this.addPlayerToGrid(spawnCoords.x, spawnCoords.y, player.id);
           }
           player.moveAccumulator = 0;
           break; 
@@ -238,27 +272,25 @@ export class GameRoom extends Room<GameState> {
         // Cứ 10 điểm = 1 đốt. Mới vào có 0 đốt.
         const targetLength = Math.floor(player.score / 10);
         
-        // 4. Va chạm Mồi & Rắn
-        let isFood = false;
-        let eatenFoodId: string | null = null;
-        this.state.foods.forEach((food) => {
-          if (food.x === nextX && food.y === nextY) {
-            isFood = true;
-            eatenFoodId = food.id;
-          }
-        });
+        // 4. Va chạm Mồi (O(1))
+        const cellIdx = this.gridManager.getIndex(nextX, nextY);
+        const eatenFoodId = this.foodGrid.get(cellIdx) || null;
+        const isFood = !!eatenFoodId;
 
         if (!isFood && this.gridManager.isOccupied(nextX, nextY)) {
           let hitStunnableSnake = false;
-          this.state.players.forEach(p => {
-            if (p.id === player.id) return; // Theo yêu cầu, rắn có thể đi xuyên qua thân mình. Trạng thái trùng lặp được GridManager ref-count xử lý an toàn.
-            if (p.state === "ANSWERING" || p.state === "PAUSED") return; // ghost -> ignore
-            
-            if (p.x === nextX && p.y === nextY) hitStunnableSnake = true;
-            p.segments.forEach((seg: SnakeSegment) => {
-              if (seg.x === nextX && seg.y === nextY) hitStunnableSnake = true;
-            });
-          });
+          
+          const playersInCell = this.playerGrid.get(cellIdx);
+          if (playersInCell) {
+            for (const [pId, _] of playersInCell.entries()) {
+              if (pId === player.id) continue;
+              const p = this.state.players.get(pId);
+              if (p && p.state !== "ANSWERING" && p.state !== "PAUSED") {
+                hitStunnableSnake = true;
+                break;
+              }
+            }
+          }
 
           if (hitStunnableSnake) {
             // It's another active snake!
@@ -286,6 +318,7 @@ export class GameRoom extends Room<GameState> {
           const tail = player.segments.pop();
           if (tail) {
             this.gridManager.free(tail.x, tail.y);
+            this.removePlayerFromGrid(tail.x, tail.y, player.id);
           }
         }
 
@@ -293,12 +326,14 @@ export class GameRoom extends Room<GameState> {
         player.x = nextX;
         player.y = nextY;
         this.gridManager.occupy(nextX, nextY);
+        this.addPlayerToGrid(nextX, nextY, player.id);
 
         if (eatenFoodId) {
           const food = this.state.foods.get(eatenFoodId);
           if (food) {
             this.state.foods.delete(eatenFoodId);
             this.gridManager.free(food.x, food.y);
+            this.foodGrid.delete(this.gridManager.getIndex(food.x, food.y));
             this.maintainFoodCount();
             
             // Types 1, 2, 3 are normal foods (require questions)

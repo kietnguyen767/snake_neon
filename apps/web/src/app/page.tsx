@@ -110,31 +110,25 @@ export default function Home() {
     );
   }
 
-  const avatarUrl = user?.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName || 'Player')}&background=2ae500&color=053900&bold=true`;
+  const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
     <>
       <BackgroundShader />
       
       {!user ? (
-        <main style={{ 
-          position: "relative", zIndex: 10, minHeight: "100vh", display: "flex", 
-          flexDirection: "column", alignItems: "center", justifyContent: "center", padding: "var(--spacing-md)" 
-        }}>
-          <h1 className="display-lg" style={{ marginBottom: "var(--spacing-lg)", color: "var(--primary)", textShadow: "var(--glow-primary)", textAlign: "center" }}>
+        <main className="center-layout">
+          <h1 className="display-lg title-glow">
             SNAKE ARENA
           </h1>
           
-          <div className="glass-panel" style={{ 
-            display: "flex", flexDirection: "column", gap: "var(--spacing-md)", 
-            padding: "var(--spacing-lg)", maxWidth: "400px", width: "100%", alignItems: "center" 
-          }}>
+          <div className="glass-panel auth-panel">
             <h2 className="headline-md" style={{ color: "var(--primary-container)" }}>Authentication</h2>
             
             <input type="email" className="input-glass" placeholder="Email Address" value={email} onChange={e => setEmail(e.target.value)} />
             <input type="password" className="input-glass" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
             
-            <div style={{ display: "flex", gap: "var(--spacing-sm)", width: "100%", marginTop: "var(--spacing-sm)" }}>
+            <div className="btn-group">
               <button className="btn-secondary" onClick={handleSignIn} style={{ flex: 1 }}>LOGIN</button>
               <button className="btn-primary" onClick={handleSignUp} style={{ flex: 1, padding: '12px 24px', fontSize: '16px' }}>SIGN UP</button>
             </div>
@@ -161,7 +155,7 @@ export default function Home() {
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}>
               <div className="glass-panel" style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)', background: 'rgba(32, 31, 33, 0.5)', borderRadius: '9999px', padding: '4px 12px' }}>
-                <img src={avatarUrl} style={{ width: '32px', height: '32px', borderRadius: '50%', border: '1px solid rgba(239, 255, 227, 0.3)', objectFit: 'cover' }} alt="Avatar" />
+                {avatarUrl ? <img src={avatarUrl} style={{ width: "32px", height: "32px", borderRadius: "50%", border: "1px solid rgba(239, 255, 227, 0.3)", objectFit: "cover" }} alt="Avatar" /> : <div className="player-avatar" style={{width: 32, height: 32, backgroundColor: "var(--primary-container)", color: "var(--on-primary-container)"}}>{(displayName || "P").charAt(0).toUpperCase()}</div>}
                 <span className="headline-md" style={{ color: 'var(--primary)', fontSize: '14px' }}>{displayName || 'Player'}</span>
               </div>
               <button onClick={handleLogout} style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-xs)', color: 'var(--on-surface-variant)', background: 'transparent', border: 'none', cursor: 'pointer' }}>
