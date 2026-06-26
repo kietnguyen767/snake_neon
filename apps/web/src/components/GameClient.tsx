@@ -12,6 +12,10 @@ import { GameState } from "@/game/GameState";
 
 import React from "react";
 
+type RoomPlayerSnapshot = Pick<PlayerState, "id" | "name" | "score" | "state" | "hasShield"> & {
+  onChange: (cb: () => void) => void;
+};
+
 const PauseOverlay = React.memo(() => {
   const isPaused = useGameStore(s => {
     if (!s.room) return false;
@@ -188,6 +192,8 @@ const LobbyPlayerGrid = React.memo(() => {
   );
 });
 
+LobbyPlayerGrid.displayName = "LobbyPlayerGrid";
+
 export default function GameClient({ roomId }: { roomId: string }) {
   const [status, setStatus] = useState("Connecting...");
   const setRoom = useGameStore(s => s.setRoom);
@@ -240,7 +246,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
             const initializedPlayers = new Set<string>();
 
-      const handlePlayerAdd = (player: any, sessionId: string) => {
+      const handlePlayerAdd = (player: RoomPlayerSnapshot, sessionId: string) => {
         if (initializedPlayers.has(sessionId)) return;
         initializedPlayers.add(sessionId);
 
