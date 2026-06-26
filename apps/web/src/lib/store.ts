@@ -52,12 +52,37 @@ export const useGameStore = create<StoreGameState>((set) => ({
     countdown: state.countdown || 3,
     timeRemaining: state.timeRemaining || 600
   }),
-  updatePlayer: (sessionId, playerUpdate) => set((state) => ({
-    players: {
-      ...state.players,
-      [sessionId]: { ...state.players[sessionId], ...playerUpdate }
+  updatePlayer: (sessionId, playerUpdate) => set((state) => {
+    const currentPlayer = state.players[sessionId];
+    
+    // Nếu chưa có player, tạo mới
+    if (!currentPlayer) {
+      return {
+        players: {
+          ...state.players,
+          [sessionId]: playerUpdate as PlayerState
+        }
+      };
     }
-  })),
+    
+    // Shallow check để tránh rerender nếu không có gì đổi
+    let hasChanges = false;
+    for (const key in playerUpdate) {
+      if (currentPlayer[key as keyof PlayerState] !== playerUpdate[key as keyof PlayerState]) {
+        hasChanges = true;
+        break;
+      }
+    }
+    
+    if (!hasChanges) return state;
+
+    return {
+      players: {
+        ...state.players,
+        [sessionId]: { ...currentPlayer, ...playerUpdate }
+      }
+    };
+  }),
   removePlayer: (sessionId) => set((state) => {
     const newPlayers = { ...state.players };
     delete newPlayers[sessionId];

@@ -9,9 +9,62 @@ import MatchEndOverlay, { MatchPlayer } from "./MatchEndOverlay";
 import BackgroundShader from "./BackgroundShader";
 import { GameState } from "@/game/GameState";
 
+
+import React from "react";
+
+const PauseOverlay = React.memo(() => {
+  const players = useGameStore(s => s.players);
+  const room = useGameStore(s => s.room);
+  
+  if (!room || !players[room.sessionId] || players[room.sessionId].state !== "PAUSED") return null;
+  
+  return (
+    <div style={{
+      position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 50,
+      background: "rgba(0,0,0,0.8)", padding: "24px 48px", borderRadius: "24px",
+      border: "2px solid var(--primary-container)", boxShadow: "var(--glow-primary)",
+      textAlign: "center"
+    }}>
+      <h2 style={{ color: "var(--primary-container)", margin: "0 0 8px 0", fontSize: "42px", letterSpacing: "2px", textShadow: "var(--glow-primary)" }}>
+        ĐÃ TẠM DỪNG
+      </h2>
+      <p style={{ color: "var(--on-surface)", margin: 0, fontSize: "18px" }}>
+        Nhấn phím <b style={{ color: "#fff" }}>SPACE</b> để tiếp tục chơi
+      </p>
+    </div>
+  );
+});
+
+const Leaderboard = React.memo(() => {
+  const players = useGameStore(s => s.players);
+  const currentRoom = useGameStore(s => s.room);
+  
+  return (
+    <Leaderboard />
+  );
+});
+
+const LobbyPlayerGrid = React.memo(() => {
+  const players = useGameStore(s => s.players);
+  const hostId = useGameStore(s => s.hostId);
+  const currentRoom = useGameStore(s => s.room);
+  
+  return (
+    <LobbyPlayerGrid />
+  );
+});
+
 export default function GameClient({ roomId }: { roomId: string }) {
   const [status, setStatus] = useState("Connecting...");
-  const { setRoom, updateState, clearStore, players, room: currentRoom, phase, hostId, countdown, timeRemaining } = useGameStore();
+  const setRoom = useGameStore(s => s.setRoom);
+  const updateState = useGameStore(s => s.updateState);
+  const clearStore = useGameStore(s => s.clearStore);
+  const phase = useGameStore(s => s.phase);
+  const hostId = useGameStore(s => s.hostId);
+  const countdown = useGameStore(s => s.countdown);
+  const timeRemaining = useGameStore(s => s.timeRemaining);
+  const currentRoom = useGameStore(s => s.room);
+  const playerCount = useGameStore(s => Object.keys(s.players).length);
   const gameRef = useRef<Phaser.Game | null>(null);
   const [activeQuestion, setActiveQuestion] = useState<{
     questionId: string;
@@ -51,7 +104,12 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
-            r.state.players.onAdd((player, sessionId) => {
+            const initializedPlayers = new Set<string>();
+
+      const handlePlayerAdd = (player: any, sessionId: string) => {
+        if (initializedPlayers.has(sessionId)) return;
+        initializedPlayers.add(sessionId);
+
         useGameStore.getState().updatePlayer(sessionId, {
           id: player.id,
           name: player.name,
@@ -67,7 +125,12 @@ export default function GameClient({ roomId }: { roomId: string }) {
             hasShield: player.hasShield
           });
         });
-      });
+      };
+
+      if (r.state.players && r.state.players.forEach) {
+        r.state.players.forEach(handlePlayerAdd);
+      }
+      r.state.players.onAdd(handlePlayerAdd);
       
       r.state.players.onRemove((player, sessionId) => {
         useGameStore.getState().removePlayer(sessionId);
@@ -154,7 +217,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
         <div className="hud-top-left">
           <h2 className="display-lg-mobile" style={{ margin: 0, color: "var(--secondary-container)", textShadow: "var(--glow-secondary)" }}>ARENA: {roomId}</h2>
           <p className="label-caps" style={{ margin: "4px 0", color: "var(--on-surface-variant)" }}>Status: {status}</p>
-          <p className="score-display" style={{ margin: "4px 0", color: "var(--primary)" }}>Players: {Object.keys(players).length}</p>
+          <p className="score-display" style={{ margin: "4px 0", color: "var(--primary)" }}>Players: {playerCount}</p>
         </div>
 
 
@@ -209,7 +272,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
               }}>
                 <span className="label-caps" style={{ color: "var(--on-surface-variant)" }}>Người chơi</span>
                 <span className="score-display" style={{ color: "var(--primary)", fontSize: "24px" }}>
-                  {Object.keys(players).length} / 20
+                  {playerCount} / 20
                 </span>
               </div>
             </header>
@@ -231,76 +294,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
             </div>
 
             {/* Player Grid Section */}
-            <section className="glass-panel custom-scrollbar" style={{
-              width: "100%", flex: 1, margin: "var(--spacing-md) 0", overflowY: "auto",
-              borderRadius: "var(--radius-xl)", padding: "var(--spacing-md)", borderTop: "1px solid rgba(255, 255, 255, 0.1)"
-            }}>
-              <div style={{
-                display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "var(--spacing-md)"
-              }}>
-                {Object.values(players).map((p: PlayerState) => {
-                  const isHost = p.id === hostId;
-                  const isLocal = currentRoom && p.id === currentRoom.sessionId;
-                  const avatarUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(p.name)}&background=${isHost ? 'ffdb40' : '2ae500'}&color=${isHost ? '3a3000' : '053900'}&bold=true`;
-
-                  return (
-                    <div key={p.id} className={isHost ? "glow-border" : "glass-panel"} style={{
-                      position: "relative", display: "flex", flexDirection: "column", alignItems: "center",
-                      gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",
-                      background: isHost ? "rgba(42, 42, 44, 0.6)" : "rgba(32, 31, 33, 0.4)",
-                      border: isHost ? "1px solid rgba(57, 255, 20, 0.4)" : "1px solid transparent",
-                      transition: "all 0.3s",
-                      minWidth: 0
-                    }}>
-                      {isHost && (
-                        <div style={{ position: "absolute", top: "-12px", color: "var(--tertiary-container)", filter: "drop-shadow(0 0 8px rgba(255,219,64,0.8))" }}>
-                          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>crown</span>
-                        </div>
-                      )}
-                      <div style={{
-                        width: "64px", height: "64px", borderRadius: "50%", overflow: "hidden",
-                        border: isHost ? "2px solid var(--primary)" : "2px solid var(--surface-variant)",
-                        opacity: isHost ? 1 : 0.8,
-                        flexShrink: 0
-                      }}>
-                        <img src={avatarUrl} style={{ width: "100%", height: "100%", objectFit: "cover" }} alt="Avatar" />
-                      </div>
-                      <div style={{ textAlign: "center", width: "100%", minWidth: 0 }}>
-                        <p className="body-md" title={`${p.name} ${isLocal ? "(Bạn)" : ""}`} style={{
-                          color: isHost ? "var(--primary)" : "var(--on-surface)",
-                          fontWeight: isHost ? "bold" : "normal",
-                          whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", margin: 0
-                        }}>
-                          {p.name} {isLocal ? "(Bạn)" : ""}
-                        </p>
-                        <p className="label-caps" style={{
-                          color: isHost ? "var(--tertiary-container)" : "var(--on-surface-variant)", margin: 0
-                        }}>
-                          {isHost ? "Chủ Phòng" : "Sẵn sàng"}
-                        </p>
-                      </div>
-                    </div>
-                  );
-                })}
-
-                {/* Empty Slots Padding */}
-                {Array.from({ length: Math.max(0, 10 - Object.keys(players).length) }).map((_, idx) => (
-                  <div key={`empty-${idx}`} style={{
-                    display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-                    gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",
-                    border: "1px dashed rgba(60, 75, 53, 0.5)", background: "rgba(14, 14, 16, 0.2)", opacity: 0.5
-                  }}>
-                    <div style={{
-                      width: "64px", height: "64px", borderRadius: "50%", border: "2px dashed var(--outline-variant)",
-                      display: "flex", alignItems: "center", justifyContent: "center"
-                    }}>
-                      <span className="material-symbols-outlined" style={{ color: "var(--outline-variant)" }}>person_add</span>
-                    </div>
-                    <p className="label-caps" style={{ color: "var(--outline-variant)", margin: 0 }}>Trống</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <LobbyPlayerGrid />
 
             {/* Bottom Action Bar */}
             <footer style={{ width: "100%", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "var(--spacing-md)" }}>
@@ -356,65 +350,10 @@ export default function GameClient({ roomId }: { roomId: string }) {
           </div>
 
           {/* HUD: Leaderboard */}
-          <div style={{
-            position: "absolute", top: "24px", right: "24px", zIndex: 40,
-            background: "rgba(10, 10, 12, 0.7)", backdropFilter: "blur(12px)",
-            padding: "16px", borderRadius: "16px", border: "1px solid var(--primary-container)",
-            width: "250px", display: "flex", flexDirection: "column", gap: "12px",
-            boxShadow: "var(--glow-primary)"
-          }}>
-            <h3 className="label-caps" style={{ color: "var(--secondary-container)", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "8px", margin: 0 }}>
-              Bảng Xếp Hạng
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: "8px", maxHeight: "300px", overflowY: "auto" }}>
-              {Object.values(players)
-                .sort((a, b) => b.score - a.score)
-                .slice(0, 10)
-                .map((p, idx) => {
-                  const isLocal = currentRoom && p.id === currentRoom.sessionId;
-                  let rankColor = "var(--on-surface)";
-                  if (idx === 0) rankColor = "#ffdb40"; // Vàng
-                  else if (idx === 1) rankColor = "#e5e1e4"; // Bạc
-                  else if (idx === 2) rankColor = "#cd7f32"; // Đồng
-
-                  return (
-                    <div key={p.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "4px 8px", background: isLocal ? "rgba(57, 255, 20, 0.2)" : "transparent", borderRadius: "8px" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
-                        <span style={{ color: rankColor, fontWeight: "bold", width: "20px" }}>#{idx + 1}</span>
-                        <span style={{ color: isLocal ? "var(--primary)" : "var(--on-surface)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "90px" }} title={p.name}>
-                          {p.name}
-                        </span>
-                        {p.hasShield && (
-                          <span className="material-symbols-outlined" style={{ fontSize: "16px", color: "#33ff33", textShadow: "0 0 5px #33ff33" }} title="Đang có khiên">
-                            shield
-                          </span>
-                        )}
-                      </div>
-                      <span style={{ color: "var(--primary)", fontWeight: "bold", fontFamily: "var(--font-jetbrains-mono)" }}>
-                        {p.score}
-                      </span>
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
+          <Leaderboard />
 
           {/* HUD: Paused state overlay */}
-          {currentRoom && players[currentRoom.sessionId] && players[currentRoom.sessionId].state === "PAUSED" && (
-            <div style={{
-              position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -50%)", zIndex: 50,
-              background: "rgba(0,0,0,0.8)", padding: "24px 48px", borderRadius: "24px",
-              border: "2px solid var(--primary-container)", boxShadow: "var(--glow-primary)",
-              textAlign: "center"
-            }}>
-              <h2 style={{ color: "var(--primary-container)", margin: "0 0 8px 0", fontSize: "42px", letterSpacing: "2px", textShadow: "var(--glow-primary)" }}>
-                ĐÃ TẠM DỪNG
-              </h2>
-              <p style={{ color: "var(--on-surface)", margin: 0, fontSize: "18px" }}>
-                Nhấn phím <b style={{ color: "#fff" }}>SPACE</b> để tiếp tục chơi
-              </p>
-            </div>
-          )}
+          <PauseOverlay />
         </>
       )}
 

@@ -78,28 +78,6 @@ export class GameScene extends Phaser.Scene {
         this.listenersAttached = true;
       }
     }
-    
-    if (this.listenersAttached && this.room) {
-      this.playersHead.forEach((headRect, sessionId) => {
-        const player = this.room!.state.players.get(sessionId);
-        if (!player || player.state === "DISCONNECTED") return;
-        
-        const htx = player.x * this.tileSize + this.tileSize/2;
-        const hty = player.y * this.tileSize + this.tileSize/2;
-        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
-          headRect.x = htx; headRect.y = hty;
-        } else {
-          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
-          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
-        }
-        
-        const nameText = this.playersName.get(sessionId);
-        if (nameText) {
-          nameText.x = headRect.x;
-          nameText.y = headRect.y - 15;
-        }
-      });
-    }
   }
 
   private addPlayer(player: ColyseusPlayer, sessionId: string) {
@@ -138,6 +116,12 @@ export class GameScene extends Phaser.Scene {
     }
 
     player.onChange(() => {
+      // Snap head position directly when server state changes!
+      headRect.x = player.x * this.tileSize + this.tileSize/2;
+      headRect.y = player.y * this.tileSize + this.tileSize/2;
+      nameText.x = headRect.x;
+      nameText.y = headRect.y - 15;
+
       let alpha = 1.0;
       if (player.state === "ANSWERING") alpha = 0.3;
       if (player.state === "PAUSED") alpha = 0.2;
@@ -148,25 +132,11 @@ export class GameScene extends Phaser.Scene {
       const currentHeadColor = player.state === "STUNNED" ? 0x888888 : headColor;
       headRect.fillColor = currentHeadColor;
       
+      // Removed infinite tween for Shield, just use Stroke Style!
       if (player.hasShield) {
         headRect.setStrokeStyle(4, 0x33ff33, 1); 
-        if (!headRect.getData('shieldTween')) {
-          const tw = this.tweens.add({
-            targets: headRect,
-            scale: 1.2,
-            duration: 500,
-            yoyo: true,
-            repeat: -1
-          });
-          headRect.setData('shieldTween', tw);
-        }
       } else {
         headRect.setStrokeStyle(2, 0xffffff, 0.5);
-        if (headRect.getData('shieldTween')) {
-          headRect.getData('shieldTween').stop();
-          headRect.setData('shieldTween', null);
-          headRect.setScale(1);
-        }
       }
       
       const isVisible = player.state !== "DISCONNECTED";
