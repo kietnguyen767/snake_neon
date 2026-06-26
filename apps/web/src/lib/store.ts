@@ -30,6 +30,8 @@ export interface StoreGameState {
   timeRemaining: number;
   setRoom: (room: Colyseus.Room) => void;
   updateState: (state: Partial<StoreGameState>) => void;
+  updatePlayer: (sessionId: string, player: Partial<PlayerState>) => void;
+  removePlayer: (sessionId: string) => void;
   clearStore: () => void;
 }
 
@@ -49,6 +51,17 @@ export const useGameStore = create<StoreGameState>((set) => ({
     hostId: state.hostId || "",
     countdown: state.countdown || 3,
     timeRemaining: state.timeRemaining || 600
+  }),
+  updatePlayer: (sessionId, playerUpdate) => set((state) => ({
+    players: {
+      ...state.players,
+      [sessionId]: { ...state.players[sessionId], ...playerUpdate }
+    }
+  })),
+  removePlayer: (sessionId) => set((state) => {
+    const newPlayers = { ...state.players };
+    delete newPlayers[sessionId];
+    return { players: newPlayers };
   }),
   clearStore: () => set({ room: null, players: {}, foods: {}, phase: 0, hostId: "", countdown: 3, timeRemaining: 600 }),
 }));

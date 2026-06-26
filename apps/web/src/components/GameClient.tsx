@@ -40,7 +40,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
       setStatus("Connected!");
 
       r.onStateChange.once(async (state) => {
-        updateState(state.toJSON() as unknown as Partial<StoreGameState>);
+        
 
         const Phaser = (await import("phaser")).default;
         const { gameConfig } = await import("@/game/config");
@@ -51,24 +51,34 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
-            r.onStateChange((state) => {
-        const playersMap: any = {};
-        state.players.forEach((p, sessionId) => {
-          playersMap[sessionId] = {
-            id: p.id,
-            name: p.name,
-            score: p.score,
-            state: p.state,
-            hasShield: p.hasShield
-          };
+            r.state.players.onAdd((player, sessionId) => {
+        useGameStore.getState().updatePlayer(sessionId, {
+          id: player.id,
+          name: player.name,
+          score: player.score,
+          state: player.state,
+          hasShield: player.hasShield
         });
+        
+        player.onChange(() => {
+          useGameStore.getState().updatePlayer(sessionId, {
+            score: player.score,
+            state: player.state,
+            hasShield: player.hasShield
+          });
+        });
+      });
+      
+      r.state.players.onRemove((player, sessionId) => {
+        useGameStore.getState().removePlayer(sessionId);
+      });
 
+      r.onStateChange((state) => {
         useGameStore.setState({
           phase: state.phase,
           countdown: state.countdown,
           timeRemaining: state.timeRemaining,
           hostId: state.hostId,
-          players: playersMap
         });
       });
 

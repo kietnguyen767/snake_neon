@@ -6,6 +6,7 @@ export interface ColyseusPlayer extends Omit<PlayerState, "segments"> {
   segments: {
     onAdd: (cb: (seg: any, idx: number) => void) => void;
     onRemove: (cb: (seg: any, idx: number) => void) => void;
+    forEach: (cb: (seg: any) => void) => void;
     length: number;
     [index: number]: any;
   };
@@ -20,6 +21,7 @@ export class GameScene extends Phaser.Scene {
   private playersHead: Map<string, Phaser.GameObjects.Rectangle> = new Map();
   private playersName: Map<string, Phaser.GameObjects.Text> = new Map();
   private playersBody: Map<string, Phaser.GameObjects.Rectangle[]> = new Map();
+  private segmentRects: Map<any, Phaser.GameObjects.Rectangle> = new Map();
   private foods: Map<string, Phaser.GameObjects.GameObject> = new Map();
   private room: Room | null = null;
   private listenersAttached = false;
@@ -184,7 +186,8 @@ export class GameScene extends Phaser.Scene {
     const bodyArr: Phaser.GameObjects.Rectangle[] = [];
     this.playersBody.set(sessionId, bodyArr);
 
-    player.segments.onAdd((seg: any) => {
+    const renderSegment = (seg: any) => {
+      if (this.segmentRects.has(seg)) return;
       const tx = seg.x * this.tileSize + this.tileSize/2;
       const ty = seg.y * this.tileSize + this.tileSize/2;
       const bodyColor = isMe ? 0x2ae500 : 0x00a8cc;
@@ -194,18 +197,27 @@ export class GameScene extends Phaser.Scene {
       bodyRect.setDepth(5);
       
       bodyArr.push(bodyRect);
+      this.segmentRects.set(seg, bodyRect);
       
       seg.onChange(() => {
         bodyRect.x = seg.x * this.tileSize + this.tileSize/2;
         bodyRect.y = seg.y * this.tileSize + this.tileSize/2;
       });
-    });
+    };
 
-    player.segments.onRemove((seg: any, index: number) => {
-      // Find the rect. It is usually the last one that gets popped, but since we pushed them, we can just remove from array
-      if (bodyArr.length > 0) {
-        const rect = bodyArr.shift();
-        if (rect) rect.destroy();
+    if (player.segments && player.segments.forEach) {
+      player.segments.forEach((seg: any) => renderSegment(seg));
+    }
+
+    player.segments.onAdd((seg: any) => renderSegment(seg));
+
+    player.segments.onRemove((seg: any) => {
+      const rect = this.segmentRects.get(seg);
+      if (rect) {
+        rect.destroy();
+        this.segmentRects.delete(seg);
+        const idx = bodyArr.indexOf(rect);
+        if (idx !== -1) bodyArr.splice(idx, 1);
       }
     });
   }
