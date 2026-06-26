@@ -13,10 +13,9 @@ import { GameState } from "@/game/GameState";
 import React from "react";
 
 const PauseOverlay = React.memo(() => {
-  const room = useGameStore(s => s.room);
   const isPaused = useGameStore(s => {
-    if (!room) return false;
-    const player = s.players[room.sessionId];
+    if (!s.room) return false;
+    const player = s.players[s.room.sessionId];
     return player ? player.state === "PAUSED" : false;
   });
   
@@ -39,9 +38,49 @@ const PauseOverlay = React.memo(() => {
   );
 });
 
-const Leaderboard = React.memo(() => {
-  const players = useGameStore(s => s.players);
+const LeaderboardRow = React.memo(({ id, idx }: { id: string, idx: number }) => {
+  const p = useGameStore(s => s.players[id]);
   const currentRoom = useGameStore(s => s.room);
+
+  if (!p) return null;
+
+  const isLocal = currentRoom && p.id === currentRoom.sessionId;
+  let rankColor = "var(--on-surface)";
+  if (idx === 0) rankColor = "#ffdb40"; // Vàng
+  else if (idx === 1) rankColor = "#e5e1e4"; // Bạc
+  else if (idx === 2) rankColor = "#cd7f32"; // Đồng
+
+  return (
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "4px 8px", background: isLocal ? "rgba(57, 255, 20, 0.2)" : "transparent", borderRadius: "8px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
+        <span style={{ color: rankColor, fontWeight: "bold", width: "20px" }}>#{idx + 1}</span>
+        <span style={{ color: isLocal ? "var(--primary)" : "var(--on-surface)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "90px" }} title={p.name}>
+          {p.name}
+        </span>
+        {p.hasShield && (
+          <span className="material-symbols-outlined" style={{ fontSize: "16px", color: "#33ff33", textShadow: "0 0 5px #33ff33" }} title="Đang có khiên">
+            shield
+          </span>
+        )}
+      </div>
+      <span style={{ color: "var(--primary)", fontWeight: "bold", fontFamily: "var(--font-jetbrains-mono)" }}>
+        {p.score}
+      </span>
+    </div>
+  );
+});
+
+LeaderboardRow.displayName = "LeaderboardRow";
+
+const Leaderboard = React.memo(() => {
+  // Use a string hash selector to prevent rerenders unless ranking or scores actually change
+  const leaderboardIds = useGameStore(s => {
+    return Object.values(s.players)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10)
+      .map(p => p.id)
+      .join(",");
+  });
   
   return (
     <div className="glass-panel" style={{
@@ -52,44 +91,72 @@ const Leaderboard = React.memo(() => {
     }}>
       <h3 className="headline-md" style={{ margin: 0, borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "8px", color: "var(--on-surface-variant)" }}>BẢNG XẾP HẠNG</h3>
       <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-        {Object.values(players)
-          .sort((a, b) => b.score - a.score)
-          .slice(0, 10)
-          .map((p, idx) => {
-            const isLocal = currentRoom && p.id === currentRoom.sessionId;
-            let rankColor = "var(--on-surface)";
-            if (idx === 0) rankColor = "#ffdb40"; // Vàng
-            else if (idx === 1) rankColor = "#e5e1e4"; // Bạc
-            else if (idx === 2) rankColor = "#cd7f32"; // Đồng
-
-            return (
-              <div key={p.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "4px 8px", background: isLocal ? "rgba(57, 255, 20, 0.2)" : "transparent", borderRadius: "8px" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
-                  <span style={{ color: rankColor, fontWeight: "bold", width: "20px" }}>#{idx + 1}</span>
-                  <span style={{ color: isLocal ? "var(--primary)" : "var(--on-surface)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "90px" }} title={p.name}>
-                    {p.name}
-                  </span>
-                  {p.hasShield && (
-                    <span className="material-symbols-outlined" style={{ fontSize: "16px", color: "#33ff33", textShadow: "0 0 5px #33ff33" }} title="Đang có khiên">
-                      shield
-                    </span>
-                  )}
-                </div>
-                <span style={{ color: "var(--primary)", fontWeight: "bold", fontFamily: "var(--font-jetbrains-mono)" }}>
-                  {p.score}
-                </span>
-              </div>
-            );
-          })}
+        {leaderboardIds ? leaderboardIds.split(",").map((id, idx) => (
+          <LeaderboardRow key={id} id={id} idx={idx} />
+        )) : null}
       </div>
     </div>
   );
 });
 
-const LobbyPlayerGrid = React.memo(() => {
-  const players = useGameStore(s => s.players);
+Leaderboard.displayName = "Leaderboard";
+PauseOverlay.displayName = "PauseOverlay";
+
+const PlayerCard = React.memo(({ id }: { id: string }) => {
+  const p = useGameStore(s => s.players[id]);
   const hostId = useGameStore(s => s.hostId);
   const currentRoom = useGameStore(s => s.room);
+
+  if (!p) return null;
+
+  const isHost = p.id === hostId;
+  const isLocal = currentRoom && p.id === currentRoom.sessionId;
+
+  return (
+    <div className={isHost ? "glow-border" : "glass-panel"} style={{
+      position: "relative", display: "flex", flexDirection: "column", alignItems: "center",
+      gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",
+      background: isHost ? "rgba(42, 42, 44, 0.6)" : "rgba(32, 31, 33, 0.4)",
+      border: isHost ? "1px solid rgba(57, 255, 20, 0.4)" : "1px solid transparent",
+      transition: "all 0.3s",
+      minWidth: 0
+    }}>
+      {isHost && (
+        <div style={{ position: "absolute", top: "-12px", color: "var(--tertiary-container)", filter: "drop-shadow(0 0 8px rgba(255,219,64,0.8))" }}>
+          <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>crown</span>
+        </div>
+      )}
+      <div style={{
+        width: "64px", height: "64px", borderRadius: "50%", overflow: "hidden",
+        border: isHost ? "2px solid var(--primary)" : "2px solid var(--surface-variant)",
+        opacity: isHost ? 1 : 0.8,
+        flexShrink: 0
+      }}>
+        <div className="player-avatar" style={{width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "32px", backgroundColor: isHost ? "var(--tertiary-container)" : "var(--primary-container)", color: isHost ? "var(--on-tertiary-container)" : "var(--on-primary-container)"}}>{p.name.charAt(0).toUpperCase()}</div>
+      </div>
+      <div style={{ textAlign: "center", width: "100%", minWidth: 0 }}>
+        <p className="body-md" title={`${p.name} ${isLocal ? "(Bạn)" : ""}`} style={{
+          color: isHost ? "var(--primary)" : "var(--on-surface)",
+          fontWeight: isHost ? "bold" : "normal",
+          whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", margin: 0
+        }}>
+          {p.name} {isLocal ? "(Bạn)" : ""}
+        </p>
+        <p className="label-caps" style={{
+          color: isHost ? "var(--tertiary-container)" : "var(--on-surface-variant)", margin: 0
+        }}>
+          {isHost ? "Chủ Phòng" : "Sẵn sàng"}
+        </p>
+      </div>
+    </div>
+  );
+});
+
+PlayerCard.displayName = "PlayerCard";
+
+const LobbyPlayerGrid = React.memo(() => {
+  const playerCount = useGameStore(s => s.playerCount);
+  const playerIds = useGameStore(s => Object.keys(s.players));
   
   return (
     <section className="glass-panel custom-scrollbar" style={{
@@ -99,51 +166,9 @@ const LobbyPlayerGrid = React.memo(() => {
       <div style={{
         display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "var(--spacing-md)"
       }}>
-        {Object.values(players).map((p: PlayerState) => {
-          const isHost = p.id === hostId;
-          const isLocal = currentRoom && p.id === currentRoom.sessionId;
+        {playerIds.map(id => <PlayerCard key={id} id={id} />)}
 
-          return (
-            <div key={p.id} className={isHost ? "glow-border" : "glass-panel"} style={{
-              position: "relative", display: "flex", flexDirection: "column", alignItems: "center",
-              gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",
-              background: isHost ? "rgba(42, 42, 44, 0.6)" : "rgba(32, 31, 33, 0.4)",
-              border: isHost ? "1px solid rgba(57, 255, 20, 0.4)" : "1px solid transparent",
-              transition: "all 0.3s",
-              minWidth: 0
-            }}>
-              {isHost && (
-                <div style={{ position: "absolute", top: "-12px", color: "var(--tertiary-container)", filter: "drop-shadow(0 0 8px rgba(255,219,64,0.8))" }}>
-                  <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>crown</span>
-                </div>
-              )}
-              <div style={{
-                width: "64px", height: "64px", borderRadius: "50%", overflow: "hidden",
-                border: isHost ? "2px solid var(--primary)" : "2px solid var(--surface-variant)",
-                opacity: isHost ? 1 : 0.8,
-                flexShrink: 0
-              }}>
-                <div className="player-avatar" style={{width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "32px", backgroundColor: isHost ? "var(--tertiary-container)" : "var(--primary-container)", color: isHost ? "var(--on-tertiary-container)" : "var(--on-primary-container)"}}>{p.name.charAt(0).toUpperCase()}</div>
-              </div>
-              <div style={{ textAlign: "center", width: "100%", minWidth: 0 }}>
-                <p className="body-md" title={`${p.name} ${isLocal ? "(Bạn)" : ""}`} style={{
-                  color: isHost ? "var(--primary)" : "var(--on-surface)",
-                  fontWeight: isHost ? "bold" : "normal",
-                  whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", margin: 0
-                }}>
-                  {p.name} {isLocal ? "(Bạn)" : ""}
-                </p>
-                <p className="label-caps" style={{
-                  color: isHost ? "var(--tertiary-container)" : "var(--on-surface-variant)", margin: 0
-                }}>
-                  {isHost ? "Chủ Phòng" : "Sẵn sàng"}
-                </p>
-              </div>
-            </div>
-          );
-        })}
-
-        {Array.from({ length: Math.max(0, 10 - Object.keys(players).length) }).map((_, idx) => (
+        {Array.from({ length: Math.max(0, 10 - playerCount) }).map((_, idx) => (
           <div key={`empty-${idx}`} style={{
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",

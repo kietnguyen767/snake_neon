@@ -2,13 +2,19 @@ import Phaser from 'phaser';
 import type { Room } from 'colyseus.js';
 import type { PlayerState, FoodState } from '../lib/store';
 
+export interface SnakeSegment {
+  x: number;
+  y: number;
+  onChange: (cb: () => void) => void;
+}
+
 export interface ColyseusPlayer extends Omit<PlayerState, "segments"> {
   segments: {
-    onAdd: (cb: (seg: any, idx: number) => void) => void;
-    onRemove: (cb: (seg: any, idx: number) => void) => void;
-    forEach: (cb: (seg: any) => void) => void;
+    onAdd: (cb: (seg: SnakeSegment, idx: number) => void) => void;
+    onRemove: (cb: (seg: SnakeSegment, idx: number) => void) => void;
+    forEach: (cb: (seg: SnakeSegment) => void) => void;
     length: number;
-    [index: number]: any;
+    [index: number]: SnakeSegment;
   };
   onChange: (cb: () => void) => void;
 }
@@ -21,7 +27,7 @@ export class GameScene extends Phaser.Scene {
   private playersHead: Map<string, Phaser.GameObjects.Rectangle> = new Map();
   private playersName: Map<string, Phaser.GameObjects.Text> = new Map();
   private playersBody: Map<string, Phaser.GameObjects.Rectangle[]> = new Map();
-  private segmentRects: Map<any, Phaser.GameObjects.Rectangle> = new Map();
+  private segmentRects: Map<SnakeSegment, Phaser.GameObjects.Rectangle> = new Map();
   private foods: Map<string, Phaser.GameObjects.GameObject> = new Map();
   private room: Room | null = null;
   private listenersAttached = false;
@@ -173,7 +179,7 @@ export class GameScene extends Phaser.Scene {
     const bodyArr: Phaser.GameObjects.Rectangle[] = [];
     this.playersBody.set(sessionId, bodyArr);
 
-    const renderSegment = (seg: any) => {
+    const renderSegment = (seg: SnakeSegment) => {
       if (this.segmentRects.has(seg)) return;
       const tx = seg.x * this.tileSize + this.tileSize/2;
       const ty = seg.y * this.tileSize + this.tileSize/2;
@@ -193,12 +199,12 @@ export class GameScene extends Phaser.Scene {
     };
 
     if (player.segments && player.segments.forEach) {
-      player.segments.forEach((seg: any) => renderSegment(seg));
+      player.segments.forEach((seg: SnakeSegment) => renderSegment(seg));
     }
 
-    player.segments.onAdd((seg: any) => renderSegment(seg));
+    player.segments.onAdd((seg: SnakeSegment) => renderSegment(seg));
 
-    player.segments.onRemove((seg: any) => {
+    player.segments.onRemove((seg: SnakeSegment) => {
       const rect = this.segmentRects.get(seg);
       if (rect) {
         rect.destroy();
