@@ -51,23 +51,28 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
-      let lastUpdateTime = 0;
-      r.onStateChange((state) => {
-        // Immediate UI updates for critical HUD/Phase states to prevent desync
+            r.onStateChange((state) => {
+        const playersMap: any = {};
+        state.players.forEach((p, sessionId) => {
+          playersMap[sessionId] = {
+            id: p.id,
+            name: p.name,
+            score: p.score,
+            state: p.state,
+            hasShield: p.hasShield
+          };
+        });
+
         useGameStore.setState({
           phase: state.phase,
           countdown: state.countdown,
           timeRemaining: state.timeRemaining,
-          hostId: state.hostId
+          hostId: state.hostId,
+          players: playersMap
         });
-
-        const now = Date.now();
-        if (now - lastUpdateTime > 500) {
-          // Throttle heavy dictionary operations (Scoreboard/Lobby Players) to 500ms
-          updateState(state.toJSON() as unknown as Partial<StoreGameState>);
-          lastUpdateTime = now;
-        }
       });
+
+
 
       let answerTimeout: NodeJS.Timeout | null = null;
       r.onMessage("questionStarted", (payload) => {

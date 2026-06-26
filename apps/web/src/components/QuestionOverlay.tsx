@@ -15,12 +15,8 @@ export default function QuestionOverlay({ questionId, question, options, foodTyp
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
-      setTimeLeft(remaining);
-      if (remaining === 0 && !answered) {
-        // Auto-close handled by server sending timeUp
-      }
-    }, 100);
+      setTimeLeft(Math.max(0, Math.floor((deadline - Date.now()) / 1000)));
+    }, 1000);
     return () => clearInterval(interval);
   }, [deadline, answered]);
 

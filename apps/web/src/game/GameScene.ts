@@ -2,7 +2,13 @@ import Phaser from 'phaser';
 import type { Room } from 'colyseus.js';
 import type { PlayerState, FoodState } from '../lib/store';
 
-export interface ColyseusPlayer extends PlayerState {
+export interface ColyseusPlayer extends Omit<PlayerState, "segments"> {
+  segments: {
+    onAdd: (cb: (seg: any, idx: number) => void) => void;
+    onRemove: (cb: (seg: any, idx: number) => void) => void;
+    length: number;
+    [index: number]: any;
+  };
   onChange: (cb: () => void) => void;
 }
 
@@ -71,8 +77,26 @@ export class GameScene extends Phaser.Scene {
       }
     }
     
-    if (this.listenersAttached) {
-      this.syncPlayerBodies();
+    if (this.listenersAttached && this.room) {
+      this.playersHead.forEach((headRect, sessionId) => {
+        const player = this.room!.state.players.get(sessionId);
+        if (!player || player.state === "DISCONNECTED") return;
+        
+        const htx = player.x * this.tileSize + this.tileSize/2;
+        const hty = player.y * this.tileSize + this.tileSize/2;
+        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
+          headRect.x = htx; headRect.y = hty;
+        } else {
+          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
+          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
+        }
+        
+        const nameText = this.playersName.get(sessionId);
+        if (nameText) {
+          nameText.x = headRect.x;
+          nameText.y = headRect.y - 15;
+        }
+      });
     }
   }
 
@@ -146,78 +170,42 @@ export class GameScene extends Phaser.Scene {
       const isVisible = player.state !== "DISCONNECTED";
       headRect.setVisible(isVisible);
       nameText.setVisible(isVisible);
+      
+      const bodyArr = this.playersBody.get(sessionId);
+      if (bodyArr) {
+        bodyArr.forEach(r => {
+          r.fillColor = currentHeadColor;
+          r.setAlpha(alpha * 0.8);
+          r.setVisible(isVisible);
+        });
+      }
     });
-  }
 
-  syncPlayerBodies() {
-    const room = this.room;
-    if (!room || !room.state.players) return;
-    
-    room.state.players.forEach((player: ColyseusPlayer, sessionId: string) => {
-      if (player.state === "DISCONNECTED") return;
-      
-      const isMe = sessionId === this.room?.sessionId;
+    const bodyArr: Phaser.GameObjects.Rectangle[] = [];
+    this.playersBody.set(sessionId, bodyArr);
+
+    player.segments.onAdd((seg: any) => {
+      const tx = seg.x * this.tileSize + this.tileSize/2;
+      const ty = seg.y * this.tileSize + this.tileSize/2;
       const bodyColor = isMe ? 0x2ae500 : 0x00a8cc;
-      const currentBodyColor = player.state === "STUNNED" ? 0x666666 : (isMe ? 0x2ae500 : 0x00a8cc);
       
-      let alpha = 1.0;
-      if (player.state === "ANSWERING") alpha = 0.3;
-      if (player.state === "PAUSED") alpha = 0.2;
+      const bodyRect = this.add.rectangle(tx, ty, this.tileSize * 0.9, this.tileSize * 0.9, bodyColor);
+      bodyRect.setAlpha(0.8);
+      bodyRect.setDepth(5);
       
-      const headRect = this.playersHead.get(sessionId);
-      const nameText = this.playersName.get(sessionId);
-      if (headRect) {
-        const htx = player.x * this.tileSize + this.tileSize/2;
-        const hty = player.y * this.tileSize + this.tileSize/2;
-        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
-          headRect.x = htx; headRect.y = hty;
-        } else {
-          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
-          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
-        }
-        if (nameText) {
-          nameText.x = headRect.x;
-          nameText.y = headRect.y - 15;
-        }
-      }
+      bodyArr.push(bodyRect);
+      
+      seg.onChange(() => {
+        bodyRect.x = seg.x * this.tileSize + this.tileSize/2;
+        bodyRect.y = seg.y * this.tileSize + this.tileSize/2;
+      });
+    });
 
-      let bodyArr = this.playersBody.get(sessionId);
-      if (!bodyArr) {
-        bodyArr = [];
-        this.playersBody.set(sessionId, bodyArr);
-      }
-      
-      const segments = player.segments;
-      const len = segments ? segments.length : 0;
-      
-      for (let i = 0; i < len; i++) {
-        const seg = segments[i];
-        const tx = seg.x * this.tileSize + this.tileSize/2;
-        const ty = seg.y * this.tileSize + this.tileSize/2;
-        
-        if (i >= bodyArr.length) {
-          const bodyRect = this.add.rectangle(
-            tx, ty, this.tileSize * 0.9, this.tileSize * 0.9, currentBodyColor
-          );
-          bodyArr.push(bodyRect);
-        }
-        
-        const rect = bodyArr[i];
-        if (Phaser.Math.Distance.Between(rect.x, rect.y, tx, ty) > this.tileSize * 1.5) {
-          rect.x = tx; rect.y = ty;
-        } else {
-          rect.x = Phaser.Math.Linear(rect.x, tx, 0.35);
-          rect.y = Phaser.Math.Linear(rect.y, ty, 0.35);
-        }
-        
-        rect.setAlpha(alpha * 0.8);
-        rect.fillColor = currentBodyColor;
-        rect.setVisible(true);
-      }
-      
-      // Hide extra rects
-      for (let i = len; i < bodyArr.length; i++) {
-        bodyArr[i].setVisible(false);
+    player.segments.onRemove((seg: any, index: number) => {
+      // Find the rect. It is usually the last one that gets popped, but since we pushed them, we can just remove from array
+      if (bodyArr.length > 0) {
+        const rect = bodyArr.shift();
+        if (rect) rect.destroy();
       }
     });
   }
