@@ -1,5 +1,6 @@
 export interface MatchPlayer {
   userId: string;
+  name: string;
   score: number;
   correctAnswers: number;
   wrongAnswers: number;
@@ -39,7 +40,7 @@ export default function MatchEndOverlay({ stats, onClose }: MatchEndOverlayProps
         <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <div className="label-caps" style={{ display: "grid", gridTemplateColumns: "1fr 2fr 1fr 1fr", gap: "16px", padding: "0 16px", color: "var(--on-surface-variant)" }}>
             <span>Rank</span>
-            <span>Player ID</span>
+            <span>Người chơi</span>
             <span style={{ textAlign: "right" }}>Score</span>
             <span style={{ textAlign: "right" }}>Right / Wrong</span>
           </div>
@@ -58,7 +59,7 @@ export default function MatchEndOverlay({ stats, onClose }: MatchEndOverlayProps
                   #{p.rank}
                 </span>
                 <span className="score-display" style={{ fontSize: "14px", color: isFirst ? "#fff" : "var(--on-surface-variant)", overflow: "hidden", textOverflow: "ellipsis" }}>
-                  {p.userId}
+                  {p.name || p.userId}
                 </span>
                 <span className="score-display" style={{ color: isFirst ? "var(--primary-container)" : "var(--secondary-container)", textAlign: "right" }}>
                   {p.score}

@@ -68,7 +68,7 @@ export class MatchLogger {
     }
   }
 
-  async finalizeAndSave(playersData: { id: string, score: number }[]) {
+  async finalizeAndSave(playersData: { id: string, name: string, score: number }[]) {
     const endedAt = new Date().toISOString();
     
     // Sort players by score (descending) to determine rank
@@ -86,6 +86,7 @@ export class MatchLogger {
 
     const matchPlayers: MatchPlayer[] = sortedPlayers.map((p, index) => ({
       userId: p.id,
+      name: p.name,
       score: p.score,
       correctAnswers: this.correctAnswers.get(p.id) || 0,
       wrongAnswers: this.wrongAnswers.get(p.id) || 0,

@@ -88,14 +88,18 @@ export class GameScene extends Phaser.Scene {
       this.playersHead.forEach((headRect, sessionId) => {
         const player = this.room!.state.players.get(sessionId);
         if (!player || player.state === "DISCONNECTED") return;
+        const isLocalPlayer = sessionId === this.room?.sessionId;
         
         const htx = player.x * this.tileSize + this.tileSize/2;
         const hty = player.y * this.tileSize + this.tileSize/2;
-        if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
+        if (isLocalPlayer) {
+          headRect.x = htx;
+          headRect.y = hty;
+        } else if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
           headRect.x = htx; headRect.y = hty;
         } else {
-          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.35);
-          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.35);
+          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.45);
+          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.45);
         }
         
         const nameText = this.playersName.get(sessionId);

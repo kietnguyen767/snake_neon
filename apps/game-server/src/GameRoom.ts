@@ -122,7 +122,7 @@ export class GameRoom extends Room<GameState> {
       if (this.state.phase === 1) {
         this.update(deltaTime);
       }
-    }, 50);
+    }, 33);
   }
 
   spawnFood() {
@@ -293,12 +293,10 @@ export class GameRoom extends Room<GameState> {
           }
 
           if (hitStunnableSnake) {
-            // It's another active snake!
-            const headToRemove = player.segments.shift(); 
-            if (headToRemove) {
-              player.x = oldX;
-              player.y = oldY;
-            }
+            // Revert the temporary leading segment created for this attempted move.
+            player.segments.shift();
+            player.x = oldX;
+            player.y = oldY;
 
             if (player.hasShield) {
               player.hasShield = false;
@@ -455,6 +453,7 @@ export class GameRoom extends Room<GameState> {
     
     const finalPlayers = Array.from(this.state.players.values()).map(p => ({
       id: p.id,
+      name: p.name,
       score: p.score
     }));
     

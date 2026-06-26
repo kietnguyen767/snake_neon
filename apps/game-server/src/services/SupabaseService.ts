@@ -23,6 +23,7 @@ export type MatchData = {
 
 export type MatchPlayer = {
   userId: string;
+  name: string;
   score: number;
   correctAnswers: number;
   wrongAnswers: number;

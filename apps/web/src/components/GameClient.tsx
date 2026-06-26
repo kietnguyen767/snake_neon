@@ -56,19 +56,19 @@ const LeaderboardRow = React.memo(({ id, idx }: { id: string, idx: number }) => 
   else if (idx === 2) rankColor = "#cd7f32"; // Đồng
 
   return (
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "4px 8px", background: isLocal ? "rgba(57, 255, 20, 0.2)" : "transparent", borderRadius: "8px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
-        <span style={{ color: rankColor, fontWeight: "bold", width: "20px" }}>#{idx + 1}</span>
-        <span style={{ color: isLocal ? "var(--primary)" : "var(--on-surface)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "90px" }} title={p.name}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "3px 6px", background: isLocal ? "rgba(57, 255, 20, 0.16)" : "transparent", borderRadius: "6px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "6px", overflow: "hidden" }}>
+        <span style={{ color: rankColor, fontWeight: "bold", width: "18px", fontSize: "12px" }}>#{idx + 1}</span>
+        <span style={{ color: isLocal ? "var(--primary)" : "var(--on-surface)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: "72px", fontSize: "12px" }} title={p.name}>
           {p.name}
         </span>
         {p.hasShield && (
-          <span className="material-symbols-outlined" style={{ fontSize: "16px", color: "#33ff33", textShadow: "0 0 5px #33ff33" }} title="Đang có khiên">
+          <span className="material-symbols-outlined" style={{ fontSize: "14px", color: "#33ff33", textShadow: "0 0 5px #33ff33" }} title="Đang có khiên">
             shield
           </span>
         )}
       </div>
-      <span style={{ color: "var(--primary)", fontWeight: "bold", fontFamily: "var(--font-jetbrains-mono)" }}>
+      <span style={{ color: "var(--primary)", fontWeight: "bold", fontFamily: "var(--font-jetbrains-mono)", fontSize: "12px" }}>
         {p.score}
       </span>
     </div>
@@ -82,7 +82,7 @@ const Leaderboard = React.memo(() => {
   const leaderboardIds = useGameStore(s => {
     return Object.values(s.players)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 10)
+      .slice(0, 5)
       .map(p => p.id)
       .join(",");
   });
@@ -90,12 +90,12 @@ const Leaderboard = React.memo(() => {
   return (
     <div className="glass-panel" style={{
       position: "absolute", top: "var(--spacing-md)", right: "var(--spacing-md)",
-      width: "240px", padding: "var(--spacing-md)", display: "flex", flexDirection: "column", gap: "var(--spacing-sm)",
-      background: "rgba(19, 19, 21, 0.7)", backdropFilter: "blur(12px)", borderRadius: "var(--radius-xl)",
+      width: "180px", padding: "12px", display: "flex", flexDirection: "column", gap: "8px",
+      background: "rgba(19, 19, 21, 0.52)", backdropFilter: "blur(8px)", borderRadius: "var(--radius-lg)",
       border: "1px solid rgba(255,255,255,0.05)"
     }}>
-      <h3 className="headline-md" style={{ margin: 0, borderBottom: "1px solid rgba(255,255,255,0.1)", paddingBottom: "8px", color: "var(--on-surface-variant)" }}>BẢNG XẾP HẠNG</h3>
-      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <h3 className="label-caps" style={{ margin: 0, borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "6px", color: "var(--on-surface-variant)" }}>Top 5</h3>
+      <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
         {leaderboardIds ? leaderboardIds.split(",").map((id, idx) => (
           <LeaderboardRow key={id} id={id} idx={idx} />
         )) : null}
