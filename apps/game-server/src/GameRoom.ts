@@ -109,7 +109,8 @@ export class GameRoom extends Room<GameState> {
           this.matchLogger.logQuestionAnswer(player.id, q.id, message.choice, isCorrect);
         }
         
-        player.state = "MOVING";
+        player.state = "POST_ANSWER";
+        player.postAnswerUntil = Date.now() + 500;
         player.questionDeadline = undefined;
         player.pendingFoodId = undefined;
         player.pendingQuestionId = undefined;
@@ -262,12 +263,6 @@ export class GameRoom extends Room<GameState> {
           break; 
         }
 
-        // 2. Tạo đốt thân ở vị trí cũ của đầu
-        const newSeg = new SnakeSegment();
-        newSeg.x = oldX;
-        newSeg.y = oldY;
-        player.segments.unshift(newSeg); // Thêm vào đầu mảng thân
-
         // 3. Tính toán độ dài chuẩn (Dựa vào điểm)
         // Cứ 10 điểm = 1 đốt. Mới vào có 0 đốt.
         const targetLength = Math.floor(player.score / 10);
@@ -293,8 +288,6 @@ export class GameRoom extends Room<GameState> {
           }
 
           if (hitStunnableSnake) {
-            // Revert the temporary leading segment created for this attempted move.
-            player.segments.shift();
             player.x = oldX;
             player.y = oldY;
 
@@ -311,7 +304,13 @@ export class GameRoom extends Room<GameState> {
           }
         }
 
-        // 5. Cập nhật mảng thân (Xóa đuôi nếu cần) - CHỈ LÀM KHI KHÔNG BỊ STUN
+        // 5. Chỉ commit thay đổi thân rắn sau khi nước đi hợp lệ.
+        const newSeg = new SnakeSegment();
+        newSeg.x = oldX;
+        newSeg.y = oldY;
+        player.segments.unshift(newSeg);
+
+        // 6. Cập nhật mảng thân (Xóa đuôi nếu cần)
         if (player.segments.length > targetLength) {
           const tail = player.segments.pop();
           if (tail) {
@@ -417,13 +416,24 @@ export class GameRoom extends Room<GameState> {
     this.state.players.forEach((player) => {
       // Xử lý hết giờ câu hỏi
       if (player.state === "ANSWERING" && player.questionDeadline && now > player.questionDeadline) {
-        player.state = "MOVING";
+        player.state = "POST_ANSWER";
+        player.postAnswerUntil = now + 500;
         player.questionDeadline = undefined;
         player.pendingFoodId = undefined;
         player.pendingQuestionId = undefined;
         const clientObj = this.clients.find(c => c.sessionId === player.id);
         if (clientObj) {
           clientObj.send("timeUp");
+        }
+      }
+
+      // Xử lý hết thời gian delay sau khi trả lời
+      if (player.state === "POST_ANSWER" && player.postAnswerUntil && now > player.postAnswerUntil) {
+        player.state = "MOVING";
+        player.postAnswerUntil = undefined;
+        const clientObj = this.clients.find(c => c.sessionId === player.id);
+        if (clientObj) {
+          clientObj.send("closeQuestion");
         }
       }
 

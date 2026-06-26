@@ -288,15 +288,16 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
 
 
-      let answerTimeout: NodeJS.Timeout | null = null;
       r.onMessage("questionStarted", (payload) => {
-        if (answerTimeout) clearTimeout(answerTimeout);
         setActiveQuestion(payload);
       });
 
       r.onMessage("answerResult", () => {
-        if (answerTimeout) clearTimeout(answerTimeout);
-        answerTimeout = setTimeout(() => setActiveQuestion(null), 500);
+        // Just let the overlay show the result, server will send closeQuestion later.
+      });
+
+      r.onMessage("closeQuestion", () => {
+        setActiveQuestion(null);
       });
 
       r.onMessage("itemCollected", (payload) => {
@@ -311,7 +312,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
       });
 
       r.onMessage("timeUp", () => {
-        setActiveQuestion(null);
+        // Just let the overlay show the timeUp, server will send closeQuestion later.
       });
 
       r.onMessage("matchEnded", (payload) => {
@@ -514,6 +515,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
       {activeQuestion && (
         <QuestionOverlay
+          key={activeQuestion.questionId}
           questionId={activeQuestion.questionId}
           question={activeQuestion.question}
           options={activeQuestion.options}

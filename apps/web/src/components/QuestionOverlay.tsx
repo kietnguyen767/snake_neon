@@ -10,7 +10,7 @@ interface QuestionOverlayProps {
 }
 
 export default function QuestionOverlay({ questionId, question, options, foodType, deadline, onAnswer }: QuestionOverlayProps) {
-  const [timeLeft, setTimeLeft] = useState(10);
+  const [timeLeft, setTimeLeft] = useState(() => Math.max(0, Math.floor((deadline - Date.now()) / 1000)));
   const [answered, setAnswered] = useState<string | null>(null);
 
   useEffect(() => {

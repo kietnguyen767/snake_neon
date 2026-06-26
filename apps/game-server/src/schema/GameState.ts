@@ -30,6 +30,7 @@ export class Player extends Schema {
   stunnedUntil?: number; // Server-side timer cho trạng thái STUNNED
   speedBoostUntil?: number; // Server-side timer cho hiệu ứng tăng tốc
   shieldUntil?: number; // Server-side timer cho khiên 10 giây
+  postAnswerUntil?: number; // Server-side timer delay sau khi trả lời
 }
 
 export class Food extends Schema {
