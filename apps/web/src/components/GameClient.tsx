@@ -4,6 +4,7 @@ import { PlayerState, StoreGameState } from "@/lib/store";
 import { useEffect, useState, useRef } from "react";
 import * as Colyseus from "colyseus.js";
 import { useGameStore } from "@/lib/store";
+import { useShallow } from "zustand/react/shallow";
 import QuestionOverlay from "./QuestionOverlay";
 import MatchEndOverlay, { MatchPlayer } from "./MatchEndOverlay";
 import BackgroundShader from "./BackgroundShader";
@@ -160,7 +161,7 @@ PlayerCard.displayName = "PlayerCard";
 
 const LobbyPlayerGrid = React.memo(() => {
   const playerCount = useGameStore(s => s.playerCount);
-  const playerIds = useGameStore(s => Object.keys(s.players));
+  const playerIds = useGameStore(useShallow((s) => Object.keys(s.players)));
   
   return (
     <section className="glass-panel custom-scrollbar" style={{

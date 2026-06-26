@@ -27,7 +27,6 @@ export class GameScene extends Phaser.Scene {
   private playersHead: Map<string, Phaser.GameObjects.Rectangle> = new Map();
   private playersName: Map<string, Phaser.GameObjects.Text> = new Map();
   private playersBody: Map<string, Phaser.GameObjects.Rectangle[]> = new Map();
-  private segmentRects: Map<SnakeSegment, Phaser.GameObjects.Rectangle> = new Map();
   private foods: Map<string, Phaser.GameObjects.GameObject> = new Map();
   private room: Room | null = null;
   private listenersAttached = false;
@@ -108,6 +107,43 @@ export class GameScene extends Phaser.Scene {
     }
   }
 
+  private syncPlayerBody(
+    player: ColyseusPlayer,
+    bodyArr: Phaser.GameObjects.Rectangle[],
+    bodyColor: number,
+    alpha: number,
+    isVisible: boolean
+  ) {
+    const segments: SnakeSegment[] = [];
+    if (player.segments && player.segments.forEach) {
+      player.segments.forEach((seg: SnakeSegment) => {
+        segments.push(seg);
+      });
+    }
+
+    while (bodyArr.length < segments.length) {
+      const bodyRect = this.add.rectangle(0, 0, this.tileSize * 0.9, this.tileSize * 0.9, bodyColor);
+      bodyRect.setDepth(5);
+      bodyArr.push(bodyRect);
+    }
+
+    while (bodyArr.length > segments.length) {
+      const rect = bodyArr.pop();
+      if (rect) {
+        rect.destroy();
+      }
+    }
+
+    bodyArr.forEach((rect, index) => {
+      const seg = segments[index];
+      rect.x = seg.x * this.tileSize + this.tileSize / 2;
+      rect.y = seg.y * this.tileSize + this.tileSize / 2;
+      rect.fillColor = bodyColor;
+      rect.setAlpha(alpha * 0.8);
+      rect.setVisible(isVisible);
+    });
+  }
+
   private addPlayer(player: ColyseusPlayer, sessionId: string) {
     if (this.playersHead.has(sessionId)) return;
     if (!this.sys || !this.sys.isActive() || !this.add) return;
@@ -137,7 +173,8 @@ export class GameScene extends Phaser.Scene {
     ).setOrigin(0.5).setDepth(20);
     this.playersName.set(sessionId, nameText);
 
-    this.playersBody.set(sessionId, []); 
+    const bodyArr: Phaser.GameObjects.Rectangle[] = [];
+    this.playersBody.set(sessionId, bodyArr);
     
     if (isMe) {
       this.cameras.main.startFollow(headRect, true, 0.1, 0.1);
@@ -165,54 +202,12 @@ export class GameScene extends Phaser.Scene {
       const isVisible = player.state !== "DISCONNECTED";
       headRect.setVisible(isVisible);
       nameText.setVisible(isVisible);
-      
-      const bodyArr = this.playersBody.get(sessionId);
-      if (bodyArr) {
-        bodyArr.forEach(r => {
-          r.fillColor = currentHeadColor;
-          r.setAlpha(alpha * 0.8);
-          r.setVisible(isVisible);
-        });
-      }
+
+      const currentBodyColor = player.state === "STUNNED" ? 0x666666 : (isMe ? 0x2ae500 : 0x00a8cc);
+      this.syncPlayerBody(player, bodyArr, currentBodyColor, alpha, isVisible);
     });
 
-    const bodyArr: Phaser.GameObjects.Rectangle[] = [];
-    this.playersBody.set(sessionId, bodyArr);
-
-    const renderSegment = (seg: SnakeSegment) => {
-      if (this.segmentRects.has(seg)) return;
-      const tx = seg.x * this.tileSize + this.tileSize/2;
-      const ty = seg.y * this.tileSize + this.tileSize/2;
-      const bodyColor = isMe ? 0x2ae500 : 0x00a8cc;
-      
-      const bodyRect = this.add.rectangle(tx, ty, this.tileSize * 0.9, this.tileSize * 0.9, bodyColor);
-      bodyRect.setAlpha(0.8);
-      bodyRect.setDepth(5);
-      
-      bodyArr.push(bodyRect);
-      this.segmentRects.set(seg, bodyRect);
-      
-      seg.onChange(() => {
-        bodyRect.x = seg.x * this.tileSize + this.tileSize/2;
-        bodyRect.y = seg.y * this.tileSize + this.tileSize/2;
-      });
-    };
-
-    if (player.segments && player.segments.forEach) {
-      player.segments.forEach((seg: SnakeSegment) => renderSegment(seg));
-    }
-
-    player.segments.onAdd((seg: SnakeSegment) => renderSegment(seg));
-
-    player.segments.onRemove((seg: SnakeSegment) => {
-      const rect = this.segmentRects.get(seg);
-      if (rect) {
-        rect.destroy();
-        this.segmentRects.delete(seg);
-        const idx = bodyArr.indexOf(rect);
-        if (idx !== -1) bodyArr.splice(idx, 1);
-      }
-    });
+    this.syncPlayerBody(player, bodyArr, isMe ? 0x2ae500 : 0x00a8cc, 1, true);
   }
 
   attachListeners() {
