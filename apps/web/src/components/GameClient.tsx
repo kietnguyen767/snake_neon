@@ -283,6 +283,14 @@ export default function GameClient({ roomId }: { roomId: string }) {
       setRoom(room);
       setStatus("Connected!");
 
+      // Khởi tạo state ban đầu cho store (để hiển thị đúng Chủ Phòng ngay lập tức)
+      useGameStore.setState({
+        phase: r.state.phase,
+        countdown: r.state.countdown,
+        timeRemaining: r.state.timeRemaining,
+        hostId: r.state.hostId,
+      });
+
       r.onStateChange.once(async (state) => {
         
 
