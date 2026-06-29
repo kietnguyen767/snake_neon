@@ -192,7 +192,7 @@ export class GameRoom extends Room<GameState> {
     
     this.state.players.set(client.sessionId, player);
     
-    if (this.state.players.size === 1) {
+    if (this.clients.length === 1) {
       this.state.hostId = client.sessionId;
     }
     

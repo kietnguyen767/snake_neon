@@ -22,6 +22,7 @@ export interface FoodState {
 
 export interface StoreGameState {
   room: Colyseus.Room | null;
+  mySessionId: string;
   players: Record<string, PlayerState>;
   playerCount: number;
   foods: Record<string, FoodState>;
@@ -40,6 +41,7 @@ export interface StoreGameState {
 
 export const useGameStore = create<StoreGameState>((set) => ({
   room: null,
+  mySessionId: "",
   players: {},
   playerCount: 0,
   foods: {},
@@ -95,5 +97,5 @@ export const useGameStore = create<StoreGameState>((set) => ({
     delete newPlayers[sessionId];
     return { players: newPlayers, playerCount: Math.max(0, state.playerCount - 1) };
   }),
-  clearStore: () => set({ room: null, players: {}, playerCount: 0, foods: {}, phase: 0, hostId: "", countdown: 3, timeRemaining: 600 }),
+  clearStore: () => set({ room: null, mySessionId: "", players: {}, playerCount: 0, foods: {}, phase: 0, hostId: "", countdown: 3, timeRemaining: 600 }),
 }));

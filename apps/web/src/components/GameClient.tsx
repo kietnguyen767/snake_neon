@@ -136,12 +136,13 @@ const PlayerCard = React.memo(({ id }: { id: string }) => {
   const p = useGameStore(s => s.players[id]);
   const hostId = useGameStore(s => s.hostId);
   const currentRoom = useGameStore(s => s.room);
+  const mySessionId = useGameStore(s => s.mySessionId);
 
   if (!p) return null;
 
   const isHost = p.id === hostId;
-  const isLocal = currentRoom && p.id === currentRoom.sessionId;
-  const iAmHost = currentRoom && currentRoom.sessionId === hostId;
+  const isLocal = p.id === mySessionId;
+  const iAmHost = mySessionId === hostId;
   const canBeKicked = iAmHost && !isHost && useGameStore.getState().phase === 0;
 
   return (
@@ -161,7 +162,7 @@ const PlayerCard = React.memo(({ id }: { id: string }) => {
       {canBeKicked && (
         <button onClick={() => {
           if (confirm(`Bạn có chắc muốn đuổi ${p.name} khỏi phòng?`)) {
-            currentRoom.send("kickPlayer", { targetId: id });
+            currentRoom?.send("kickPlayer", { targetId: id });
           }
         }} style={{
           position: "absolute", top: "4px", right: "4px", background: "rgba(255, 51, 51, 0.2)",
@@ -285,10 +286,16 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
       // Khởi tạo state ban đầu cho store (để hiển thị đúng Chủ Phòng ngay lập tức)
       useGameStore.setState({
+        mySessionId: r.sessionId,
         phase: r.state.phase,
         countdown: r.state.countdown,
         timeRemaining: r.state.timeRemaining,
         hostId: r.state.hostId,
+      });
+
+      // Lắng nghe sự kiện đổi hostId từ server
+      r.state.listen("hostId", (currentValue) => {
+        useGameStore.setState({ hostId: currentValue || "" });
       });
 
       r.onStateChange.once(async (state) => {
