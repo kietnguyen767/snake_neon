@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import type { Room } from 'colyseus.js';
+import { useGameStore } from '../lib/store';
 import type { PlayerState, FoodState } from '../lib/store';
 
 export interface SnakeSegment {
@@ -56,7 +57,32 @@ export class GameScene extends Phaser.Scene {
     // Set camera bounds to match the map size
     this.cameras.main.setBounds(0, 0, mapWidth, mapHeight);
 
-        
+    // Default zoom
+    this.cameras.main.setZoom(1);
+
+    // Zoom control (70% - 150%)
+    this.input.on('wheel', (pointer: Phaser.Input.Pointer, gameObjects: any[], deltaX: number, deltaY: number, deltaZ: number) => {
+      let currentZoom = this.cameras.main.zoom;
+      
+      if (deltaY > 0) {
+        currentZoom -= 0.1; // Scroll down = zoom out
+      } else if (deltaY < 0) {
+        currentZoom += 0.1; // Scroll up = zoom in
+      }
+      
+      const newZoom = Phaser.Math.Clamp(currentZoom, 0.7, 1.5);
+      
+      // Update store for UI sync
+      useGameStore.getState().setZoomLevel(Math.round(newZoom * 100));
+
+      this.tweens.add({
+        targets: this.cameras.main,
+        zoom: newZoom,
+        duration: 150,
+        ease: 'Power2'
+      });
+    });
+
     this.input.keyboard?.on('keydown', (event: KeyboardEvent) => {
       if (event.code === 'Space') {
         if (this.room) this.room.send("togglePause");

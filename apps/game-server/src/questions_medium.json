@@ -1,0 +1,986 @@
+[
+  {
+    "id": "q_m_1",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Hội nghị TW 7 và 8 (1955)]?",
+    "options": {
+      "a": "Chuyển sang đấu tranh vũ trang toàn diện",
+      "b": "Cốt lõi là củng cố miền Bắc, đồng thời đẩy mạnh đấu tranh miền Nam",
+      "c": "Quyết định phát động Đồng khởi",
+      "d": "Thành lập Mặt trận Dân tộc giải phóng"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_2",
+    "question": "Chọn đáp án chính xác nhất mô tả về [3 Nhiệm vụ miền Nam (9-1954)]:",
+    "options": {
+      "a": "Đấu tranh vũ trang, xây dựng căn cứ, tiến hành tổng tiến công",
+      "b": "Thi hành Hiệp định, chuyển hướng công tác, tập hợp lực lượng lật đổ chính quyền bù nhìn",
+      "c": "Xây dựng ấp chiến lược, bình định nông thôn, đánh du kích",
+      "d": "Cải tạo tư bản, phát triển nông nghiệp, củng cố chính quyền"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_3",
+    "question": "Điền vào chỗ trống: Ngày 13-5-1957, sự kiện nào diễn ra liên quan đến Ngô Đình Diệm và Mỹ?[...]",
+    "options": {
+      "a": "Bị lực lượng quân đội Mỹ ám sát",
+      "b": "Thăm Mỹ và tuyên bố \"Biên giới Hòa Kỳ kéo dài đến vĩ tuyến 17\"",
+      "c": "Ký kết Hiệp định phòng thủ chung",
+      "d": "Tuyên bố thành lập Việt Nam Cộng hòa"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_4",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Thương vong giai đoạn 1955-1956]?",
+    "options": {
+      "a": "Địch bắt và giết hơn 50.000 người",
+      "b": "Địch bắt và giết 108.835 người",
+      "c": "Địch bắt và giết hơn 200.000 người",
+      "d": "Địch bắt và giết 810.000 người"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_5",
+    "question": "Điền vào chỗ trống: Chiến lược Chiến tranh đặc biệt dự định lập bao nhiêu ấp chiến lược làm quốc sách?[...]",
+    "options": {
+      "a": "10.000 ấp",
+      "b": "17.000 ấp",
+      "c": "20.000 ấp",
+      "d": "50.000 ấp"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_6",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Kế hoạch CTĐB 1964-1965]:",
+    "options": {
+      "a": "Kế hoạch Stalay - Taylo",
+      "b": "Kế hoạch Johnson - McNamara",
+      "c": "Kế hoạch Phản ứng linh hoạt",
+      "d": "Kế hoạch Đồi cao 21"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_7",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Quân giải phóng miền Nam]?",
+    "options": {
+      "a": "Thành lập ngày 20-12-1960",
+      "b": "Thành lập ngày 15-2-1961",
+      "c": "Thành lập ngày 19-5-1959",
+      "d": "Thành lập ngày 23-10-1961"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_8",
+    "question": "Điền vào chỗ trống: Cuộc khởi nghĩa vũ trang bùng nổ ở Gò Quản Cung thuộc tỉnh nào?[...]",
+    "options": {
+      "a": "Bình Định",
+      "b": "Đồng Tháp",
+      "c": "Quảng Ngãi",
+      "d": "Ninh Thuận"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_9",
+    "question": "(Phản xạ 5s) Hội nghị TW 9 (12-1963) xác định hình thức đấu tranh nào đóng vai trò quyết định trực tiếp?",
+    "options": {
+      "a": "Đấu tranh chính trị quần chúng",
+      "b": "Đấu tranh vũ trang",
+      "c": "Ngoại giao quốc tế",
+      "d": "Binh vận trong quân đội địch"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_10",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Đảo chính miền Nam 1963-1965]:",
+    "options": {
+      "a": "Xảy ra 5 cuộc",
+      "b": "Xảy ra 10 cuộc",
+      "c": "Xảy ra 15 cuộc",
+      "d": "Chỉ xảy ra 1 cuộc"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_11",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Bí thư TW Cục 9-1964]?",
+    "options": {
+      "a": "Nguyễn Văn Linh",
+      "b": "Lê Duẩn",
+      "c": "Nguyễn Chí Thanh",
+      "d": "Trần Văn Trà"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_12",
+    "question": "Điền vào chỗ trống: Kế hoạch 5 năm lần thứ nhất bị chuyển hướng do chiến tranh phá hoại vào ngày [...]",
+    "options": {
+      "a": "5-8-1964",
+      "b": "2-8-1964",
+      "c": "5-8-1965",
+      "d": "1-8-1964"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_13",
+    "question": "(Phản xạ 5s) Phong trào \"Mỗi người làm việc bằng hai\" được bắt nguồn từ Lời kêu gọi của ai vào tháng 3-1964?",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Nguyễn Chí Thanh",
+      "c": "Hồ Chí Minh",
+      "d": "Trường Chinh"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_14",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Hội nghị sửa sai Cải cách ruộng đất]:",
+    "options": {
+      "a": "Tháng 7-1956",
+      "b": "Tháng 9-1956",
+      "c": "Tháng 12-1957",
+      "d": "Tháng 4-1959"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_15",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Vấn đề Nhân văn Giai phẩm]?",
+    "options": {
+      "a": "Được phê phán, uốn nắn vào năm 1954",
+      "b": "Được phê phán, uốn nắn vào năm 1956",
+      "c": "Được phê phán, uốn nắn vào năm 1960",
+      "d": "Được phê phán, uốn nắn vào năm 1945"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_16",
+    "question": "Điền vào chỗ trống: Hội nghị TW 14 (11-1958) được tổ chức nhằm thông qua kế hoạch nào?[...]",
+    "options": {
+      "a": "Kế hoạch 5 năm lần thứ nhất",
+      "b": "Kế hoạch 3 năm phát triển kinh tế",
+      "c": "Kế hoạch 1 năm khôi phục kinh tế",
+      "d": "Kế hoạch 10 năm công nghiệp hóa"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_17",
+    "question": "(Phản xạ 5s) Nghị quyết 15 (1-1959) của Hội nghị TW mang ý nghĩa chuyển hướng gì cho cách mạng miền Nam?",
+    "options": {
+      "a": "Chuyển từ khởi nghĩa từng phần sang chiến tranh cách mạng",
+      "b": "Chấm dứt hoàn toàn đấu tranh vũ trang",
+      "c": "Bắt đầu giai đoạn khôi phục kinh tế",
+      "d": "Chính thức tiến hành tổng tiến công và giải phóng"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_18",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Chiến thuật CTĐB chi tiết]:",
+    "options": {
+      "a": "Bình định chiến tranh",
+      "b": "Trực thăng vận, thiết xa vận",
+      "c": "Đánh du kích không giữ đất",
+      "d": "Tập trung lực lượng đánh lớn"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_19",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Rải chất độc màu da cam]?",
+    "options": {
+      "a": "Bắt đầu từ tháng 3-1959",
+      "b": "Bắt đầu từ ngày 10-8-1961",
+      "c": "Bắt đầu từ tháng 12-1964",
+      "d": "Bắt đầu từ tháng 5-1965"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_20",
+    "question": "Điền vào chỗ trống: Chiến thắng Đồng Xoài diễn ra vào tháng nào năm 1965?[...]",
+    "options": {
+      "a": "Tháng 5",
+      "b": "Tháng 6",
+      "c": "Tháng 7",
+      "d": "Tháng 8"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_21",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Phương châm đấu tranh Vùng đô thị]:",
+    "options": {
+      "a": "Lấy đấu tranh vũ trang là chủ yếu",
+      "b": "Lấy đấu tranh chính trị là chủ yếu",
+      "c": "Kết hợp hai hình thức vũ trang và chính trị",
+      "d": "Chỉ tập trung vào binh vận"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_22",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Phương châm đấu tranh Vùng rừng núi]?",
+    "options": {
+      "a": "Lấy đấu tranh vũ trang là chủ yếu",
+      "b": "Lấy đấu tranh chính trị là chủ yếu",
+      "c": "Kết hợp hai hình thức đấu tranh",
+      "d": "Chỉ tập trung phát triển kinh tế"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_23",
+    "question": "Điền vào chỗ trống: Ngày 22-7-1954, Hồ Chí Minh ra Lời kêu gọi với nội dung cốt lõi gì?[...]",
+    "options": {
+      "a": "Kêu gọi toàn dân khôi phục kinh tế",
+      "b": "Khẳng định nước ta nhất định sẽ thống nhất, đồng bào nhất định được giải phóng",
+      "c": "Kêu gọi thanh niên nhập ngũ đánh Mỹ",
+      "d": "Tuyên bố thành lập chính quyền cách mạng"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_24",
+    "question": "(Phản xạ 5s) Đặc điểm chưa có tiền lệ lịch sử sau năm 1954 của cách mạng Việt Nam là gì?",
+    "options": {
+      "a": "Đánh bại thực dân Pháp",
+      "b": "Đất nước bị chia làm hai miền, có chế độ chính trị, xã hội khác nhau",
+      "c": "Mỹ nhảy vào thay Pháp thống trị miền Nam",
+      "d": "Miền Bắc tiến lên chủ nghĩa xã hội"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_25",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Chức năng Mặt trận Dân tộc giải phóng]:",
+    "options": {
+      "a": "Chỉ là tổ chức quần chúng cánh tay của Đảng",
+      "b": "Làm chức năng của chính quyền cách mạng",
+      "c": "Chỉ chuyên trách về mặt ngoại giao",
+      "d": "Chỉ lãnh đạo lực lượng vũ trang"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_26",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chương trình hành động của Mặt trận]?",
+    "options": {
+      "a": "Chương trình 5 điểm",
+      "b": "Chương trình 10 điểm",
+      "c": "Chương trình 8 điểm",
+      "d": "Chương trình 12 điểm"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_27",
+    "question": "Điền vào chỗ trống: Công thức thực hiện Chiến tranh đặc biệt của Mỹ là gì?[...]",
+    "options": {
+      "a": "Quân Mỹ trực tiếp ra trận đánh lớn",
+      "b": "Cố vấn, vũ khí Mỹ và quân chủ lực Việt Nam Cộng hòa",
+      "c": "Dùng quân đồng minh từ các nước châu Á",
+      "d": "Đánh bằng vũ khí hạt nhân chiến thuật"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_28",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Thành phần kinh tế XHCN theo Hội nghị 14]:",
+    "options": {
+      "a": "Có 3 thành phần kinh tế",
+      "b": "Có 2 thành phần (quốc doanh và tập thể)",
+      "c": "Có 4 thành phần kinh tế",
+      "d": "Có 5 thành phần kinh tế"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_29",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Nguyên tắc xây dựng Hợp tác xã]?",
+    "options": {
+      "a": "Bắt buộc, tập trung, kế hoạch hóa",
+      "b": "Tự nguyện, cùng có lợi, quản lý dân chủ",
+      "c": "Tập trung, dân chủ, kế hoạch hóa",
+      "d": "Tự do, cạnh tranh, không quản lý"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_30",
+    "question": "Điền vào chỗ trống: Hội nghị TW 16 (4-1959) xác định bước đi của hợp tác xã là gì?[...]",
+    "options": {
+      "a": "Cơ giới hóa đi trước hợp tác hóa",
+      "b": "Hợp tác hóa đi trước cơ giới hóa",
+      "c": "Thủy lợi hóa đi trước hợp tác hóa",
+      "d": "Điện khí hóa đi trước hợp tác hóa"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_31",
+    "question": "(Phản xạ 5s) Xứ ủy Nam Bộ được thành lập vào tháng nào năm 1954?",
+    "options": {
+      "a": "Tháng 7",
+      "b": "Tháng 8",
+      "c": "Tháng 9",
+      "d": "Tháng 10"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_32",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Khởi nghĩa Tà Lóc, Tà Léc]:",
+    "options": {
+      "a": "Diễn ra ở Đồng bằng sông Cửu Long",
+      "b": "Diễn ra ở Bình Định và Ninh Thuận",
+      "c": "Diễn ra ở Quảng Ngãi",
+      "d": "Diễn ra ở Tây Ninh"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_33",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Khởi nghĩa Trà Bồng]?",
+    "options": {
+      "a": "Diễn ra ở Ninh Thuận",
+      "b": "Diễn ra ở Bình Định",
+      "c": "Diễn ra ở Quảng Ngãi",
+      "d": "Diễn ra ở Đồng Tháp"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_34",
+    "question": "Điền vào chỗ trống: Các tỉnh miền Bắc đã chủ động làm gì để phối hợp với các tỉnh miền Nam?[...]",
+    "options": {
+      "a": "Gửi vũ khí trực tiếp bằng máy bay",
+      "b": "Kết nghĩa với các tỉnh miền Nam",
+      "c": "Cử quân bộ đội chính quy vào Nam",
+      "d": "Xây dựng các sân bay tại miền Nam"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_35",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Địa điểm thành lập Mặt trận]:",
+    "options": {
+      "a": "Mỏ Cày, Bến Tre",
+      "b": "Xã Tân Lập, Tây Ninh",
+      "c": "Hà Nội",
+      "d": "Sài Gòn"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_36",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Ý nghĩa của Đồng khởi]?",
+    "options": {
+      "a": "Giữ vững thế lực lượng phòng ngự",
+      "b": "Chuyển cách mạng miền Nam từ thế giữ gìn lực lượng sang thế tiến công",
+      "c": "Đánh bại hoàn toàn quân đội Mỹ",
+      "d": "Giải phóng hoàn toàn miền Nam"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_37",
+    "question": "Điền vào chỗ trống: Nhiệm vụ trung tâm trong suốt thời kỳ quá độ lên CNXH được Đại hội III xác định là gì?[...]",
+    "options": {
+      "a": "Phát triển nông nghiệp",
+      "b": "Công nghiệp hóa xã hội chủ nghĩa",
+      "c": "Phát triển giáo dục y tế",
+      "d": "Cải tạo công thương nghiệp"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_38",
+    "question": "(Phản xạ 5s) Đại hội III xác định tiến hành đồng thời hai chiến lược cách mạng nào?",
+    "options": {
+      "a": "CNXH ở cả nước và Dân tộc dân chủ ở miền Nam",
+      "b": "CNXH ở miền Bắc và Dân tộc dân chủ nhân dân ở miền Nam",
+      "c": "Dân tộc dân chủ ở miền Bắc và CNXH ở miền Nam",
+      "d": "Chỉ tiến hành chiến lược CNXH trên toàn quốc"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_39",
+    "question": "Chọn đáp án chính xác nhất mô tả về [Phương châm thống nhất Tổ quốc]:",
+    "options": {
+      "a": "Chiến tranh thống nhất đất nước",
+      "b": "Hòa bình thống nhất, nhưng luôn đề cao cảnh giác",
+      "c": "Trì hoãn vô thời hạn việc thống nhất",
+      "d": "Chia cắt lâu dài hai miền"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_40",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Đặc điểm lớn nhất của miền Bắc]?",
+    "options": {
+      "a": "Đất đai rộng lớn,的资源 phong phú",
+      "b": "Từ nông nghiệp lạc hậu tiến thẳng lên CNXH không trải qua TBCN",
+      "c": "Nhân dân đông đảo, cần cù",
+      "d": "Có vị trí địa lý thuận lợi"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_41",
+    "question": "Điền vào chỗ trống: Đường vận tải trên biển có những chiếc \"tàu không số\" chở vũ khí vào tận các căn cứ ven biển nào?[...]",
+    "options": {
+      "a": "Hà Nội, Hải Phòng",
+      "b": "Phú Yên, Bà Rịa, Cà Mau",
+      "c": "Huế, Đà Nẵng",
+      "d": "Khánh Hòa, Ninh Thuận"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_42",
+    "question": "(Phản xạ 5s) Chỉ thị của Bộ Chính trị (1961-1962) xác định phương châm tiến công địch trên bao nhiêu vùng và bao nhiêu mũi?",
+    "options": {
+      "a": "2 vùng, 2 mũi",
+      "b": "3 vùng, 2 mũi",
+      "c": "3 vùng, 3 mũi",
+      "d": "4 vùng, 3 mũi"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_43",
+    "question": "Quốc sách của chiến lược Chiến tranh đặc biệt là gì?",
+    "options": {
+      "a": "Lập ấp chiến lược",
+      "b": "Trực thăng vận",
+      "c": "Tìm diệt",
+      "d": "Thiết xa vận"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_44",
+    "question": "Hội nghị TW 6 xác định kẻ thù chính của nhân dân Đông Dương là ai?",
+    "options": {
+      "a": "Đế quốc Mỹ",
+      "b": "Thực dân Pháp",
+      "c": "Phong kiến",
+      "d": "Tư sản phản động"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_45",
+    "question": "Điền vào chỗ trống: Đến năm 1957, sản xuất nông nghiệp miền Bắc đạt mức của năm nào[...]",
+    "options": {
+      "a": "1945",
+      "b": "1939",
+      "c": "1930",
+      "d": "1954"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_46",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Đường trên biển]?",
+    "options": {
+      "a": "19-5-1959",
+      "b": "2-1-1963",
+      "c": "23-10-1961",
+      "d": "17-1-1960"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_47",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Thủ đoạn của Pháp 1954]?",
+    "options": {
+      "a": "Dụ dỗ đồng bào Công giáo di cư",
+      "b": "Phát động chiến tranh đặc biệt",
+      "c": "Ném bom Hà Nội",
+      "d": "Rải chất độc hóa học"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_48",
+    "question": "Chọn đáp án chính xác nhất mô tả về Bí thư TW Cục 1961 (1954-1965):",
+    "options": {
+      "a": "Nguyễn Hữu Thọ",
+      "b": "Nguyễn Văn Linh",
+      "c": "Lê Duẩn",
+      "d": "Nguyễn Chí Thanh"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_49",
+    "question": "Chọn đáp án chính xác nhất mô tả về Hoàn thành Cải cách ruộng đất (1954-1965):",
+    "options": {
+      "a": "Tháng 12-1957",
+      "b": "Tháng 7-1956",
+      "c": "Tháng 1-1959",
+      "d": "Tháng 9-1954"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_50",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Xứ ủy Nam Bộ]?",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Nguyễn Văn Linh",
+      "c": "Nguyễn Chí Thanh",
+      "d": "Phạm Hùng"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_51",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Đề cương CM Miền Nam]?",
+    "options": {
+      "a": "Trường Chinh",
+      "b": "Lê Duẩn",
+      "c": "Hồ Chí Minh",
+      "d": "Võ Nguyên Giáp"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_52",
+    "question": "(Phản xạ 5s) Pháp và tay sai đã dùng thủ đoạn gì trước khi rút quân khỏi miền Bắc?",
+    "options": {
+      "a": "Dụ dỗ đồng bào Công giáo di cư",
+      "b": "Ném bom Hà Nội",
+      "c": "Phát động chiến tranh đặc biệt",
+      "d": "Rải chất độc hóa học"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_53",
+    "question": "Trong nông nghiệp có phong trào thi đua theo gương của hợp tác xã nào?",
+    "options": {
+      "a": "Đại Phong",
+      "b": "Duyên Hải",
+      "c": "Thành Công",
+      "d": "Bắc Lý"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_54",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Mục tiêu Cải cách ruộng đất]?",
+    "options": {
+      "a": "Tư sản",
+      "b": "Công nhân",
+      "c": "Địa chủ",
+      "d": "Nông dân"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_55",
+    "question": "Điền vào chỗ trống: Kế hoạch Stalay-Taylo thực hiện trong giai đoạn nào[...]",
+    "options": {
+      "a": "1964-1965",
+      "b": "1954-1960",
+      "c": "1961-1965",
+      "d": "1961-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_56",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đường Hồ Chí Minh (1954-1965):",
+    "options": {
+      "a": "20-12-1960",
+      "b": "19-5-1959",
+      "c": "23-10-1961",
+      "d": "17-1-1960"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_57",
+    "question": "Chiến dịch Bình Giã diễn ra vào thời gian nào?",
+    "options": {
+      "a": "Tháng 1-1963",
+      "b": "Tháng 12-1964",
+      "c": "Tháng 5-1965",
+      "d": "Tháng 7-1965"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_58",
+    "question": "Đường Hồ Chí Minh trên biển (Đường 759) hình thành khi nào?",
+    "options": {
+      "a": "17-1-1960",
+      "b": "19-5-1959",
+      "c": "23-10-1961",
+      "d": "2-1-1963"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_59",
+    "question": "Chọn đáp án chính xác nhất mô tả về Tình trạng chiến tranh (1954-1965):",
+    "options": {
+      "a": "Tháng 7-1954",
+      "b": "Tháng 11-1963",
+      "c": "Tháng 1-1960",
+      "d": "Tháng 3-1959"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_60",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chủ tịch Mặt trận]?",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Luật sư Nguyễn Hữu Thọ",
+      "c": "Ông Lê Duẩn",
+      "d": "Bà Nguyễn Thị Định"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_61",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Hoàn thành Cải cách ruộng đất]?",
+    "options": {
+      "a": "Tháng 12-1957",
+      "b": "Tháng 1-1959",
+      "c": "Tháng 9-1954",
+      "d": "Tháng 7-1956"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_62",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Bí thư TW Cục 1961]?",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Nguyễn Chí Thanh",
+      "c": "Nguyễn Văn Linh",
+      "d": "Nguyễn Hữu Thọ"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_63",
+    "question": "(Phản xạ 5s) Tháng 9-1954, Bộ Chính trị đề ra nhiệm vụ trước mắt của miền Bắc là gì?",
+    "options": {
+      "a": "Công nghiệp hóa XHCN",
+      "b": "Cải cách ruộng đất",
+      "c": "Hàn gắn vết thương chiến tranh",
+      "d": "Phát động Đồng khởi"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_64",
+    "question": "Điền vào chỗ trống: Tháng 9-1954, Bộ Chính trị đề ra nhiệm vụ trước mắt của miền Bắc là [...]",
+    "options": {
+      "a": "Cải cách ruộng đất",
+      "b": "Phát động Đồng khởi",
+      "c": "Hàn gắn vết thương chiến tranh",
+      "d": "Công nghiệp hóa XHCN"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_65",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chi viện của miền Bắc]?",
+    "options": {
+      "a": "10 lần",
+      "b": "20 lần",
+      "c": "9 lần",
+      "d": "5 lần"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_66",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chính quyền tay sai]?",
+    "options": {
+      "a": "Dương Văn Minh",
+      "b": "Ngô Đình Diệm",
+      "c": "Trần Văn Hương",
+      "d": "Nguyễn Văn Thiệu"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_67",
+    "question": "Bí thư Trung ương Cục miền Nam (10-1961) là ai?",
+    "options": {
+      "a": "Nguyễn Văn Linh",
+      "b": "Nguyễn Hữu Thọ",
+      "c": "Nguyễn Chí Thanh",
+      "d": "Lê Duẩn"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_68",
+    "question": "Trong công nghiệp có phong trào thi đua với nhà máy nào?",
+    "options": {
+      "a": "Thành Công",
+      "b": "Duyên Hải",
+      "c": "Z111",
+      "d": "Đại Phong"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_69",
+    "question": "Trong quân đội có phong trào thi đua nào?",
+    "options": {
+      "a": "Cờ ba nhất",
+      "b": "Ba nhất",
+      "c": "Quyết thắng",
+      "d": "Đồng khởi"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_70",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chiến thắng Ba Gia]?",
+    "options": {
+      "a": "Tháng 1-1963",
+      "b": "Tháng 5-1965",
+      "c": "Tháng 12-1964",
+      "d": "Tháng 7-1965"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_71",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Tổng thống Mỹ CTĐB]?",
+    "options": {
+      "a": "G. Ford",
+      "b": "J. Kennedy",
+      "c": "",
+      "d": "Eisenhower | D. R. Nixon"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_72",
+    "question": "Chọn đáp án chính xác nhất mô tả về Thủ đoạn của Pháp 1954 (1954-1965):",
+    "options": {
+      "a": "Phát động chiến tranh đặc biệt",
+      "b": "Ném bom Hà Nội",
+      "c": "Dụ dỗ đồng bào Công giáo di cư",
+      "d": "Rải chất độc hóa học"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_73",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Đường Hồ Chí Minh]?",
+    "options": {
+      "a": "19-5-1959",
+      "b": "17-1-1960",
+      "c": "23-10-1961",
+      "d": "20-12-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_74",
+    "question": "Chọn đáp án chính xác nhất mô tả về Thi đua Nông nghiệp (1954-1965):",
+    "options": {
+      "a": "Bắc Lý",
+      "b": "Duyên Hải",
+      "c": "Đại Phong",
+      "d": "Thành Công"
+    },
+    "correct_answer": "c",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_75",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Cải tạo tư sản]?",
+    "options": {
+      "a": "Đóng cửa xí nghiệp",
+      "b": "Trục xuất tư sản",
+      "c": "Tịch thu toàn bộ",
+      "d": "Cải tạo hòa bình, chuộc lại"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_76",
+    "question": "Toàn bộ quân Pháp rút khỏi miền Bắc vào thời gian nào?",
+    "options": {
+      "a": "10-10-1954",
+      "b": "1-1-1955",
+      "c": "20-7-1954",
+      "d": "16-5-1955"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_77",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Ngày chiến thắng Ấp Bắc]?",
+    "options": {
+      "a": "1-11-1963",
+      "b": "10-8-1961",
+      "c": "20-12-1960",
+      "d": "2-1-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_78",
+    "question": "Kế hoạch Stalay-Taylo thực hiện trong giai đoạn nào?",
+    "options": {
+      "a": "1961-1963",
+      "b": "1964-1965",
+      "c": "1954-1960",
+      "d": "1961-1965"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_79",
+    "question": "Điền vào chỗ trống: Toàn bộ quân Pháp rút khỏi miền Bắc vào [...]",
+    "options": {
+      "a": "10-10-1954",
+      "b": "20-7-1954",
+      "c": "1-1-1955",
+      "d": "16-5-1955"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_80",
+    "question": "Nhận định nào sau đây là ĐÚNG khi nói về [Chiến thắng Ấp Bắc]?",
+    "options": {
+      "a": "Ấp Bắc",
+      "b": "Ba Gia",
+      "c": "Bình Giã",
+      "d": "Đồng Xoài"
+    },
+    "correct_answer": "a",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_81",
+    "question": "Chọn đáp án chính xác nhất mô tả về Tổng thống Mỹ CTĐB (1954-1965):",
+    "options": {
+      "a": "R. Nixon",
+      "b": "J. Kennedy",
+      "c": "G. Ford",
+      "d": "D. Eisenhower"
+    },
+    "correct_answer": "b",
+    "difficulty": 2
+  },
+  {
+    "id": "q_m_82",
+    "question": "Điền vào chỗ trống: Đường Hồ Chí Minh trên biển (Đường 759) hình thành khi nào[...]",
+    "options": {
+      "a": "17-1-1960",
+      "b": "19-5-1959",
+      "c": "2-1-1963",
+      "d": "23-10-1961"
+    },
+    "correct_answer": "d",
+    "difficulty": 2
+  }
+]

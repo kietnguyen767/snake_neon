@@ -1,4 +1,4 @@
-import { Room, Client } from "colyseus";
+import { Room, Client, ServerError } from "colyseus";
 import { GameState, Player, Food, SnakeSegment } from "./schema/GameState";
 import { GridManager } from "@snake-vnr/game-logic";
 import { nanoid } from "nanoid";
@@ -6,7 +6,6 @@ import { getRandomQuestion, QUESTION_BANK } from "./QuestionBank";
 import { MatchLogger } from "./services/MatchLogger";
 
 export class GameRoom extends Room<GameState> {
-  maxClients = 20;
   private gameDuration = 10 * 60 * 1000; // 10 minutes
   private elapsedTime = 0;
   private gridManager!: GridManager;
@@ -40,6 +39,13 @@ export class GameRoom extends Room<GameState> {
         cellMap.set(playerId, count - 1);
       }
     }
+  }
+
+  onAuth(client: Client, options: any, request: any) {
+    if (this.state.players.size >= 20) {
+      throw new ServerError(400, "Phòng này đã đủ 20 người. Vui lòng chọn phòng khác!");
+    }
+    return true;
   }
 
   onCreate (options: any) {
@@ -91,6 +97,16 @@ export class GameRoom extends Room<GameState> {
         player.state = "PAUSED";
       } else if (player.state === "PAUSED") {
         player.state = "MOVING";
+      }
+    });
+
+    this.onMessage("kickPlayer", (client, message) => {
+      if (client.sessionId === this.state.hostId && this.state.phase === 0) {
+        const targetClient = this.clients.find(c => c.sessionId === message.targetId);
+        if (targetClient && targetClient.sessionId !== this.state.hostId) {
+          targetClient.send("kicked");
+          targetClient.leave();
+        }
       }
     });
 

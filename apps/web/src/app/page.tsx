@@ -91,13 +91,23 @@ export default function Home() {
     }
   };
 
+  const checkName = () => {
+    if (!displayName || displayName.trim().toLowerCase() === "player") {
+      alert("Vui lòng đặt tên hiển thị của bạn trước khi vào phòng!");
+      return false;
+    }
+    return true;
+  };
+
   const handleJoin = () => {
+    if (!checkName()) return;
     if (roomId.trim()) {
       router.push(`/play/${roomId}`);
     }
   };
 
   const handleCreate = () => {
+    if (!checkName()) return;
     const newRoomId = Math.random().toString(36).substring(2, 8).toUpperCase();
     router.push(`/play/${newRoomId}`);
   };
@@ -195,10 +205,23 @@ export default function Home() {
 
           {/* Main Content Area */}
           <main style={{ 
-            flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', 
+            flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', 
             paddingTop: '80px', paddingLeft: '256px', paddingRight: 'var(--spacing-md)', 
             paddingBottom: 'var(--spacing-md)', overflowY: 'auto', width: '100%' 
           }}>
+            <div className="mobile-name-input" style={{ width: '100%', maxWidth: '1200px', marginBottom: 'var(--spacing-md)', display: 'none' }}>
+              <div className="glass-panel" style={{ padding: 'var(--spacing-md)', borderRadius: 'var(--radius-xl)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
+                 <p className="label-caps" style={{ margin: 0, color: 'var(--primary)' }}>Tên hiển thị của bạn</p>
+                 <input 
+                  type="text" 
+                  value={displayName} 
+                  onChange={handleNameChange} 
+                  className="input-glass" 
+                  style={{ textAlign: 'center', fontSize: '18px', fontWeight: 600, color: 'var(--primary)', borderBottomColor: 'var(--primary)', padding: '8px 16px', maxWidth: '300px', width: '100%' }} 
+                  placeholder="Nhập tên..."
+                />
+              </div>
+            </div>
             <div style={{ 
               display: 'flex', flexWrap: 'wrap', gap: 'var(--spacing-lg)', 
               width: '100%', maxWidth: '1200px', margin: '0 auto', paddingBottom: 'var(--spacing-lg)' 
@@ -289,6 +312,7 @@ export default function Home() {
         @media (max-width: 768px) {
           aside { display: none !important; }
           main { padding-left: var(--spacing-md) !important; }
+          .mobile-name-input { display: block !important; }
         }
       `}</style>
     </>

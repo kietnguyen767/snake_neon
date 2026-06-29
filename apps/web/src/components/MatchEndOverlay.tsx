@@ -24,7 +24,7 @@ export default function MatchEndOverlay({ stats, onClose }: MatchEndOverlayProps
     }}>
       <div className="glass-panel" style={{
         padding: "var(--spacing-lg)",
-        width: "700px", maxWidth: "90vw",
+        width: "700px", maxWidth: "90vw", maxHeight: "95vh",
         display: "flex", flexDirection: "column", gap: "var(--spacing-md)"
       }}>
         
@@ -45,31 +45,34 @@ export default function MatchEndOverlay({ stats, onClose }: MatchEndOverlayProps
             <span style={{ textAlign: "right" }}>Right / Wrong</span>
           </div>
           
-          {stats.map((p) => {
-            const isFirst = p.rank === 1;
-            return (
-              <div key={p.userId} className="glass-card" style={{
-                display: "grid", gridTemplateColumns: "1fr 2fr 1fr 1fr", gap: "16px", alignItems: "center",
-                background: isFirst ? "rgba(57, 255, 20, 0.1)" : "rgba(255, 255, 255, 0.03)",
-                border: isFirst ? "1px solid var(--primary-container)" : "1px solid rgba(255, 255, 255, 0.05)",
-                padding: "16px",
-                boxShadow: isFirst ? "var(--glow-primary)" : "none"
-              }}>
-                <span className="headline-md" style={{ color: isFirst ? "var(--primary-container)" : "var(--on-surface)" }}>
-                  #{p.rank}
-                </span>
-                <span className="score-display" style={{ fontSize: "14px", color: isFirst ? "#fff" : "var(--on-surface-variant)", overflow: "hidden", textOverflow: "ellipsis" }}>
-                  {p.name || p.userId}
-                </span>
-                <span className="score-display" style={{ color: isFirst ? "var(--primary-container)" : "var(--secondary-container)", textAlign: "right" }}>
-                  {p.score}
-                </span>
-                <span className="score-display" style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", textAlign: "right" }}>
-                  <span style={{ color: "var(--primary-container)" }}>{p.correctAnswers}</span> / <span style={{ color: "var(--error)" }}>{p.wrongAnswers}</span>
-                </span>
-              </div>
-            );
-          })}
+          <div className="custom-scrollbar" style={{ display: "flex", flexDirection: "column", gap: "12px", overflowY: "auto", maxHeight: "55vh", paddingRight: "4px" }}>
+            {stats.map((p) => {
+              const isFirst = p.rank === 1;
+              return (
+                <div key={p.userId} className="glass-card" style={{
+                  display: "grid", gridTemplateColumns: "1fr 2fr 1fr 1fr", gap: "16px", alignItems: "center",
+                  background: isFirst ? "rgba(57, 255, 20, 0.1)" : "rgba(255, 255, 255, 0.03)",
+                  border: isFirst ? "1px solid var(--primary-container)" : "1px solid rgba(255, 255, 255, 0.05)",
+                  padding: "16px",
+                  boxShadow: isFirst ? "var(--glow-primary)" : "none",
+                  flexShrink: 0
+                }}>
+                  <span className="headline-md" style={{ color: isFirst ? "var(--primary-container)" : "var(--on-surface)" }}>
+                    #{p.rank}
+                  </span>
+                  <span className="score-display" style={{ fontSize: "14px", color: isFirst ? "#fff" : "var(--on-surface-variant)", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {p.name || p.userId}
+                  </span>
+                  <span className="score-display" style={{ color: isFirst ? "var(--primary-container)" : "var(--secondary-container)", textAlign: "right" }}>
+                    {p.score}
+                  </span>
+                  <span className="score-display" style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)", textAlign: "right" }}>
+                    <span style={{ color: "var(--primary-container)" }}>{p.correctAnswers}</span> / <span style={{ color: "var(--error)" }}>{p.wrongAnswers}</span>
+                  </span>
+                </div>
+              );
+            })}
+          </div>
         </div>
         
         <button 

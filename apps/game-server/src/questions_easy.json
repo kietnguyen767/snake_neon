@@ -1,0 +1,3206 @@
+[
+  {
+    "id": "q1",
+    "question": "Chọn đáp án chính xác nhất mô tả về Miền Nam sau 1954 (1954-1965):",
+    "options": {
+      "a": "Khu tự trị độc lập",
+      "b": "Căn cứ địa cách mạng",
+      "c": "Thuộc địa kiểu mới",
+      "d": "Thuộc địa kiểu cũ"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q2",
+    "question": "(Chốt nhanh) Thị trường = ?",
+    "options": {
+      "a": "Độc quyền sản phẩm",
+      "b": "Quyết định mọi giá cả từ nhà nước",
+      "c": "Điều tiết sản xuất và lưu thông",
+      "d": "Xóa bỏ cạnh tranh"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q3",
+    "question": "Điền vào chỗ trống: Người lính Pháp cuối cùng rút khỏi Hà Nội vào [...]",
+    "options": {
+      "a": "2-9-1954",
+      "b": "16-5-1955",
+      "c": "10-10-1954",
+      "d": "20-7-1954"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q4",
+    "question": "Chọn đáp án chính xác nhất mô tả về Thuận lợi quốc tế (1954-1965):",
+    "options": {
+      "a": "Pháp",
+      "b": "Trung Quốc",
+      "c": "Anh",
+      "d": "Liên Xô"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q5",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chủ tịch Mặt trận (1954-1965):",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Bà Nguyễn Thị Định",
+      "c": "Luật sư Nguyễn Hữu Thọ",
+      "d": "Ông Lê Duẩn"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q6",
+    "question": "Sau 1954, miền Bắc phát triển theo con đường nào?",
+    "options": {
+      "a": "Xã hội chủ nghĩa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Thuộc địa"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q7",
+    "question": "Chọn đáp án chính xác nhất mô tả về Tuyên bố của Diệm 1957 (1954-1965):",
+    "options": {
+      "a": "Mũi Cà Mau",
+      "b": "Vĩ tuyến 16",
+      "c": "Vĩ tuyến 20",
+      "d": "Vĩ tuyến 17"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q8",
+    "question": "(Phản xạ 5s) Sau 1954, miền Nam trở thành gì của đế quốc Mỹ?",
+    "options": {
+      "a": "Khu tự trị độc lập",
+      "b": "Căn cứ địa cách mạng",
+      "c": "Thuộc địa kiểu mới",
+      "d": "Thuộc địa kiểu cũ"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q9",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến tranh đặc biệt (1954-1965):",
+    "options": {
+      "a": "1961-1965",
+      "b": "1965-1968",
+      "c": "1969-1973",
+      "d": "1954-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q10",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đề cương CM Miền Nam (1954-1965):",
+    "options": {
+      "a": "Trường Chinh",
+      "b": "Lê Duẩn",
+      "c": "Võ Nguyên Giáp",
+      "d": "Hồ Chí Minh"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q11",
+    "question": "Điền vào chỗ trống: Chiến thuật quân sự chính trong Chiến tranh đặc biệt là [...]",
+    "options": {
+      "a": "Quét và giữ",
+      "b": "Trực thăng vận, thiết xa vận",
+      "c": "Tìm và diệt",
+      "d": "Pháo đài bay"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q12",
+    "question": "Chọn đáp án chính xác nhất mô tả về Kế hoạch 3 năm MB (1954-1965):",
+    "options": {
+      "a": "1965-1968",
+      "b": "1954-1957",
+      "c": "1958-1960",
+      "d": "1961-1965"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q13",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đại hội Đảng III (1954-1965):",
+    "options": {
+      "a": "Tháng 3-1964",
+      "b": "Tháng 1-1959",
+      "c": "Tháng 12-1960",
+      "d": "Tháng 9-1960"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q14",
+    "question": "Ba mũi giáp công trong chiến tranh cách mạng miền Nam là gì?",
+    "options": {
+      "a": "Đấu tranh bộ, thủy, không",
+      "b": "Chính trị, kinh tế, văn hóa",
+      "c": "Quân sự, kinh tế, ngoại giao",
+      "d": "Quân sự, chính trị, binh vận"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q15",
+    "question": "(Phản xạ 5s) Trọng tâm khôi phục kinh tế miền Bắc là lĩnh vực nào?",
+    "options": {
+      "a": "Thương nghiệp",
+      "b": "Thủ công nghiệp",
+      "c": "Nông nghiệp",
+      "d": "Công nghiệp nặng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q16",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chủ tịch Mặt trận (1954-1965):",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Bà Nguyễn Thị Định",
+      "c": "Luật sư Nguyễn Hữu Thọ",
+      "d": "Ông Lê Duẩn"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q17",
+    "question": "Chủ tịch Mặt trận Dân tộc giải phóng miền Nam Việt Nam là ai?",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Bà Nguyễn Thị Định",
+      "c": "Ông Lê Duẩn",
+      "d": "Luật sư Nguyễn Hữu Thọ"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q18",
+    "question": "(Phản xạ 5s) Giai cấp nào bị đánh đổ trong cải cách ruộng đất?",
+    "options": {
+      "a": "Công nhân",
+      "b": "Địa chủ",
+      "c": "Tư sản",
+      "d": "Nông dân"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q19",
+    "question": "(Phản xạ 5s) Mỹ muốn biến miền Nam thành mắt xích ngăn chặn ảnh hưởng của XHCN xuống vùng nào?",
+    "options": {
+      "a": "Châu Phi",
+      "b": "Đông Bắc Á",
+      "c": "Châu Âu",
+      "d": "Đông Nam Á"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q20",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến tranh đặc biệt (1954-1965):",
+    "options": {
+      "a": "1961-1965",
+      "b": "1965-1968",
+      "c": "1969-1973",
+      "d": "1954-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q21",
+    "question": "Điền vào chỗ trống: Ai là người dự thảo Đề cương đường lối cách mạng Việt Nam ở miền Nam (8-1956)[...]",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Hồ Chí Minh",
+      "c": "Trường Chinh",
+      "d": "Võ Nguyên Giáp"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q22",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến thuật CTĐB (1954-1965):",
+    "options": {
+      "a": "Quét và giữ",
+      "b": "Pháo đài bay",
+      "c": "Trực thăng vận, thiết xa vận",
+      "d": "Tìm và diệt"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q23",
+    "question": "Chọn đáp án chính xác nhất mô tả về Kế hoạch 3 năm MB (1954-1965):",
+    "options": {
+      "a": "1965-1968",
+      "b": "1954-1957",
+      "c": "1958-1960",
+      "d": "1961-1965"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q24",
+    "question": "Điền vào chỗ trống: Ai lãnh đạo phong trào Đồng khởi ở Mỏ Cày (Bến Tre)[...]",
+    "options": {
+      "a": "Nguyễn Văn Linh",
+      "b": "Nguyễn Thị Định",
+      "c": "Nguyễn Hữu Thọ",
+      "d": "Lê Duẩn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q25",
+    "question": "Chọn đáp án chính xác nhất mô tả về Phương châm 3 mũi (1954-1965):",
+    "options": {
+      "a": "Quân sự, chính trị, binh vận",
+      "b": "Chính trị, kinh tế, văn hóa",
+      "c": "Quân sự, kinh tế, ngoại giao",
+      "d": "Đấu tranh bộ, thủy, không"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q26",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đại hội Đảng III (1954-1965):",
+    "options": {
+      "a": "Tháng 3-1964",
+      "b": "Tháng 1-1959",
+      "c": "Tháng 12-1960",
+      "d": "Tháng 9-1960"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q27",
+    "question": "Chọn đáp án chính xác nhất mô tả về Giải phóng Hà Nội (1954-1965):",
+    "options": {
+      "a": "10-10-1954",
+      "b": "16-5-1955",
+      "c": "20-7-1954",
+      "d": "2-9-1954"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q28",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến thuật CTĐB (1954-1965):",
+    "options": {
+      "a": "Quét và giữ",
+      "b": "Pháo đài bay",
+      "c": "Trực thăng vận, thiết xa vận",
+      "d": "Tìm và diệt"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q29",
+    "question": "Kế hoạch 3 năm phát triển kinh tế, cải tạo XHCN diễn ra vào giai đoạn nào?",
+    "options": {
+      "a": "1961-1965",
+      "b": "1954-1957",
+      "c": "1965-1968",
+      "d": "1958-1960"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q30",
+    "question": "(Phản xạ 5s) Kẻ thù trực tiếp của nhân dân Việt Nam sau 1954 là ai?",
+    "options": {
+      "a": "Đế quốc Mỹ",
+      "b": "Chính quyền tay sai",
+      "c": "Phát xít Nhật",
+      "d": "Thực dân Pháp"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q31",
+    "question": "Điền vào chỗ trống: Mặt trận Dân tộc giải phóng miền Nam Việt Nam thành lập ngày nào[...]",
+    "options": {
+      "a": "19-5-1959",
+      "b": "1-11-1963",
+      "c": "20-12-1960",
+      "d": "17-1-1960"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q32",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến tranh đặc biệt (1954-1965):",
+    "options": {
+      "a": "1961-1965",
+      "b": "1965-1968",
+      "c": "1969-1973",
+      "d": "1954-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q33",
+    "question": "Chọn đáp án chính xác nhất mô tả về Kế hoạch 3 năm MB (1954-1965):",
+    "options": {
+      "a": "1965-1968",
+      "b": "1954-1957",
+      "c": "1958-1960",
+      "d": "1961-1965"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q34",
+    "question": "Chọn đáp án chính xác nhất mô tả về Miền Bắc sau 1954 (1954-1965):",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q35",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến tranh đặc biệt (1954-1965):",
+    "options": {
+      "a": "1961-1965",
+      "b": "1965-1968",
+      "c": "1969-1973",
+      "d": "1954-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q36",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Nam trở thành gì của đế quốc Mỹ[...]",
+    "options": {
+      "a": "Thuộc địa kiểu mới",
+      "b": "Căn cứ địa cách mạng",
+      "c": "Thuộc địa kiểu cũ",
+      "d": "Khu tự trị độc lập"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q37",
+    "question": "(Phản xạ 5s) Trọng tâm khôi phục kinh tế miền Bắc là lĩnh vực nào?",
+    "options": {
+      "a": "Thương nghiệp",
+      "b": "Thủ công nghiệp",
+      "c": "Nông nghiệp",
+      "d": "Công nghiệp nặng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q38",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đảo chính Diệm (1954-1965):",
+    "options": {
+      "a": "10-8-1961",
+      "b": "20-12-1960",
+      "c": "2-1-1963",
+      "d": "1-11-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q39",
+    "question": "Chọn đáp án chính xác nhất mô tả về Mục tiêu Cải cách ruộng đất (1954-1965):",
+    "options": {
+      "a": "Địa chủ",
+      "b": "Tư sản",
+      "c": "Nông dân",
+      "d": "Công nhân"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q40",
+    "question": "Điền vào chỗ trống: Mỹ muốn biến miền Nam thành mắt xích ngăn chặn ảnh hưởng của XHCN xuống vùng nào[...]",
+    "options": {
+      "a": "Đông Nam Á",
+      "b": "Châu Phi",
+      "c": "Đông Bắc Á",
+      "d": "Châu Âu"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q41",
+    "question": "Điền vào chỗ trống: Ai là người dự thảo Đề cương đường lối cách mạng Việt Nam ở miền Nam (8-1956)[...]",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Hồ Chí Minh",
+      "c": "Trường Chinh",
+      "d": "Võ Nguyên Giáp"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q42",
+    "question": "Điền vào chỗ trống: Chiến thắng vang dội mở đầu việc đánh bại chiến thuật trực thăng vận, thiết xa vận là trận nào[...]",
+    "options": {
+      "a": "Bình Giã",
+      "b": "Đồng Xoài",
+      "c": "Ấp Bắc",
+      "d": "Ba Gia"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q43",
+    "question": "Chọn đáp án chính xác nhất mô tả về Thành lập Mặt trận (1954-1965):",
+    "options": {
+      "a": "1-11-1963",
+      "b": "17-1-1960",
+      "c": "20-12-1960",
+      "d": "19-5-1959"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q44",
+    "question": "(Phản xạ 5s) Thuận lợi quốc tế lớn nhất sau 1954 là sự lớn mạnh của nước nào?",
+    "options": {
+      "a": "Liên Xô",
+      "b": "Pháp",
+      "c": "Anh",
+      "d": "Trung Quốc"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q45",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Nam trở thành gì của đế quốc Mỹ?",
+    "options": {
+      "a": "Khu tự trị độc lập",
+      "b": "Căn cứ địa cách mạng",
+      "c": "Thuộc địa kiểu cũ",
+      "d": "Thuộc địa kiểu mới"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q46",
+    "question": "Điền vào chỗ trống: Ai là người đứng đầu chính quyền tay sai Việt Nam Cộng hòa đầu tiên[...]",
+    "options": {
+      "a": "Ngô Đình Diệm",
+      "b": "Trần Văn Hương",
+      "c": "Nguyễn Văn Thiệu",
+      "d": "Dương Văn Minh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q47",
+    "question": "Điền vào chỗ trống: Địch dùng đạo luật nào để lê máy chém đi khắp miền Nam[...]",
+    "options": {
+      "a": "Luật chống cộng",
+      "b": "Luật 10/58",
+      "c": "Luật 10/59",
+      "d": "Hiến pháp 1956"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q48",
+    "question": "(Phản xạ 5s) Người lính Pháp cuối cùng rút khỏi Hà Nội vào thời gian nào?",
+    "options": {
+      "a": "16-5-1955",
+      "b": "20-7-1954",
+      "c": "2-9-1954",
+      "d": "10-10-1954"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q49",
+    "question": "(Phản xạ 5s) Năm 1957, Ngô Đình Diệm tuyên bố Biên giới Hoa Kỳ kéo dài đến đâu?",
+    "options": {
+      "a": "Vĩ tuyến 17",
+      "b": "Vĩ tuyến 20",
+      "c": "Vĩ tuyến 16",
+      "d": "Mũi Cà Mau"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q50",
+    "question": "Chiến thắng vang dội mở đầu việc đánh bại chiến thuật trực thăng vận, thiết xa vận là trận nào?",
+    "options": {
+      "a": "Đồng Xoài",
+      "b": "Ấp Bắc",
+      "c": "Bình Giã",
+      "d": "Ba Gia"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q51",
+    "question": "Ai là người dự thảo Đề cương đường lối cách mạng Việt Nam ở miền Nam (8-1956)?",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Võ Nguyên Giáp",
+      "c": "Hồ Chí Minh",
+      "d": "Trường Chinh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q52",
+    "question": "Điền vào chỗ trống: Khởi nghĩa Đồng khởi bùng nổ điểm vào ngày 17-1-1960 tại [...]",
+    "options": {
+      "a": "Mỏ Cày, Bến Tre",
+      "b": "Ấp Bắc, Mỹ Tho",
+      "c": "Trà Bồng, Quảng Ngãi",
+      "d": "Tân Lập, Tây Ninh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q53",
+    "question": "Chọn đáp án chính xác nhất mô tả về Thuận lợi quốc tế (1954-1965):",
+    "options": {
+      "a": "Pháp",
+      "b": "Trung Quốc",
+      "c": "Anh",
+      "d": "Liên Xô"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q54",
+    "question": "Sau 1954, miền Nam trở thành gì của đế quốc Mỹ?",
+    "options": {
+      "a": "Khu tự trị độc lập",
+      "b": "Căn cứ địa cách mạng",
+      "c": "Thuộc địa kiểu cũ",
+      "d": "Thuộc địa kiểu mới"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q55",
+    "question": "Chọn đáp án chính xác nhất mô tả về Giải phóng Hà Nội (1954-1965):",
+    "options": {
+      "a": "10-10-1954",
+      "b": "16-5-1955",
+      "c": "20-7-1954",
+      "d": "2-9-1954"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q56",
+    "question": "Chọn đáp án chính xác nhất mô tả về Khôi phục kinh tế MB (1954-1965):",
+    "options": {
+      "a": "Công nghiệp nặng",
+      "b": "Nông nghiệp",
+      "c": "Thương nghiệp",
+      "d": "Thủ công nghiệp"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q57",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đồng khởi Bến Tre (1954-1965):",
+    "options": {
+      "a": "Tân Lập, Tây Ninh",
+      "b": "Trà Bồng, Quảng Ngãi",
+      "c": "Mỏ Cày, Bến Tre",
+      "d": "Ấp Bắc, Mỹ Tho"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q58",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đồng khởi Bến Tre (1954-1965):",
+    "options": {
+      "a": "Tân Lập, Tây Ninh",
+      "b": "Trà Bồng, Quảng Ngãi",
+      "c": "Mỏ Cày, Bến Tre",
+      "d": "Ấp Bắc, Mỹ Tho"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q59",
+    "question": "Chọn đáp án chính xác nhất mô tả về Mục tiêu Cải cách ruộng đất (1954-1965):",
+    "options": {
+      "a": "Địa chủ",
+      "b": "Tư sản",
+      "c": "Nông dân",
+      "d": "Công nhân"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q60",
+    "question": "Chọn đáp án chính xác nhất mô tả về Giải phóng Hà Nội (1954-1965):",
+    "options": {
+      "a": "10-10-1954",
+      "b": "16-5-1955",
+      "c": "20-7-1954",
+      "d": "2-9-1954"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q61",
+    "question": "Điền vào chỗ trống: Ngô Đình Diệm bị lực lượng quân đảo chính giết chết vào [...]",
+    "options": {
+      "a": "10-8-1961",
+      "b": "20-12-1960",
+      "c": "2-1-1963",
+      "d": "1-11-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q62",
+    "question": "(Phản xạ 5s) Thuận lợi quốc tế lớn nhất sau 1954 là sự lớn mạnh của nước nào?",
+    "options": {
+      "a": "Liên Xô",
+      "b": "Pháp",
+      "c": "Anh",
+      "d": "Trung Quốc"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q63",
+    "question": "Chiến thuật quân sự chính trong Chiến tranh đặc biệt là gì?",
+    "options": {
+      "a": "Trực thăng vận, thiết xa vận",
+      "b": "Tìm và diệt",
+      "c": "Quét và giữ",
+      "d": "Pháo đài bay"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q64",
+    "question": "Điền vào chỗ trống: Khởi nghĩa Đồng khởi bùng nổ điểm vào ngày 17-1-1960 tại [...]",
+    "options": {
+      "a": "Mỏ Cày, Bến Tre",
+      "b": "Ấp Bắc, Mỹ Tho",
+      "c": "Trà Bồng, Quảng Ngãi",
+      "d": "Tân Lập, Tây Ninh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q65",
+    "question": "Chọn đáp án chính xác nhất mô tả về Kẻ thù trực tiếp (1954-1965):",
+    "options": {
+      "a": "Chính quyền tay sai",
+      "b": "Đế quốc Mỹ",
+      "c": "Phát xít Nhật",
+      "d": "Thực dân Pháp"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q66",
+    "question": "Kế hoạch 5 năm lần thứ nhất ở miền Bắc diễn ra trong giai đoạn nào?",
+    "options": {
+      "a": "1958-1960",
+      "b": "1961-1965",
+      "c": "1954-1960",
+      "d": "1965-1968"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q67",
+    "question": "Ai là người đứng đầu chính quyền tay sai Việt Nam Cộng hòa đầu tiên?",
+    "options": {
+      "a": "Dương Văn Minh",
+      "b": "Ngô Đình Diệm",
+      "c": "Trần Văn Hương",
+      "d": "Nguyễn Văn Thiệu"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q68",
+    "question": "Điền vào chỗ trống: Ai lãnh đạo phong trào Đồng khởi ở Mỏ Cày (Bến Tre)[...]",
+    "options": {
+      "a": "Nguyễn Văn Linh",
+      "b": "Nguyễn Thị Định",
+      "c": "Nguyễn Hữu Thọ",
+      "d": "Lê Duẩn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q69",
+    "question": "Điền vào chỗ trống: Người lính Pháp cuối cùng rút khỏi Hà Nội vào [...]",
+    "options": {
+      "a": "2-9-1954",
+      "b": "16-5-1955",
+      "c": "10-10-1954",
+      "d": "20-7-1954"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q70",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đảo chính Diệm (1954-1965):",
+    "options": {
+      "a": "10-8-1961",
+      "b": "20-12-1960",
+      "c": "2-1-1963",
+      "d": "1-11-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q71",
+    "question": "Chọn đáp án chính xác nhất mô tả về Miền Bắc sau 1954 (1954-1965):",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q72",
+    "question": "Điền vào chỗ trống: Chủ tịch Mặt trận Dân tộc giải phóng miền Nam Việt Nam là [...]",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Ông Lê Duẩn",
+      "c": "Bà Nguyễn Thị Định",
+      "d": "Luật sư Nguyễn Hữu Thọ"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q73",
+    "question": "(Phản xạ 5s) Sau 1954, miền Bắc phát triển theo con đường nào?",
+    "options": {
+      "a": "Xã hội chủ nghĩa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Thuộc địa"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q74",
+    "question": "Điền vào chỗ trống: Mặt trận Dân tộc giải phóng miền Nam Việt Nam thành lập ngày nào[...]",
+    "options": {
+      "a": "19-5-1959",
+      "b": "1-11-1963",
+      "c": "20-12-1960",
+      "d": "17-1-1960"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q75",
+    "question": "Điền vào chỗ trống: Đại hội đại biểu toàn quốc lần thứ III của Đảng họp vào [...]",
+    "options": {
+      "a": "Tháng 1-1959",
+      "b": "Tháng 9-1960",
+      "c": "Tháng 3-1964",
+      "d": "Tháng 12-1960"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q76",
+    "question": "Địch dùng đạo luật nào để lê máy chém đi khắp miền Nam?",
+    "options": {
+      "a": "Luật 10/59",
+      "b": "Hiến pháp 1956",
+      "c": "Luật 10/58",
+      "d": "Luật chống cộng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q77",
+    "question": "Điền vào chỗ trống: Chiến thuật quân sự chính trong Chiến tranh đặc biệt là [...]",
+    "options": {
+      "a": "Quét và giữ",
+      "b": "Trực thăng vận, thiết xa vận",
+      "c": "Tìm và diệt",
+      "d": "Pháo đài bay"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q78",
+    "question": "Điền vào chỗ trống: Ai là người dự thảo Đề cương đường lối cách mạng Việt Nam ở miền Nam (8-1956)[...]",
+    "options": {
+      "a": "Lê Duẩn",
+      "b": "Hồ Chí Minh",
+      "c": "Trường Chinh",
+      "d": "Võ Nguyên Giáp"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q79",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Bắc phát triển theo con đường nào[...]",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q80",
+    "question": "Thuận lợi quốc tế lớn nhất sau 1954 là sự lớn mạnh của nước nào?",
+    "options": {
+      "a": "Trung Quốc",
+      "b": "Anh",
+      "c": "Pháp",
+      "d": "Liên Xô"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q81",
+    "question": "Chọn đáp án chính xác nhất mô tả về Khôi phục kinh tế MB (1954-1965):",
+    "options": {
+      "a": "Công nghiệp nặng",
+      "b": "Nông nghiệp",
+      "c": "Thương nghiệp",
+      "d": "Thủ công nghiệp"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q82",
+    "question": "Đại hội đại biểu toàn quốc lần thứ III của Đảng họp vào thời gian nào?",
+    "options": {
+      "a": "Tháng 3-1964",
+      "b": "Tháng 9-1960",
+      "c": "Tháng 12-1960",
+      "d": "Tháng 1-1959"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q83",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến thuật CTĐB (1954-1965):",
+    "options": {
+      "a": "Quét và giữ",
+      "b": "Pháo đài bay",
+      "c": "Trực thăng vận, thiết xa vận",
+      "d": "Tìm và diệt"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q84",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Bắc phát triển theo con đường nào[...]",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q85",
+    "question": "Chọn đáp án chính xác nhất mô tả về Âm mưu của Mỹ (1954-1965):",
+    "options": {
+      "a": "Đông Bắc Á",
+      "b": "Châu Âu",
+      "c": "Đông Nam Á",
+      "d": "Châu Phi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q86",
+    "question": "Chọn đáp án chính xác nhất mô tả về Phương châm 3 mũi (1954-1965):",
+    "options": {
+      "a": "Quân sự, chính trị, binh vận",
+      "b": "Chính trị, kinh tế, văn hóa",
+      "c": "Quân sự, kinh tế, ngoại giao",
+      "d": "Đấu tranh bộ, thủy, không"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q87",
+    "question": "Chiến lược Chiến tranh đặc biệt của Mỹ diễn ra trong giai đoạn nào?",
+    "options": {
+      "a": "1969-1973",
+      "b": "1961-1965",
+      "c": "1965-1968",
+      "d": "1954-1960"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q88",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chính quyền tay sai (1954-1965):",
+    "options": {
+      "a": "Trần Văn Hương",
+      "b": "Ngô Đình Diệm",
+      "c": "Nguyễn Văn Thiệu",
+      "d": "Dương Văn Minh"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q89",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Bắc phát triển theo con đường nào[...]",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q90",
+    "question": "(Phản xạ 5s) Ai là người đứng đầu chính quyền tay sai Việt Nam Cộng hòa đầu tiên?",
+    "options": {
+      "a": "Dương Văn Minh",
+      "b": "Trần Văn Hương",
+      "c": "Nguyễn Văn Thiệu",
+      "d": "Ngô Đình Diệm"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q91",
+    "question": "Chọn đáp án chính xác nhất mô tả về Miền Bắc sau 1954 (1954-1965):",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q92",
+    "question": "Chọn đáp án chính xác nhất mô tả về Luật khủng bố (1954-1965):",
+    "options": {
+      "a": "Hiến pháp 1956",
+      "b": "Luật 10/58",
+      "c": "Luật 10/59",
+      "d": "Luật chống cộng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q93",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chủ tịch Mặt trận (1954-1965):",
+    "options": {
+      "a": "Ông Nguyễn Văn Linh",
+      "b": "Bà Nguyễn Thị Định",
+      "c": "Luật sư Nguyễn Hữu Thọ",
+      "d": "Ông Lê Duẩn"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q94",
+    "question": "Điền vào chỗ trống: Sau 1954, miền Bắc phát triển theo con đường nào[...]",
+    "options": {
+      "a": "Thuộc địa",
+      "b": "Tư bản chủ nghĩa",
+      "c": "Phong kiến",
+      "d": "Xã hội chủ nghĩa"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q95",
+    "question": "Điền vào chỗ trống: Ngô Đình Diệm bị lực lượng quân đảo chính giết chết vào [...]",
+    "options": {
+      "a": "10-8-1961",
+      "b": "20-12-1960",
+      "c": "2-1-1963",
+      "d": "1-11-1963"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q96",
+    "question": "Điền vào chỗ trống: Mặt trận Dân tộc giải phóng miền Nam Việt Nam thành lập ngày nào[...]",
+    "options": {
+      "a": "19-5-1959",
+      "b": "1-11-1963",
+      "c": "20-12-1960",
+      "d": "17-1-1960"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q97",
+    "question": "Điền vào chỗ trống: Đại hội đại biểu toàn quốc lần thứ III của Đảng họp vào [...]",
+    "options": {
+      "a": "Tháng 1-1959",
+      "b": "Tháng 9-1960",
+      "c": "Tháng 3-1964",
+      "d": "Tháng 12-1960"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q98",
+    "question": "Chọn đáp án chính xác nhất mô tả về Đồng khởi Bến Tre (1954-1965):",
+    "options": {
+      "a": "Tân Lập, Tây Ninh",
+      "b": "Trà Bồng, Quảng Ngãi",
+      "c": "Mỏ Cày, Bến Tre",
+      "d": "Ấp Bắc, Mỹ Tho"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q99",
+    "question": "Chọn đáp án chính xác nhất mô tả về Tuyên bố của Diệm 1957 (1954-1965):",
+    "options": {
+      "a": "Mũi Cà Mau",
+      "b": "Vĩ tuyến 16",
+      "c": "Vĩ tuyến 20",
+      "d": "Vĩ tuyến 17"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q100",
+    "question": "Chọn đáp án chính xác nhất mô tả về Chiến tranh đặc biệt (1954-1965):",
+    "options": {
+      "a": "1961-1965",
+      "b": "1965-1968",
+      "c": "1969-1973",
+      "d": "1954-1960"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q101",
+    "question": "Vị danh sĩ mang họ Ngô nào từng soạn bộ \"Lê triều sử ký\"?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Ngô Thì Nhậm",
+      "c": "Chu Văn An",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q102",
+    "question": "Ai là danh tướng dưới triều Lý, từng dẹp Chiêm Thành và đánh thắng quân Tống?",
+    "options": {
+      "a": "Quang Trung",
+      "b": "Phùng Hưng",
+      "c": "Lý Thường Kiệt",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q103",
+    "question": "Vị vua nào được dân gian mô tả với \"gương mặt sắt đen sì\"?",
+    "options": {
+      "a": "Mai Hắc Đế",
+      "b": "Quang Trung",
+      "c": "Phùng Hưng",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q104",
+    "question": "Tên của người thợ lặn giỏi đã đục thủng thuyền giặc trên sông Bạch Đằng?",
+    "options": {
+      "a": "Yết Kiêu",
+      "b": "Chu Văn An",
+      "c": "Phan Bội Châu",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q105",
+    "question": "\"Đầu thần chưa rơi xuống đất, bệ hạ đừng lo\" là câu nói của ai thời nhà Trần.",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Hàm Nghi",
+      "c": "Trần Thủ Độ",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q106",
+    "question": "Vị đại vương nào nổi tiếng với chuyện bẻ gãy sừng trâu?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Lê Lợi",
+      "c": "Phùng Hưng",
+      "d": "Quang Trung"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q107",
+    "question": "Nữ tướng triều Trưng lừng danh ở miền Châu Diên, tên là gì?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Lê Chân",
+      "c": "Lý Thường Kiệt",
+      "d": "Đinh Bộ Lĩnh"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q108",
+    "question": "Vị danh nhân nào nổi tiếng quản lý đất đai ven biển thời Nguyễn, còn gọi là Dinh điền sứ?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Trần Hưng Đạo",
+      "c": "Nguyễn Công Trứ",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q109",
+    "question": "Ai là minh quân nhà Lý, từng cho lập Văn Miếu để đề cao Nho giáo?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Lý Thánh Tông",
+      "c": "Trần Hưng Đạo",
+      "d": "Trần Quốc Toản"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q110",
+    "question": "Ai đã đổi long bào để cứu vua Lê Thái Tổ?",
+    "options": {
+      "a": "Lê Lai",
+      "b": "Ngô Quyền",
+      "c": "Quang Trung",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q111",
+    "question": "Hà-Ninh tổng đốc nào tuẫn tiết tại thành khi đối mặt quân Pháp?",
+    "options": {
+      "a": "Lê Lợi",
+      "b": "Nguyễn Trãi",
+      "c": "Lê Hoàn",
+      "d": "Hoàng Diệu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q112",
+    "question": "Vị vua đầu triều Tiền Lê, từng lãnh đạo đánh thắng quân Tống năm 981 là ai?",
+    "options": {
+      "a": "Nguyễn Bỉnh Khiêm",
+      "b": "Lý Thường Kiệt",
+      "c": "Lê Hoàn (Lê Đại Hành)",
+      "d": "Đinh Bộ Lĩnh"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q113",
+    "question": "Vị vua khai sáng nhà Lý, thời còn nhỏ từng nương nhờ cửa chùa, tên là gì?",
+    "options": {
+      "a": "Lý Công Uẩn",
+      "b": "Duy Tân",
+      "c": "Lý Thường Kiệt",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q114",
+    "question": "Danh y lỗi lạc, tác giả \"Hải Thượng y tông tâm lĩnh\" được dân gian tôn quý là ai?",
+    "options": {
+      "a": "Duy Tân",
+      "b": "Trần Hưng Đạo",
+      "c": "Hải Thượng Lãn Ông (Lê Hữu Trác)",
+      "d": "Lý Thường Kiệt"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q115",
+    "question": "Cuộc đại thắng quân Thanh diễn ra vào mùa xuân năm nào?",
+    "options": {
+      "a": "Kỷ Dậu",
+      "b": "Quang Trung",
+      "c": "Chu Văn An",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q116",
+    "question": "Ai là vị vua được rùa thần dâng móng giúp xây thành?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Lê Hoàn",
+      "c": "An Dương Vương",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q117",
+    "question": "Tướng tài thời Tây Sơn, người đã \"bẻ gậy phò vua\" là ai?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Lê Hoàn",
+      "c": "Quang Trung",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q118",
+    "question": "Danh tướng nào đánh tan quân Thanh, giữ vững giang sơn thời Tây Sơn?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Duy Tân",
+      "c": "Quang Trung",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q119",
+    "question": "Ai được gọi là anh hùng trong đại thắng Đống Đa?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Phan Bội Châu",
+      "c": "Quang Trung - Nguyễn Huệ",
+      "d": "Duy Tân"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q120",
+    "question": "Nữ tướng xuất chúng của phong trào Tây Sơn, tên là gì?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Hàm Nghi",
+      "c": "Trần Quốc Toản",
+      "d": "Bùi Thị Xuân"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q121",
+    "question": "Vị vua cuối triều Tiền Lê thường nằm khi thiết triều, còn được gọi là Lê Ngọa Triều, là ai?",
+    "options": {
+      "a": "Lê Lợi",
+      "b": "Lê Hoàn",
+      "c": "Lê Ngọa Triều (Lê Long Đĩnh)",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q122",
+    "question": "Ai từng dâng sớ chém kẻ nịnh thần nhưng không thành, sau đó từ quan?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Lê Hoàn",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q123",
+    "question": "Ai là thủ lĩnh khởi nghĩa ở núi Lam, mặc áo nâu, giành độc lập cho dân tộc?",
+    "options": {
+      "a": "Lý Thường Kiệt",
+      "b": "Trần Hưng Đạo",
+      "c": "Đinh Bộ Lĩnh",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q124",
+    "question": "Ở hội nghị Bình Than, ai nắm quả cam bày tỏ quyết tâm diệt giặc?",
+    "options": {
+      "a": "Lê Hoàn",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Trần Quốc Toản",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q125",
+    "question": "Tác giả mù lòa nào đã viết truyện thơ \"Lục Vân Tiên\"?",
+    "options": {
+      "a": "Nguyễn Đình Chiểu",
+      "b": "Ngô Quyền",
+      "c": "Trần Quốc Toản",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q126",
+    "question": "Vua nào thời Hậu Lê sáng lập hội thơ Tao Đàn?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Lê Thánh Tông",
+      "c": "Phan Bội Châu",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q127",
+    "question": "Vị quan họ Phan nào từng được trao ấn Khâm sai, nổi danh học vấn sâu rộng?",
+    "options": {
+      "a": "Phan Huy Chú",
+      "b": "Nguyễn Trãi",
+      "c": "Phùng Hưng",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q128",
+    "question": "Tướng Nguyên - Mông nào phải chui ống đồng rút chạy về phương Bắc?",
+    "options": {
+      "a": "Phùng Hưng",
+      "b": "Thoát Hoan",
+      "c": "Lê Hoàn",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q129",
+    "question": "Ai bị lỡ vì rắc lông ngỗng, dẫn đến kết cục \"nghe chàng hại cha\"?",
+    "options": {
+      "a": "Quang Trung",
+      "b": "Lê Lợi",
+      "c": "Ngô Quyền",
+      "d": "Mỵ Châu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q130",
+    "question": "Tác giả \"Truyện Kiều\" được mệnh danh là \"Hồng Sơn liệp hộ\" của triều Tây?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Nguyễn Du",
+      "c": "Nguyễn Bỉnh Khiêm",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q131",
+    "question": "Nữ tướng \"Ra trận quấn khăn vàng\" ở bờ Hóa Giang, được dân gian ca tụng, là ai?",
+    "options": {
+      "a": "Chu Văn An",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Nguyễn Bỉnh Khiêm",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q132",
+    "question": "Vị \"Trạng Trình\" từng ẩn cư ở Am Bạch Vân, không màng danh lợi là ai?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Lê Lợi",
+      "d": "Quang Trung"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q133",
+    "question": "Vị vua dựng nước Âu Lạc, được cho là cháu Đế Minh, là ai?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "An Dương Vương",
+      "c": "Chu Văn An",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q134",
+    "question": "\"Vua Bà\" lừng lẫy, khởi nghĩa ở vùng núi Nưa, khiến quân Ngô kinh sợ, tên là gì?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Phan Bội Châu",
+      "c": "Lê Hoàn",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q135",
+    "question": "Ai là vị quan thời chúa Nguyễn, nổi tiếng xây dựng thành lũy, họ Đào?",
+    "options": {
+      "a": "Đào Duy Từ",
+      "b": "Trần Quốc Toản",
+      "c": "Quang Trung",
+      "d": "Duy Tân"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q136",
+    "question": "Thi nhân \"sông Vị\" nổi bật về tài văn chương?",
+    "options": {
+      "a": "Phan Bội Châu",
+      "b": "Nguyễn Trãi",
+      "c": "Hàm Nghi",
+      "d": "Tú Xương"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q137",
+    "question": "Hoàng đế khai sáng nhà Nguyễn có húy danh là gì?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Nguyễn Ánh (có bản ghi Nguyễn Ỷnh)",
+      "d": "Trần Quốc Toản"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q138",
+    "question": "Mẹ nào sinh ra trăm trứng, nở thành trăm người con của dân tộc Việt?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Mẹ Âu Cơ",
+      "c": "Quang Trung",
+      "d": "Lý Thường Kiệt"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q139",
+    "question": "Ai là vị vua Tây Sơn từng cưới công chúa Lê Ngọc Hân?",
+    "options": {
+      "a": "Trần Hưng Đạo",
+      "b": "Quang Trung",
+      "c": "Đinh Bộ Lĩnh",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q140",
+    "question": "Chuyện \"Bóp nát quả cam\" là giai thoại nói về ai?",
+    "options": {
+      "a": "Lê Hoàn",
+      "b": "Phan Bội Châu",
+      "c": "Bà Triệu",
+      "d": "Trần Quốc Toản"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q141",
+    "question": "Vị nữ tướng nào \"giữ trọn lời thề\" ở sông Hóa, khởi nghĩa năm 248?",
+    "options": {
+      "a": "Lê Lợi",
+      "b": "Nguyễn Trãi",
+      "c": "Bà Triệu",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q142",
+    "question": "\"Tú tài\" nổi danh ở vùng Đại Từ, được dân địa phương xưng tụng, tên là gì?",
+    "options": {
+      "a": "Tú Xuất",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Lý Thường Kiệt",
+      "d": "Đinh Bộ Lĩnh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q143",
+    "question": "Nhà thơ họ Cao, nổi tiếng vì tâm hồn phản kháng mạnh mẽ, là ai?",
+    "options": {
+      "a": "Cao Bá Quát",
+      "b": "Bà Triệu",
+      "c": "Ngô Quyền",
+      "d": "Quang Trung"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q144",
+    "question": "Ai là tác giả \"Hịch tướng sĩ\", kêu gọi toàn quân đoàn kết chống giặc Nguyên-Mông?",
+    "options": {
+      "a": "Trần Hưng Đạo (Trần Quốc Tuấn)",
+      "b": "Hàm Nghi",
+      "c": "Đinh Bộ Lĩnh",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q145",
+    "question": "\"Chinh phụ ngâm\" phiên bản chữ Hán được dịch ra chữ Nôm bởi nữ sĩ nào?",
+    "options": {
+      "a": "Đoàn Thị Điểm",
+      "b": "Ngô Quyền",
+      "c": "Hàm Nghi",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q146",
+    "question": "Vị vua triều Nguyễn chống Pháp, bị đày ra châu Phi, là ai?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Hàm Nghi",
+      "c": "Lê Hoàn",
+      "d": "Nguyễn Bỉnh Khiêm"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q147",
+    "question": "Ai là người chủ xướng phong trào Đông Du, đưa thanh niên sang Nhật du học?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Trần Quốc Toản",
+      "c": "Trần Hưng Đạo",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q148",
+    "question": "Ai lãnh đạo trận Rạch Gầm-Xoài Mút thắng lớn, khiến quân Xiêm thảm bại?",
+    "options": {
+      "a": "Nguyễn Huệ",
+      "b": "Bà Triệu",
+      "c": "Ngô Quyền",
+      "d": "Duy Tân"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q149",
+    "question": "Vị anh hùng \"cưỡi ngựa sắt phun lửa\" giải cứu đất nước khi mới ba tuổi là ai?",
+    "options": {
+      "a": "Trần Hưng Đạo",
+      "b": "Phan Bội Châu",
+      "c": "Thánh Gióng",
+      "d": "Nguyễn Bỉnh Khiêm"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q150",
+    "question": "Danh xưng \"Dạ Trạch Vương\" thuộc về ai, người lập căn cứ ở Đầm Dạ Trạch?",
+    "options": {
+      "a": "Phùng Hưng",
+      "b": "Dạ Trạch Vương - Triệu Quang Phục",
+      "c": "Trần Quốc Toản",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q151",
+    "question": "Tướng nào khảng khái tuyên bố \"Ta thà làm quỷ nước Nam...\" và không nhận tước vương của giặc?",
+    "options": {
+      "a": "Trần Bình Trọng",
+      "b": "Phùng Hưng",
+      "c": "Ngô Quyền",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q152",
+    "question": "Vị thiếu niên cầm đầu đám trẻ chăn trâu, tập trận bằng cờ lau, rồi thống nhất đất nước?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Trần Hưng Đạo",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q153",
+    "question": "Ai gắn liền với tích \"người chài đò\" và nàng Mỵ Nương, tạo nên câu chuyện tương tư cảm động?",
+    "options": {
+      "a": "Trương Chi - Mỵ Nương",
+      "b": "Hàm Nghi",
+      "c": "Nguyễn Bỉnh Khiêm",
+      "d": "Ngô Quyền"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q154",
+    "question": "Vị vua Lê nào còn được tôn là \"Nguyên súy hội Tao Đàn\"?",
+    "options": {
+      "a": "Nguyễn Bỉnh Khiêm",
+      "b": "Lê Thánh Tông",
+      "c": "Phùng Hưng",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q155",
+    "question": "Ngày mùng mấy tháng ba hằng năm diễn ra lễ hội Đền Hùng?",
+    "options": {
+      "a": "10-3",
+      "b": "7-5-1954",
+      "c": "Năm 1789",
+      "d": "30-4-1975"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q156",
+    "question": "Vị vua trẻ của phong trào Cần Vương, sau bị Pháp đày đi châu Phi, là ai?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Duy Tân",
+      "c": "Chu Văn An",
+      "d": "Nguyễn Trãi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q157",
+    "question": "Cha rồng kết duyên cùng Mẹ Âu Cơ, sinh ra dòng giống Lạc Hồng, là ai?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Lạc Long Quân",
+      "c": "Trần Quốc Toản",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q158",
+    "question": "Ai mượn gươm thần rồi hoàn kiếm lại cho rùa vàng ở hồ Tả Vọng?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Duy Tân",
+      "c": "Lê Lợi",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q159",
+    "question": "Vị nữ tướng nào khóc trên lưng voi khi đánh quân Ngô, ở vùng Hóa Giang?",
+    "options": {
+      "a": "Lê Lợi",
+      "b": "Trần Quốc Toản",
+      "c": "Quang Trung",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q160",
+    "question": "Ai đã xây dựng Lũy Thầy trứ danh thời chúa Nguyễn?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Trần Hưng Đạo",
+      "c": "Đào Duy Từ",
+      "d": "Nguyễn Trãi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q161",
+    "question": "Người chế tạo súng và nổi dậy chống Pháp ở Vũ Quang đầu thế kỷ XX là ai?",
+    "options": {
+      "a": "Duy Tân",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Chu Văn An",
+      "d": "Cao Thắng"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q162",
+    "question": "Vị danh thần triều Nguyễn, cũng được xem như tổ ngành Hát Bội, là ai?",
+    "options": {
+      "a": "Chu Văn An",
+      "b": "Bà Triệu",
+      "c": "Phùng Hưng",
+      "d": "Đào Duy Từ"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q163",
+    "question": "Ngọn núi nào gắn liền với truyền thuyết Sơn Tinh-Thủy Tinh?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Tản Viên",
+      "c": "Bà Triệu",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q164",
+    "question": "\"Trạng Trình\" nhận bức thư trao đổi từ một danh nho, đó là ai?",
+    "options": {
+      "a": "Nguyễn Bỉnh Khiêm",
+      "b": "Trần Hưng Đạo",
+      "c": "Ngô Quyền",
+      "d": "Quang Trung"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q165",
+    "question": "Ai là người soạn thảo \"Bình Ngô đại cáo\", áng văn bất hủ khẳng định chủ quyền nước ta?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Lê Lợi",
+      "c": "Đinh Bộ Lĩnh",
+      "d": "Nguyễn Trãi"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q166",
+    "question": "Nhà toán học được tôn là \"Trạng Lường\" và sáng tác \"Đại Thành Toán Pháp\" là ai?",
+    "options": {
+      "a": "Bà Triệu",
+      "b": "Lương Thế Vinh",
+      "c": "Phùng Hưng",
+      "d": "Trần Hưng Đạo"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q167",
+    "question": "Vị danh thần nào nghe theo di huấn của cha, tạm rời biên ải để giành thắng lợi toàn cục?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Nguyễn Trãi",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q168",
+    "question": "Ai là người khởi xướng cuộc nổi dậy ở Thái Nguyên chống Pháp?",
+    "options": {
+      "a": "Đội Cấn - Đội Cung",
+      "b": "Nguyễn Trãi",
+      "c": "Đinh Bộ Lĩnh",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q169",
+    "question": "Cao tăng nổi tiếng dưới triều Lý, người tham vấn cho Lý Công Uẩn, tên gì?",
+    "options": {
+      "a": "Duy Tân",
+      "b": "Nguyễn Bỉnh Khiêm",
+      "c": "Chu Văn An",
+      "d": "Sư Vạn Hạnh"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q170",
+    "question": "\"Đồng bào\" được bắt nguồn từ truyền thuyết mẹ đẻ bọc trăm trứng, đó là câu chuyện về ai?",
+    "options": {
+      "a": "Lý Thường Kiệt",
+      "b": "Ngô Quyền",
+      "c": "Phùng Hưng",
+      "d": "Mẹ Âu Cơ đẻ ra bọc trăm trứng"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q171",
+    "question": "Vua triều Lê nào nổi tiếng bạo ngược, giết hại công thần, còn được gọi là \"Vua quỷ\"?",
+    "options": {
+      "a": "Lê Uy Mục",
+      "b": "Chu Văn An",
+      "c": "Lê Lợi",
+      "d": "Nguyễn Bỉnh Khiêm"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q172",
+    "question": "Người dùng kế sách \"công bút\" đánh lừa tướng Minh Vương Thông là ai?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Lý Thường Kiệt",
+      "c": "Nguyễn Trãi",
+      "d": "Ngô Quyền"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q173",
+    "question": "Ai gây dựng cơ đồ ở vùng Mê Linh, phất cờ khởi nghĩa đánh đuổi Tô Định?",
+    "options": {
+      "a": "Phùng Hưng",
+      "b": "Bà Triệu",
+      "c": "Lê Hoàn",
+      "d": "Hai Bà Trưng"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q174",
+    "question": "Ai bôn ba nhiều nơi để thực hiện phong trào Đông Du đầu thế kỷ XX?",
+    "options": {
+      "a": "Lê Hoàn",
+      "b": "Phùng Hưng",
+      "c": "Trần Quốc Toản",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q175",
+    "question": "Tác phẩm \"Hoàng Lê nhất thống chí\", ghi lại biến động cuối Lê - Tây Sơn, do tập thể nào chắp bút?",
+    "options": {
+      "a": "Ngô Gia Văn Phái",
+      "b": "Lê Hoàn",
+      "c": "Trần Quốc Toản",
+      "d": "Phan Bội Châu"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q176",
+    "question": "Nhà thơ nào vì dính vào cuộc nổi loạn nên bị hành hình, gắn liền với câu \"tài hoa yểu mệnh\"?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Quang Trung",
+      "c": "Nguyễn Bỉnh Khiêm",
+      "d": "Cao Bá Quát"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q177",
+    "question": "Bác Hồ đọc bản Tuyên ngôn Độc lập vào năm nào?",
+    "options": {
+      "a": "2/9/1945",
+      "b": "Năm 1288",
+      "c": "30-4-1975",
+      "d": "3-2-1930"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q178",
+    "question": "Vua mở đầu triều Trần, sau khi nhà Lý suy vi, là ai?",
+    "options": {
+      "a": "Lê Lợi",
+      "b": "Trần Cảnh",
+      "c": "Lý Thường Kiệt",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q179",
+    "question": "Trạng nguyên ví dung mạo xấu xí của mình như hoa sen \"gần bùn mà chẳng hôi tanh\"?",
+    "options": {
+      "a": "Nguyễn Bỉnh Khiêm",
+      "b": "Mạc Đĩnh Chi",
+      "c": "Phan Bội Châu",
+      "d": "Chu Văn An"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q180",
+    "question": "Vị tướng dưới triều Nguyễn, được thờ tại lăng Ông ở Sài Gòn là ai?",
+    "options": {
+      "a": "Lê Văn Duyệt",
+      "b": "Chu Văn An",
+      "c": "Trần Hưng Đạo",
+      "d": "Hàm Nghi"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q181",
+    "question": "\"Hùm thiêng Yên Thế\" chuyên kháng Pháp, khiến giặc nhiều lần thất bại, tên là gì?",
+    "options": {
+      "a": "Chu Văn An",
+      "b": "Trần Quốc Toản",
+      "c": "Quang Trung",
+      "d": "Hoàng Hoa Thám"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q182",
+    "question": "Các chức \"Lạc Hầu\", \"Lạc Tướng\" tồn tại vào thời nào?",
+    "options": {
+      "a": "Hùng Vương",
+      "b": "Trần Hưng Đạo",
+      "c": "Phan Bội Châu",
+      "d": "Đinh Bộ Lĩnh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q183",
+    "question": "Ai từng làm vua giữa chốn đồng lầy và ai dùng cờ lau tập trận lúc nhỏ?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh và Triệu Quang Phục",
+      "b": "Lê Hoàn",
+      "c": "Trần Hưng Đạo",
+      "d": "Duy Tân"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q184",
+    "question": "Ai gác thù nhà để lo việc nước và ai là người thắng trận Đống Đa lừng lẫy?",
+    "options": {
+      "a": "Duy Tân",
+      "b": "Hàm Nghi",
+      "c": "Nguyễn Bỉnh Khiêm",
+      "d": "Trần Quốc Tuấn và Quang Trung"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q185",
+    "question": "Ai ba tuổi không nói cười, nghe tin nước có giặc liền vùng dậy đánh tan quân xâm lược?",
+    "options": {
+      "a": "Đinh Bộ Lĩnh",
+      "b": "Thánh Gióng",
+      "c": "Trần Quốc Toản",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q186",
+    "question": "Ngày, tháng, năm nào Bác Hồ gửi bức thư cuối cùng cho ngành giáo dục?",
+    "options": {
+      "a": "Năm 938",
+      "b": "7-5-1954",
+      "c": "30-4-1975",
+      "d": "15/10/1968"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q187",
+    "question": "\"Bà nữ tướng\" cầm cờ khởi nghĩa, cưỡi voi một ngà, vang danh chống quân Ngô là ai?",
+    "options": {
+      "a": "Chu Văn An",
+      "b": "Lê Hoàn",
+      "c": "Phan Bội Châu",
+      "d": "Bà Triệu"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q188",
+    "question": "Sự tích bánh chưng, bánh dày thuộc đời Vua Hùng thứ mấy?",
+    "options": {
+      "a": "Năm 938",
+      "b": "10-3",
+      "c": "2-9-1945",
+      "d": "Vua Hùng Vương thứ 6"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q189",
+    "question": "Vị chủ tướng nào bền gan kháng chiến suốt mười năm, đánh bại Vương Thông ở Đông Quan?",
+    "options": {
+      "a": "Nguyễn Bỉnh Khiêm",
+      "b": "Phan Bội Châu",
+      "c": "Lý Thường Kiệt",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q190",
+    "question": "Ai là người khởi xướng Đông Du, và ai từng \"đập đá\" ở Côn Lôn thể hiện chí sĩ yêu nước?",
+    "options": {
+      "a": "Lý Thường Kiệt",
+      "b": "Phan Bội Châu và Phan Châu Trinh",
+      "c": "Ngô Quyền",
+      "d": "Quang Trung"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q191",
+    "question": "Trước khi ra đi tìm đường cứu nước, Bác Hồ từng dạy học ở đâu?",
+    "options": {
+      "a": "Trần Hưng Đạo",
+      "b": "Phan Thiết",
+      "c": "Hàm Nghi",
+      "d": "Trần Quốc Toản"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q192",
+    "question": "Ai là thủ lĩnh Việt Nam Quốc Dân Đảng, lãnh đạo khởi nghĩa Yên Bái, nêu câu nói \"Không thành công...\"?",
+    "options": {
+      "a": "Hàm Nghi",
+      "b": "Lý Thường Kiệt",
+      "c": "Nguyễn Thái Học",
+      "d": "Nguyễn Trãi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q193",
+    "question": "Tướng triều Nguyễn nào bảo vệ Đà Nẵng, Gia Định, khiến quân Pháp nhiều phen lao đao?",
+    "options": {
+      "a": "Nguyễn Trãi",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Phùng Hưng",
+      "d": "Nguyễn Tri Phương"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q194",
+    "question": "Nhà thơ Nguyễn Đình Chiểu sinh ra và lớn lên tại địa phương nào?",
+    "options": {
+      "a": "Ngô Quyền",
+      "b": "Bến Tre",
+      "c": "Trần Hưng Đạo",
+      "d": "Lê Lợi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q195",
+    "question": "Năm đầu tiên Việt Nam tổ chức kỷ niệm Ngày Nhà giáo (20/11) là năm nào?",
+    "options": {
+      "a": "2-9-1945",
+      "b": "3-2-1930",
+      "c": "20-11-1958",
+      "d": "Năm 1789"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q196",
+    "question": "Vào ngày 13/12 hằng năm, chúng ta tưởng nhớ người thầy giáo nào?",
+    "options": {
+      "a": "Phan Ngọc Hiển",
+      "b": "Phùng Hưng",
+      "c": "Nguyễn Trãi",
+      "d": "Đinh Bộ Lĩnh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q197",
+    "question": "Danh tướng nhà Trần nào ngồi đan sọt, bị giáo đâm vào đùi mà không hay biết?",
+    "options": {
+      "a": "Phan Bội Châu",
+      "b": "Đinh Bộ Lĩnh",
+      "c": "Phạm Ngũ Lão",
+      "d": "Phùng Hưng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q198",
+    "question": "Vị tướng bơi lặn giỏi, dùng kế khoan thủng thuyền địch bảo vệ sông Bạch Đằng là ai?",
+    "options": {
+      "a": "Trần Quốc Toản",
+      "b": "Yết Kiêu",
+      "c": "Lê Lợi",
+      "d": "Nguyễn Trãi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q199",
+    "question": "Ai từng đánh tan quân Đường, được tôn xưng Bố Cái Đại Vương?",
+    "options": {
+      "a": "Duy Tân",
+      "b": "Lê Lợi",
+      "c": "Phùng Hưng",
+      "d": "Trần Quốc Toản"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q200",
+    "question": "Ai dâng bánh chưng bánh dày mừng thọ vua cha, lập nên phong tục truyền thống ngày Tết?",
+    "options": {
+      "a": "Lý Thường Kiệt",
+      "b": "Chu Văn An",
+      "c": "Lang Liêu",
+      "d": "Lê Hoàn"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q201",
+    "question": "(Hỏi nhanh) Thủ đô của quốc gia Nhật Bản là gì?",
+    "options": {
+      "a": "Osaka",
+      "b": "Kyoto",
+      "c": "Tokyo",
+      "d": "Seoul"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q202",
+    "question": "(Phản xạ) Cầu vồng có bao nhiêu màu sắc cơ bản?",
+    "options": {
+      "a": "5 màu",
+      "b": "6 màu",
+      "c": "7 màu",
+      "d": "8 màu"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q203",
+    "question": "Mèo máy màu xanh nổi tiếng trong truyện tranh Nhật Bản tên là gì?",
+    "options": {
+      "a": "Doraemon",
+      "b": "Pikachu",
+      "c": "Conan",
+      "d": "Naruto"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q204",
+    "question": "Năm nhuận (có tháng 2 có 29 ngày) thường có tổng cộng bao nhiêu ngày?",
+    "options": {
+      "a": "364 ngày",
+      "b": "365 ngày",
+      "c": "366 ngày",
+      "d": "367 ngày"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q205",
+    "question": "Hồ nào là hồ nước ngọt tự nhiên có diện tích lớn nhất nằm ở nội thành Hà Nội?",
+    "options": {
+      "a": "Hồ Hoàn Kiếm",
+      "b": "Hồ Tây",
+      "c": "Hồ Bảy Mẫu",
+      "d": "Hồ Trúc Bạch"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q206",
+    "question": "Cơ quan nào có diện tích lớn nhất trong cơ thể người?",
+    "options": {
+      "a": "Gan",
+      "b": "Phổi",
+      "c": "Ruột non",
+      "d": "Da"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q207",
+    "question": "Thuật ngữ \"FAQ\" trên các trang web, ứng dụng thường là viết tắt của cụm từ nào?",
+    "options": {
+      "a": "Fast Access Queue",
+      "b": "Frequently Asked Questions",
+      "c": "Final Answer Quota",
+      "d": "Free Application Quality"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q208",
+    "question": "Một đội bóng đá khi thi đấu chính thức trên sân sẽ có bao nhiêu cầu thủ?",
+    "options": {
+      "a": "9 cầu thủ",
+      "b": "10 cầu thủ",
+      "c": "11 cầu thủ",
+      "d": "12 cầu thủ"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q209",
+    "question": "Trang phục truyền thống đặc trưng và phổ biến nhất của phụ nữ Việt Nam là gì?",
+    "options": {
+      "a": "Áo bà ba",
+      "b": "Áo tứ thân",
+      "c": "Áo dài",
+      "d": "Áo yếm"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q210",
+    "question": "Ngôi sao nào gần với Trái Đất nhất?",
+    "options": {
+      "a": "Sao Hỏa",
+      "b": "Mặt Trăng",
+      "c": "Mặt Trời",
+      "d": "Sao Kim"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q211",
+    "question": "Tục ngữ \"Ăn quả nhớ kẻ trồng cây\" nhằm dạy chúng ta bài học gì?",
+    "options": {
+      "a": "Cần chăm sóc cây cối",
+      "b": "Lòng biết ơn",
+      "c": "Bảo vệ môi trường",
+      "d": "Yêu thiên nhiên"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q212",
+    "question": "Sông nào là con sông dài nhất chảy qua lãnh thổ Việt Nam?",
+    "options": {
+      "a": "Sông Hồng",
+      "b": "Sông Mê Kông (Cửu Long)",
+      "c": "Sông Đà",
+      "d": "Sông Ma"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q213",
+    "question": "Dụng cụ nào được sử dụng để đo nhiệt độ của vật thể hoặc không khí?",
+    "options": {
+      "a": "Đồng hồ",
+      "b": "Cân điện tử",
+      "c": "Nhiệt kế",
+      "d": "Máy đo khoảng cách"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q214",
+    "question": "Nhạc cụ truyền thống nào được coi là \"linh hồn\" của văn hóa đồng bào dân tộc Tây Nguyên?",
+    "options": {
+      "a": "Sáo trúc",
+      "b": "Đàn bầu",
+      "c": "Cồng chiêng",
+      "d": "Đàn tranh"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q215",
+    "question": "Bức tranh thế giới nổi tiếng \"Mona Lisa\" do họa sĩ nào vẽ?",
+    "options": {
+      "a": "Pablo Picasso",
+      "b": "Vincent van Gogh",
+      "c": "Leonardo da Vinci",
+      "d": "Michelangelo"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q216",
+    "question": "(Chốt nhanh) Châu lục nào có diện tích lớn nhất trên thế giới?",
+    "options": {
+      "a": "Châu Phi",
+      "b": "Châu Âu",
+      "c": "Châu Mỹ",
+      "d": "Châu Á"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q217",
+    "question": "Loài động vật nào sống trên cạn có kích thước lớn nhất thế giới?",
+    "options": {
+      "a": "Hươu cao cổ",
+      "b": "Voi châu Phi",
+      "c": "Hổ",
+      "d": "Hà mã"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q218",
+    "question": "Quốc gia nào nổi tiếng thế giới với hai món ăn đặc trưng là Pizza và Pasta?",
+    "options": {
+      "a": "Pháp",
+      "b": "Tây Ban Nha",
+      "c": "Ý (Italy)",
+      "d": "Hy Lạp"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q219",
+    "question": "Hành tinh thứ 4 tính từ Mặt Trời trong hệ mặt trời được gọi là gì?",
+    "options": {
+      "a": "Sao Kim",
+      "b": "Sao Hỏa",
+      "c": "Sao Mộc",
+      "d": "Sao Thổ"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q220",
+    "question": "Từ nào là từ đồng nghĩa với cụm từ \"Cha mẹ\"?",
+    "options": {
+      "a": "Phụ huynh",
+      "b": "Đồng bào",
+      "c": "Hàng xóm",
+      "d": "Bá tánh"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q221",
+    "question": "Phương tiện giao thông nào thường được coi là nhanh nhất đối với hành khách?",
+    "options": {
+      "a": "Tàu hỏa",
+      "b": "Ô tô",
+      "c": "Máy bay",
+      "d": "Tàu thuyền"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q222",
+    "question": "Biểu tượng Olympic gồm 5 vòng tròn giao nhau tượng trưng cho điều gì?",
+    "options": {
+      "a": "5 châu lục",
+      "b": "5 màu sắc cơ bản",
+      "c": "5 môn thể thao",
+      "d": "5 quốc gia"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q223",
+    "question": "Công thức hóa học của nước tinh khiết là gì?",
+    "options": {
+      "a": "CO2",
+      "b": "H2O",
+      "c": "O2",
+      "d": "NaCl"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q224",
+    "question": "Một năm dương lịch thông thường được chia làm bao nhiêu tháng?",
+    "options": {
+      "a": "10 tháng",
+      "b": "11 tháng",
+      "c": "12 tháng",
+      "d": "13 tháng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q225",
+    "question": "(Hỏi nhanh) Vịnh Hạ Long thuộc tỉnh nào của Việt Nam?",
+    "options": {
+      "a": "Hải Phòng",
+      "b": "Quảng Ninh",
+      "c": "Thanh Hóa",
+      "d": "Nghệ An"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q226",
+    "question": "Cơ quan nào trong cơ thể người có chức năng bơm máu?",
+    "options": {
+      "a": "Phổi",
+      "b": "Gan",
+      "c": "Tim",
+      "d": "Dạ dày"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q227",
+    "question": "Ca sĩ nam nào nổi tiếng với bài hát \"Lạc Trôi\"?",
+    "options": {
+      "a": "Sơn Tùng M-TP",
+      "b": "Đen Vâu",
+      "c": "JustaTee",
+      "d": "Chí Thiện"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q228",
+    "question": "Hình học: Hình vuông có bao nhiêu cạnh bằng nhau?",
+    "options": {
+      "a": "3 cạnh",
+      "b": "4 cạnh",
+      "c": "5 cạnh",
+      "d": "6 cạnh"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q229",
+    "question": "Chiến tranh thế giới thứ hai kết thúc vào năm nào?",
+    "options": {
+      "a": "1939",
+      "b": "1942",
+      "c": "1945",
+      "d": "1950"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q230",
+    "question": "Lực hút Trái Đất làm cho mọi vật rơi xuống dưới, lực này gọi là lực gì?",
+    "options": {
+      "a": "Lực ma sát",
+      "b": "Lực đàn hồi",
+      "c": "Lực hút (Trọng lực)",
+      "d": "Lực nâng"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q231",
+    "question": "Tết Nguyên Đán ở Việt Nam thường rơi vào tháng mấy theo lịch âm?",
+    "options": {
+      "a": "Tháng 11",
+      "b": "Tháng 12",
+      "c": "Tháng Giêng",
+      "d": "Tháng 2"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q232",
+    "question": "Loài chim nào chạy nhanh nhất nhưng lại không biết bay?",
+    "options": {
+      "a": "Chim đại bàng",
+      "b": "Chim cú",
+      "c": "Chim đà điểu",
+      "d": "Chim công"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q233",
+    "question": "Dòng điện thoại iPhone nổi tiếng do công ty nào sản xuất?",
+    "options": {
+      "a": "Samsung",
+      "b": "Apple",
+      "c": "Xiaomi",
+      "d": "Huawei"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q234",
+    "question": "Tác phẩm \"Chí Phèo\" là kiệt tác viết về người nông dân do nhà văn nào sáng tác?",
+    "options": {
+      "a": "Nam Cao",
+      "b": "Ngô Tất Tố",
+      "c": "Vũ Trọng Phụng",
+      "d": "Nguyên Hồng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q235",
+    "question": "Biển lớn nhất bao bọc lãnh thổ phía Đông của nước ta là biển gì?",
+    "options": {
+      "a": "Biển Tây",
+      "b": "Biển Đông",
+      "c": "Biển Đỏ",
+      "d": "Biển Đen"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q236",
+    "question": "Trong các giải thưởng Olympic, huy chương nào được trao cho người về nhì?",
+    "options": {
+      "a": "Huy chương Vàng",
+      "b": "Huy chương Bạc",
+      "c": "Huy chương Đồng",
+      "d": "Bằng khen"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q237",
+    "question": "(Phản xạ) Trộn màu đen và màu trắng với nhau sẽ tạo ra màu gì?",
+    "options": {
+      "a": "Màu xám",
+      "b": "Màu nâu",
+      "c": "Màu xanh",
+      "d": "Màu vàng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q238",
+    "question": "Loại đồ uống có gas, màu nâu đen, thương hiệu toàn cầu là gì?",
+    "options": {
+      "a": "Nước suối",
+      "b": "Nước cam",
+      "c": "Coca Cola",
+      "d": "Sữa tươi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q239",
+    "question": "Tên gọi cũ của thủ đô Hà Nội trong thời kỳ phong kiến là gì?",
+    "options": {
+      "a": "Thăng Long",
+      "b": "Gia Định",
+      "c": "Đồ Bàn",
+      "d": "Hoa Lư"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q240",
+    "question": "Vật thể nào là trung tâm của hệ mặt trời?",
+    "options": {
+      "a": "Trái Đất",
+      "b": "Mặt Trăng",
+      "c": "Mặt Trời",
+      "d": "Sao Hỏa"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q241",
+    "question": "Món ăn truyền thống dùng nước dùng từ xương bò, ăn kèm bánh mì và rau sống là gì?",
+    "options": {
+      "a": "Bún chả",
+      "b": "Phở",
+      "c": "Cơm tấm",
+      "d": "Bánh cuốn"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q242",
+    "question": "Nhạc cụ phương Tây nào có phím đen, phím trắng và dùng để đàn trong dàn nhạc giao hưởng?",
+    "options": {
+      "a": "Violin (Đàn vĩ cầm)",
+      "b": "Guitar",
+      "c": "Piano",
+      "d": "Sáo trúc"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q243",
+    "question": "Quá trình cây xanh hấp thụ khí CO2 và nhả ra khí O2 dưới tác dụng của ánh sáng gọi là gì?",
+    "options": {
+      "a": "Hô hấp",
+      "b": "Quang hợp",
+      "c": "Bốc hơi",
+      "d": "Tiết mồ hôi"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q244",
+    "question": "Ngọn núi cao nhất Việt Nam nằm trên dãy núi Hoàng Liên Sơn là núi gì?",
+    "options": {
+      "a": "Núi Fansipan",
+      "b": "Núi Pu Si Lung",
+      "c": "Núi Ngọc Linh",
+      "d": "Núi Phan Xi Păng"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q245",
+    "question": "Siêu anh hùng nào có sức mạnh của một con nhện và hay giăng tơ ở thành phố New York?",
+    "options": {
+      "a": "Batman",
+      "b": "Superman",
+      "c": "Spiderman (Người Nhện)",
+      "d": "Iron Man"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q246",
+    "question": "Ký hiệu hóa học của nguyên tố Oxy là gì?",
+    "options": {
+      "a": "H",
+      "b": "O",
+      "c": "N",
+      "d": "C"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q247",
+    "question": "Trong giao thông, khi đèn tín hiệu màu đỏ sáng, người tham gia giao thông phải làm gì?",
+    "options": {
+      "a": "Chạy chậm lại",
+      "b": "Được phép rẽ trái",
+      "c": "Dừng lại",
+      "d": "Tăng tốc qua"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q248",
+    "question": "Một ngày đêm tự nhiên có tổng cộng bao nhiêu giờ?",
+    "options": {
+      "a": "12 giờ",
+      "b": "20 giờ",
+      "c": "24 giờ",
+      "d": "48 giờ"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q249",
+    "question": "Nhân vật hoạt hình nào là một chú chuột hay mặc quần lót màu đỏ?",
+    "options": {
+      "a": "Donald Duck",
+      "b": "Goofy",
+      "c": "Mickey Mouse",
+      "d": "Jerry"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q250",
+    "question": "Người trưởng thành có tổng cộng bao nhiêu chiếc xương trong cơ thể?",
+    "options": {
+      "a": "106 chiếc",
+      "b": "206 chiếc",
+      "c": "306 chiếc",
+      "d": "406 chiếc"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q251",
+    "question": "Đảo lớn nhất thuộc lãnh thổ Việt Nam hiện nay là đảo nào?",
+    "options": {
+      "a": "Đảo Cát Bà",
+      "b": "Đảo Phú Quốc",
+      "c": "Đảo Lý Sơn",
+      "d": "Đảo Cồn Cỏ"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q252",
+    "question": "Giải đấu bóng rổ nhà nghề nổi tiếng nhất thế giới của Mỹ gọi là gì?",
+    "options": {
+      "a": "FIFA",
+      "b": "NBA",
+      "c": "NFL",
+      "d": "MLB"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q253",
+    "question": "Ở điều kiện áp suất tiêu chuẩn, nước sôi ở nhiệt độ bao nhiêu độ C?",
+    "options": {
+      "a": "50 độ C",
+      "b": "80 độ C",
+      "c": "100 độ C",
+      "d": "120 độ C"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q254",
+    "question": "Trò chơi dân gian trẻ em nào thường dùng khăn bịt mắt và đi bắt người khác?",
+    "options": {
+      "a": "Trốn tìm",
+      "b": "Nuốt số",
+      "c": "Dung dăng dung dẻ",
+      "d": "Bịt mắt bắt dê"
+    },
+    "correct_answer": "d",
+    "difficulty": 1
+  },
+  {
+    "id": "q255",
+    "question": "Loài cá nào nổi tiếng là \"sát thủ\" hung tợn dưới đáy đại dương?",
+    "options": {
+      "a": "Cá heo",
+      "b": "Cá mập",
+      "c": "Cá voi xanh",
+      "d": "Cá chép"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q256",
+    "question": "Nhà khoa học nào được gọi là \"cha đẻ của chiếc đèn bóng đèn sợi đốt\"?",
+    "options": {
+      "a": "Isaac Newton",
+      "b": "Albert Einstein",
+      "c": "Thomas Edison",
+      "d": "Nikola Tesla"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q257",
+    "question": "Trong Toán học, số Pi (π) xấp xỉ bằng bao nhiêu?",
+    "options": {
+      "a": "3,14",
+      "b": "3,41",
+      "c": "4,13",
+      "d": "1,43"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q258",
+    "question": "Mạng xã hội nào có biểu tượng màu xanh dương chữ \"f\"?",
+    "options": {
+      "a": "Instagram",
+      "b": "TikTok",
+      "c": "Facebook",
+      "d": "YouTube"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q259",
+    "question": "Vệ tinh tự nhiên nào quay quanh Trái Đất và sáng bóng vào ban đêm?",
+    "options": {
+      "a": "Mặt Trời",
+      "b": "Sao Hỏa",
+      "c": "Mặt Trăng",
+      "d": "Sao Chổi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q260",
+    "question": "Ban nhạc rock huyền thoại nước Anh có bài hát \"Hey Jude\" là ban nhạc nào?",
+    "options": {
+      "a": "Queen",
+      "b": "The Beatles",
+      "c": "Pink Floyd",
+      "d": "The Rolling Stones"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q261",
+    "question": "Màu sắc của máu người ở điều kiện bình thường là màu gì?",
+    "options": {
+      "a": "Màu xanh lam",
+      "b": "Màu đỏ",
+      "c": "Màu trắng",
+      "d": "Màu đen"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q262",
+    "question": "Con sông dài nhất thế giới chảy qua lục địa châu Phi là sông nào?",
+    "options": {
+      "a": "Sông Amazon",
+      "b": "Sông Mê Kông",
+      "c": "Sông Nile",
+      "d": "Sông Mississippi"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q263",
+    "question": "Ngôn ngữ nào hiện nay được sử dụng rộng rãi nhất như một ngôn ngữ giao tiếp quốc tế?",
+    "options": {
+      "a": "Tiếng Pháp",
+      "b": "Tiếng Trung",
+      "c": "Tiếng Anh",
+      "d": "Tiếng Tây Ban Nha"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q264",
+    "question": "Môn thể thao nào sử dụng vợt và quả bóng nhỏ màu trắng hoặc cam, chơi trên bàn?",
+    "options": {
+      "a": "Cầu lông",
+      "b": "Quần vợt",
+      "c": "Bóng bàn",
+      "d": "Bóng đá"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  },
+  {
+    "id": "q265",
+    "question": "Trong không khí, tốc độ truyền của âm thanh nhanh hơn nhiều so với tốc độ của gì?",
+    "options": {
+      "a": "Ánh sáng",
+      "b": "Tốc độ gió",
+      "c": "Tốc độ của tên lửa",
+      "d": "Tốc độ của máy bay"
+    },
+    "correct_answer": "b",
+    "difficulty": 1
+  },
+  {
+    "id": "q266",
+    "question": "Loại bánh mì đặc sản của người Việt Nam thường có ruột chứa thịt, chả, đồ chua là gì?",
+    "options": {
+      "a": "Bánh mì baguette",
+      "b": "Bánh mì sandwich",
+      "c": "Bánh mì hotdog",
+      "d": "Bánh mì hamburger"
+    },
+    "correct_answer": "a",
+    "difficulty": 1
+  },
+  {
+    "id": "q267",
+    "question": "Loài hoa nào được chọn làm Quốc hoa của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam?",
+    "options": {
+      "a": "Hoa mai",
+      "b": "Hoa đào",
+      "c": "Hoa sen",
+      "d": "Hoa cúc"
+    },
+    "correct_answer": "c",
+    "difficulty": 1
+  }
+]

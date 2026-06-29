@@ -12,14 +12,20 @@ export type Question = {
 // Load from JSON file
 export let QUESTION_BANK: Question[] = [];
 try {
-  const jsonPath = path.resolve(__dirname, "questions.json");
-  if (fs.existsSync(jsonPath)) {
-    const data = fs.readFileSync(jsonPath, "utf-8");
-    QUESTION_BANK = JSON.parse(data);
-    console.log(`[QuestionBank] Loaded ${QUESTION_BANK.length} questions from JSON.`);
-  } else {
-    console.warn("[QuestionBank] questions.json not found! Using empty bank.");
+  const filePaths = ["questions_easy.json", "questions_medium.json", "questions_hard.json"];
+  let totalLoaded = 0;
+  for (const file of filePaths) {
+    const jsonPath = path.resolve(__dirname, file);
+    if (fs.existsSync(jsonPath)) {
+      const data = fs.readFileSync(jsonPath, "utf-8");
+      const parsed = JSON.parse(data);
+      QUESTION_BANK = QUESTION_BANK.concat(parsed);
+      totalLoaded += parsed.length;
+    } else {
+      console.warn(`[QuestionBank] ${file} not found!`);
+    }
   }
+  console.log(`[QuestionBank] Loaded ${totalLoaded} questions from split JSON files.`);
 } catch (e) {
   console.error("[QuestionBank] Error loading questions:", e);
 }

@@ -29,7 +29,9 @@ export interface StoreGameState {
   hostId: string;
   countdown: number;
   timeRemaining: number;
+  zoomLevel: number;
   setRoom: (room: Colyseus.Room) => void;
+  setZoomLevel: (zoom: number) => void;
   updateState: (state: Partial<StoreGameState>) => void;
   updatePlayer: (sessionId: string, player: Partial<PlayerState>) => void;
   removePlayer: (sessionId: string) => void;
@@ -45,7 +47,9 @@ export const useGameStore = create<StoreGameState>((set) => ({
   hostId: "",
   countdown: 3,
   timeRemaining: 600,
+  zoomLevel: 100,
   setRoom: (room) => set({ room }),
+  setZoomLevel: (zoom) => set({ zoomLevel: zoom }),
   updateState: (state) => set({ 
     players: state.players ? { ...state.players } : {}, 
     foods: state.foods ? { ...state.foods } : {}, 

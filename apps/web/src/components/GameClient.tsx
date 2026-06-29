@@ -78,27 +78,52 @@ const LeaderboardRow = React.memo(({ id, idx }: { id: string, idx: number }) => 
 LeaderboardRow.displayName = "LeaderboardRow";
 
 const Leaderboard = React.memo(() => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   // Use a string hash selector to prevent rerenders unless ranking or scores actually change
   const leaderboardIds = useGameStore(s => {
     return Object.values(s.players)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 5)
       .map(p => p.id)
       .join(",");
   });
   
+  const ids = leaderboardIds ? leaderboardIds.split(",") : [];
+  const displayIds = isExpanded ? ids : ids.slice(0, 5);
+
   return (
-    <div className="glass-panel" style={{
+    <div className="glass-panel custom-scrollbar" style={{
       position: "absolute", top: "var(--spacing-md)", right: "var(--spacing-md)",
-      width: "180px", padding: "12px", display: "flex", flexDirection: "column", gap: "8px",
-      background: "rgba(19, 19, 21, 0.52)", backdropFilter: "blur(8px)", borderRadius: "var(--radius-lg)",
-      border: "1px solid rgba(255,255,255,0.05)"
+      width: "200px", padding: "12px", display: "flex", flexDirection: "column", gap: "8px",
+      background: "rgba(19, 19, 21, 0.65)", backdropFilter: "blur(12px)", borderRadius: "var(--radius-lg)",
+      border: "1px solid rgba(255,255,255,0.05)",
+      maxHeight: isExpanded ? "70vh" : "auto",
+      overflowY: isExpanded ? "auto" : "hidden",
+      zIndex: 50, transition: "max-height 0.3s ease"
     }}>
-      <h3 className="label-caps" style={{ margin: 0, borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "6px", color: "var(--on-surface-variant)" }}>Top 5</h3>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "6px" }}>
+        <h3 className="label-caps" style={{ margin: 0, color: "var(--on-surface-variant)" }}>
+          {isExpanded ? "Bảng Xếp Hạng" : "Top 5"}
+        </h3>
+        {ids.length > 5 && (
+          <button 
+            onClick={() => setIsExpanded(!isExpanded)} 
+            style={{ 
+              background: "transparent", border: "none", color: "var(--primary)", 
+              cursor: "pointer", display: "flex", alignItems: "center", padding: 0
+            }}
+            title={isExpanded ? "Thu gọn" : "Xem tất cả"}
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: "20px" }}>
+              {isExpanded ? "expand_less" : "expand_more"}
+            </span>
+          </button>
+        )}
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-        {leaderboardIds ? leaderboardIds.split(",").map((id, idx) => (
+        {displayIds.map((id, idx) => (
           <LeaderboardRow key={id} id={id} idx={idx} />
-        )) : null}
+        ))}
       </div>
     </div>
   );
@@ -116,6 +141,8 @@ const PlayerCard = React.memo(({ id }: { id: string }) => {
 
   const isHost = p.id === hostId;
   const isLocal = currentRoom && p.id === currentRoom.sessionId;
+  const iAmHost = currentRoom && currentRoom.sessionId === hostId;
+  const canBeKicked = iAmHost && !isHost && useGameStore.getState().phase === 0;
 
   return (
     <div className={isHost ? "glow-border" : "glass-panel"} style={{
@@ -130,6 +157,20 @@ const PlayerCard = React.memo(({ id }: { id: string }) => {
         <div style={{ position: "absolute", top: "-12px", color: "var(--tertiary-container)", filter: "drop-shadow(0 0 8px rgba(255,219,64,0.8))" }}>
           <span className="material-symbols-outlined" style={{ fontVariationSettings: "'FILL' 1" }}>crown</span>
         </div>
+      )}
+      {canBeKicked && (
+        <button onClick={() => {
+          if (confirm(`Bạn có chắc muốn đuổi ${p.name} khỏi phòng?`)) {
+            currentRoom.send("kickPlayer", { targetId: id });
+          }
+        }} style={{
+          position: "absolute", top: "4px", right: "4px", background: "rgba(255, 51, 51, 0.2)",
+          border: "1px solid var(--error)", color: "var(--error)", borderRadius: "50%",
+          width: "24px", height: "24px", display: "flex", alignItems: "center", justifyContent: "center",
+          cursor: "pointer", zIndex: 10
+        }} title="Đuổi khỏi phòng">
+          <span className="material-symbols-outlined" style={{ fontSize: "14px" }}>close</span>
+        </button>
       )}
       <div style={{
         width: "64px", height: "64px", borderRadius: "50%", overflow: "hidden",
@@ -168,12 +209,10 @@ const LobbyPlayerGrid = React.memo(() => {
       width: "100%", flex: 1, margin: "var(--spacing-md) 0", overflowY: "auto",
       borderRadius: "var(--radius-xl)", padding: "var(--spacing-md)", borderTop: "1px solid rgba(255, 255, 255, 0.1)"
     }}>
-      <div style={{
-        display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: "var(--spacing-md)"
-      }}>
+      <div className="player-grid">
         {playerIds.map(id => <PlayerCard key={id} id={id} />)}
 
-        {Array.from({ length: Math.max(0, 10 - playerCount) }).map((_, idx) => (
+        {Array.from({ length: Math.max(0, 20 - playerCount) }).map((_, idx) => (
           <div key={`empty-${idx}`} style={{
             display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
             gap: "var(--spacing-sm)", padding: "var(--spacing-sm)", borderRadius: "var(--radius-lg)",
@@ -204,6 +243,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
   const hostId = useGameStore(s => s.hostId);
   const countdown = useGameStore(s => s.countdown);
   const timeRemaining = useGameStore(s => s.timeRemaining);
+  const zoomLevel = useGameStore(s => s.zoomLevel);
   const currentRoom = useGameStore(s => s.room);
   const playerCount = useGameStore(s => s.playerCount);
   const gameRef = useRef<Phaser.Game | null>(null);
@@ -223,7 +263,17 @@ export default function GameClient({ roomId }: { roomId: string }) {
     let room: Colyseus.Room<GameState>;
     let isMounted = true;
 
-    const playerName = typeof window !== "undefined" ? (localStorage.getItem('snakevnr_display_name') || "Player") : "Player";
+    let playerName = typeof window !== "undefined" ? (localStorage.getItem('snakevnr_display_name') || "") : "";
+    if (!playerName || playerName.trim().toLowerCase() === "player") {
+      playerName = prompt("Vui lòng nhập tên hiển thị của bạn để tham gia:") || "";
+      if (!playerName || playerName.trim().toLowerCase() === "player") {
+        alert("Bạn cần phải có tên để tham gia phòng!");
+        window.location.href = "/";
+        return;
+      }
+      localStorage.setItem('snakevnr_display_name', playerName);
+    }
+
     client.joinOrCreate<GameState>("game_room", { customRoomId: roomId, name: playerName }, GameState).then(async (r) => {
       if (!isMounted) {
         r.leave();
@@ -321,6 +371,16 @@ export default function GameClient({ roomId }: { roomId: string }) {
         }
       });
 
+      r.onMessage("kicked", () => {
+        alert("Bạn đã bị chủ phòng đuổi khỏi phòng.");
+        window.location.href = "/";
+      });
+
+      r.onMessage("roomFull", () => {
+        alert("Phòng này đã đủ 20 người. Vui lòng chọn phòng khác!");
+        window.location.href = "/";
+      });
+
       r.onMessage("playerAttacked", (data: { targetId: string, blocked: boolean, damage: number, attackerId: string }) => {
         if (data.targetId === r.sessionId && !data.blocked) {
           const attackerName = r.state.players.get(data.attackerId)?.name || "Một người chơi";
@@ -331,7 +391,12 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
     }).catch(e => {
       console.error("JOIN ERROR", e);
-      setStatus("Failed to connect");
+      if (e.code === 400) {
+        alert(e.message);
+        window.location.href = "/";
+      } else {
+        setStatus("Failed to connect");
+      }
     });
 
     return () => {
@@ -494,6 +559,23 @@ export default function GameClient({ roomId }: { roomId: string }) {
           {/* HUD: Leaderboard */}
           <Leaderboard />
 
+          {/* HUD: Zoom Level */}
+          <div style={{
+            position: "absolute", bottom: "24px", left: "24px", zIndex: 40,
+            background: "rgba(10, 10, 12, 0.7)", backdropFilter: "blur(12px)",
+            padding: "8px 16px", borderRadius: "12px", border: "1px solid var(--primary-container)",
+            display: "flex", alignItems: "center", gap: "8px",
+            boxShadow: "var(--glow-primary)"
+          }}>
+            <span className="material-symbols-outlined" style={{ color: "var(--primary-container)", fontSize: "20px" }}>search</span>
+            <span style={{
+              color: "var(--primary-container)", fontFamily: "var(--font-jetbrains-mono)",
+              fontSize: "16px", fontWeight: "bold"
+            }}>
+              {zoomLevel}%
+            </span>
+          </div>
+
           {/* HUD: Paused state overlay */}
           <PauseOverlay />
         </>
@@ -546,6 +628,20 @@ export default function GameClient({ roomId }: { roomId: string }) {
       )}
 
       <style>{`
+        .player-grid {
+          display: grid;
+          grid-template-columns: repeat(5, 1fr);
+          gap: var(--spacing-md);
+        }
+        @media (max-width: 1024px) {
+          .player-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 768px) {
+          .player-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 480px) {
+          .player-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @keyframes fadeInOut {
           0% { opacity: 0; transform: translate(-50%, -100%); }
           15% { opacity: 1; transform: translate(-50%, -50%); }
