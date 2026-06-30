@@ -17,6 +17,19 @@ type RoomPlayerSnapshot = Pick<PlayerState, "id" | "name" | "score" | "state" | 
   onChange: (cb: () => void) => void;
 };
 
+function resolveGameServerUrl() {
+  if (process.env.NEXT_PUBLIC_GAME_SERVER_URL) {
+    return process.env.NEXT_PUBLIC_GAME_SERVER_URL;
+  }
+
+  if (typeof window !== "undefined") {
+    const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+    return `${protocol}//${window.location.hostname}:2567`;
+  }
+
+  return "ws://127.0.0.1:2567";
+}
+
 const PauseOverlay = React.memo(() => {
   const isPaused = useGameStore(s => {
     if (!s.room) return false;
@@ -256,7 +269,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: "", visible: false });
 
   useEffect(() => {
-    const serverUrl = process.env.NEXT_PUBLIC_GAME_SERVER_URL || "ws://localhost:2567";
+    const serverUrl = resolveGameServerUrl();
     const client = new Colyseus.Client(serverUrl);
     let room: Colyseus.Room<GameState>;
     let isMounted = true;
