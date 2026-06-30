@@ -1,7 +1,7 @@
 "use client";
 import { PlayerState, StoreGameState } from "@/lib/store";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import * as Colyseus from "colyseus.js";
 import { useGameStore } from "@/lib/store";
 import { useShallow } from "zustand/react/shallow";
@@ -79,16 +79,12 @@ LeaderboardRow.displayName = "LeaderboardRow";
 
 const Leaderboard = React.memo(() => {
   const [isExpanded, setIsExpanded] = useState(false);
-
-  // Use a string hash selector to prevent rerenders unless ranking or scores actually change
-  const leaderboardIds = useGameStore(s => {
-    return Object.values(s.players)
+  const players = useGameStore(s => s.players);
+  const ids = useMemo(() => {
+    return Object.values(players)
       .sort((a, b) => b.score - a.score)
-      .map(p => p.id)
-      .join(",");
-  });
-  
-  const ids = leaderboardIds ? leaderboardIds.split(",") : [];
+      .map((player) => player.id);
+  }, [players]);
   const displayIds = isExpanded ? ids : ids.slice(0, 5);
 
   return (

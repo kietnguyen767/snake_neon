@@ -13,6 +13,8 @@ export class GameRoom extends Room<GameState> {
   private matchLogger!: MatchLogger;
   private foodGrid = new Map<number, string>();
   private playerGrid = new Map<number, Map<string, number>>();
+  private clientsBySessionId = new Map<string, Client>();
+  private questionById = new Map(QUESTION_BANK.map((question) => [question.id, question]));
 
   
   private addPlayerToGrid(x: number, y: number, playerId: string) {
@@ -39,6 +41,21 @@ export class GameRoom extends Room<GameState> {
         cellMap.set(playerId, count - 1);
       }
     }
+  }
+
+  private pickRandomAttackTarget(attackerId: string): Player | null {
+    let candidateCount = 0;
+    let selectedTarget: Player | null = null;
+
+    this.state.players.forEach((candidate) => {
+      if (candidate.id === attackerId || candidate.state === "DISCONNECTED") return;
+      candidateCount += 1;
+      if (Math.random() < 1 / candidateCount) {
+        selectedTarget = candidate;
+      }
+    });
+
+    return selectedTarget;
   }
 
   onAuth(client: Client, options: any, request: any) {
@@ -102,7 +119,7 @@ export class GameRoom extends Room<GameState> {
 
     this.onMessage("kickPlayer", (client, message) => {
       if (client.sessionId === this.state.hostId && this.state.phase === 0) {
-        const targetClient = this.clients.find(c => c.sessionId === message.targetId);
+        const targetClient = this.clientsBySessionId.get(message.targetId);
         if (targetClient && targetClient.sessionId !== this.state.hostId) {
           targetClient.send("kicked");
           targetClient.leave();
@@ -116,7 +133,7 @@ export class GameRoom extends Room<GameState> {
         if (message.questionId !== player.pendingQuestionId) return; // Chặn trả lời sai phiên
         if (Date.now() > (player.questionDeadline || 0)) return; // Trễ giờ
 
-        const q = QUESTION_BANK.find(q => q.id === message.questionId);
+        const q = this.questionById.get(message.questionId);
         if (q) {
           const isCorrect = q.correct_answer === message.choice;
           if (isCorrect) {
@@ -139,7 +156,7 @@ export class GameRoom extends Room<GameState> {
       if (this.state.phase === 1) {
         this.update(deltaTime);
       }
-    }, 33);
+    }, 20);
   }
 
   spawnFood() {
@@ -177,7 +194,7 @@ export class GameRoom extends Room<GameState> {
   }
 
   onJoin (client: Client, options: any) {
-    console.log(`[GameRoom] Client ${client.sessionId} joined!`);
+    this.clientsBySessionId.set(client.sessionId, client);
     const player = new Player();
     player.id = client.sessionId;
     player.name = options.name || `Player_${client.sessionId.substr(0, 4)}`;
@@ -201,9 +218,9 @@ export class GameRoom extends Room<GameState> {
 
   async onLeave (client: Client, consented: boolean) {
     const player = this.state.players.get(client.sessionId);
+    this.clientsBySessionId.delete(client.sessionId);
     if (!player) return;
-    
-    console.log(`[GameRoom] Client ${client.sessionId} left! Removing player...`);
+
     this.freePlayerCells(player);
     this.state.players.delete(client.sessionId);
 
@@ -364,7 +381,7 @@ export class GameRoom extends Room<GameState> {
                 player.questionDeadline = Date.now() + 10000;
                 player.moveAccumulator = 0;
                 
-                const clientObj = this.clients.find(c => c.sessionId === player.id);
+                const clientObj = this.clientsBySessionId.get(player.id);
                 if (clientObj) {
                   clientObj.send("questionStarted", {
                     questionId: question.id,
@@ -397,9 +414,8 @@ export class GameRoom extends Room<GameState> {
               
               // Attack (type 7)
               if (appliedEffect === 7) {
-                const otherPlayers = Array.from(this.state.players.values()).filter(p => p.id !== player.id && p.state !== "DISCONNECTED");
-                if (otherPlayers.length > 0) {
-                  const target = otherPlayers[Math.floor(Math.random() * otherPlayers.length)];
+                const target = this.pickRandomAttackTarget(player.id);
+                if (target) {
                   let damage = 20;
                   let blocked = false;
                   
@@ -416,7 +432,7 @@ export class GameRoom extends Room<GameState> {
                 }
               }
               
-              const clientObj = this.clients.find(c => c.sessionId === player.id);
+              const clientObj = this.clientsBySessionId.get(player.id);
               if (clientObj) {
                 clientObj.send("itemCollected", { effectType: appliedEffect });
               }
@@ -437,7 +453,7 @@ export class GameRoom extends Room<GameState> {
         player.questionDeadline = undefined;
         player.pendingFoodId = undefined;
         player.pendingQuestionId = undefined;
-        const clientObj = this.clients.find(c => c.sessionId === player.id);
+        const clientObj = this.clientsBySessionId.get(player.id);
         if (clientObj) {
           clientObj.send("timeUp");
         }
@@ -447,7 +463,7 @@ export class GameRoom extends Room<GameState> {
       if (player.state === "POST_ANSWER" && player.postAnswerUntil && now > player.postAnswerUntil) {
         player.state = "MOVING";
         player.postAnswerUntil = undefined;
-        const clientObj = this.clients.find(c => c.sessionId === player.id);
+        const clientObj = this.clientsBySessionId.get(player.id);
         if (clientObj) {
           clientObj.send("closeQuestion");
         }
@@ -475,8 +491,6 @@ export class GameRoom extends Room<GameState> {
 
   async endGame() {
     this.state.phase = 2;
-    console.log("[GameRoom] Match ended! Processing final stats...");
-    
     const finalPlayers = Array.from(this.state.players.values()).map(p => ({
       id: p.id,
       name: p.name,

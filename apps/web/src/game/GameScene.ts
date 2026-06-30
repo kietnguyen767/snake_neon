@@ -28,9 +28,11 @@ export class GameScene extends Phaser.Scene {
   private playersHead: Map<string, Phaser.GameObjects.Rectangle> = new Map();
   private playersName: Map<string, Phaser.GameObjects.Text> = new Map();
   private playersBody: Map<string, Phaser.GameObjects.Rectangle[]> = new Map();
+  private playerRefs: Map<string, ColyseusPlayer> = new Map();
   private foods: Map<string, Phaser.GameObjects.GameObject> = new Map();
   private room: Room | null = null;
   private listenersAttached = false;
+  private zoomTween: Phaser.Tweens.Tween | null = null;
   
   private tileSize = 20;
 
@@ -75,7 +77,8 @@ export class GameScene extends Phaser.Scene {
       // Update store for UI sync
       useGameStore.getState().setZoomLevel(Math.round(newZoom * 100));
 
-      this.tweens.add({
+      this.zoomTween?.stop();
+      this.zoomTween = this.tweens.add({
         targets: this.cameras.main,
         zoom: newZoom,
         duration: 150,
@@ -99,20 +102,16 @@ export class GameScene extends Phaser.Scene {
         this.room.send("move", { direction: dir });
       }
     });
+
+    if (this.room?.state?.players) {
+      this.attachListeners();
+    }
   }
 
   update(_time: number, _delta: number) {
-    if (!this.listenersAttached && this.room && this.room.state) {
-      if (this.room.state.players) {
-        console.log("[GameScene] Attaching listeners...");
-        this.attachListeners();
-        this.listenersAttached = true;
-      }
-    }
-    
-    if (this.listenersAttached && this.room) {
+    if (this.listenersAttached) {
       this.playersHead.forEach((headRect, sessionId) => {
-        const player = this.room!.state.players.get(sessionId);
+        const player = this.playerRefs.get(sessionId);
         if (!player || player.state === "DISCONNECTED") return;
         const isLocalPlayer = sessionId === this.room?.sessionId;
         
@@ -121,11 +120,17 @@ export class GameScene extends Phaser.Scene {
         if (isLocalPlayer) {
           headRect.x = htx;
           headRect.y = hty;
-        } else if (Phaser.Math.Distance.Between(headRect.x, headRect.y, htx, hty) > this.tileSize * 1.5) {
-          headRect.x = htx; headRect.y = hty;
         } else {
-          headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.45);
-          headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.45);
+          const dx = htx - headRect.x;
+          const dy = hty - headRect.y;
+          const snapDistanceSq = (this.tileSize * 1.5) * (this.tileSize * 1.5);
+          if ((dx * dx) + (dy * dy) > snapDistanceSq) {
+            headRect.x = htx;
+            headRect.y = hty;
+          } else {
+            headRect.x = Phaser.Math.Linear(headRect.x, htx, 0.45);
+            headRect.y = Phaser.Math.Linear(headRect.y, hty, 0.45);
+          }
         }
         
         const nameText = this.playersName.get(sessionId);
@@ -144,20 +149,15 @@ export class GameScene extends Phaser.Scene {
     alpha: number,
     isVisible: boolean
   ) {
-    const segments: SnakeSegment[] = [];
-    if (player.segments && player.segments.forEach) {
-      player.segments.forEach((seg: SnakeSegment) => {
-        segments.push(seg);
-      });
-    }
+    const segmentCount = player.segments?.length || 0;
 
-    while (bodyArr.length < segments.length) {
+    while (bodyArr.length < segmentCount) {
       const bodyRect = this.add.rectangle(0, 0, this.tileSize * 0.9, this.tileSize * 0.9, bodyColor);
       bodyRect.setDepth(5);
       bodyArr.push(bodyRect);
     }
 
-    while (bodyArr.length > segments.length) {
+    while (bodyArr.length > segmentCount) {
       const rect = bodyArr.pop();
       if (rect) {
         rect.destroy();
@@ -165,7 +165,11 @@ export class GameScene extends Phaser.Scene {
     }
 
     bodyArr.forEach((rect, index) => {
-      const seg = segments[index];
+      const seg = player.segments[index];
+      if (!seg) {
+        rect.setVisible(false);
+        return;
+      }
       rect.x = seg.x * this.tileSize + this.tileSize / 2;
       rect.y = seg.y * this.tileSize + this.tileSize / 2;
       rect.fillColor = bodyColor;
@@ -178,7 +182,7 @@ export class GameScene extends Phaser.Scene {
     if (this.playersHead.has(sessionId)) return;
     if (!this.sys || !this.sys.isActive() || !this.add) return;
 
-    console.log(`[GameScene] Player Added: ${sessionId} at ${player.x}, ${player.y}`);
+    this.playerRefs.set(sessionId, player);
     const isMe = sessionId === this.room?.sessionId;
     const headColor = isMe ? 0x39ff14 : 0x00d2fd;
         
@@ -242,7 +246,7 @@ export class GameScene extends Phaser.Scene {
 
   attachListeners() {
     const room = this.room;
-    if (!room) return;
+    if (!room || this.listenersAttached) return;
 
     // Process existing players
     if (room.state.players) {
@@ -259,6 +263,7 @@ export class GameScene extends Phaser.Scene {
       const headRect = this.playersHead.get(sessionId);
       if (headRect) headRect.destroy();
       this.playersHead.delete(sessionId);
+      this.playerRefs.delete(sessionId);
       
       const nameText = this.playersName.get(sessionId);
       if (nameText) nameText.destroy();
@@ -276,9 +281,7 @@ export class GameScene extends Phaser.Scene {
       const addFood = (food: ColyseusFood, foodId: string) => {
         if (this.foods.has(foodId)) return;
         if (!this.sys || !this.sys.isActive() || !this.add) return;
-        
-        console.log(`[GameScene] Food Added: ${foodId} at ${food.x}, ${food.y} (Type: ${food.type})`);
-        
+
         // Handle Emoji rendering for special items
         if (food.type === 5) { // Shield
           const emoji = this.add.text(
@@ -376,5 +379,7 @@ export class GameScene extends Phaser.Scene {
         }
       }
     });
+
+    this.listenersAttached = true;
   }
 }
