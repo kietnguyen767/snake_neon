@@ -109,6 +109,10 @@ export class GameScene extends Phaser.Scene {
   }
 
   update(_time: number, _delta: number) {
+    if (!this.listenersAttached && this.room?.state?.players) {
+      this.attachListeners();
+    }
+
     if (this.listenersAttached) {
       this.playersHead.forEach((headRect, sessionId) => {
         const player = this.playerRefs.get(sessionId);
