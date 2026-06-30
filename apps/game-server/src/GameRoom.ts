@@ -5,6 +5,12 @@ import { nanoid } from "nanoid";
 import { getRandomQuestion, QUESTION_BANK } from "./QuestionBank";
 import { MatchLogger } from "./services/MatchLogger";
 
+const SIMULATION_INTERVAL_MS = 20;
+const PATCH_INTERVAL_MS = 20;
+const BASE_MOVEMENT_INTERVAL_MS = 33;
+const BASE_PLAYER_SPEED = 0.35;
+const QUESTION_DURATION_MS = 15000;
+
 export class GameRoom extends Room<GameState> {
   private gameDuration = 10 * 60 * 1000; // 10 minutes
   private elapsedTime = 0;
@@ -68,6 +74,7 @@ export class GameRoom extends Room<GameState> {
   onCreate (options: any) {
     this.setState(new GameState());
     this.matchLogger = new MatchLogger(options.customRoomId || this.roomId);
+    this.setPatchRate(PATCH_INTERVAL_MS);
     
     // Create grid of 100x100 for a massive map
     this.gridManager = new GridManager(100, 100);
@@ -156,7 +163,7 @@ export class GameRoom extends Room<GameState> {
       if (this.state.phase === 1) {
         this.update(deltaTime);
       }
-    }, 20);
+    }, SIMULATION_INTERVAL_MS);
   }
 
   spawnFood() {
@@ -258,7 +265,7 @@ export class GameRoom extends Room<GameState> {
     this.state.players.forEach((player) => {
       if (player.state !== "MOVING") return;
       
-      player.moveAccumulator += player.speed;
+      player.moveAccumulator += player.speed * (deltaTime / BASE_MOVEMENT_INTERVAL_MS);
       
       while (player.moveAccumulator >= 1.0) {
         const oldX = player.x;
@@ -378,7 +385,7 @@ export class GameRoom extends Room<GameState> {
                 
                 player.pendingFoodId = food.id;
                 player.pendingQuestionId = question.id;
-                player.questionDeadline = Date.now() + 10000;
+                player.questionDeadline = Date.now() + QUESTION_DURATION_MS;
                 player.moveAccumulator = 0;
                 
                 const clientObj = this.clientsBySessionId.get(player.id);
@@ -477,7 +484,7 @@ export class GameRoom extends Room<GameState> {
 
       // Xử lý hết thời gian Speed Boost
       if (player.speedBoostUntil && now > player.speedBoostUntil) {
-        player.speed = 0.25;
+        player.speed = BASE_PLAYER_SPEED;
         player.speedBoostUntil = undefined;
       }
       

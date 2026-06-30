@@ -80,12 +80,12 @@ LeaderboardRow.displayName = "LeaderboardRow";
 const Leaderboard = React.memo(() => {
   const [isExpanded, setIsExpanded] = useState(false);
   const players = useGameStore(s => s.players);
-  const ids = useMemo(() => {
-    return Object.values(players)
-      .sort((a, b) => b.score - a.score)
-      .map((player) => player.id);
+  const sessionIds = useMemo(() => {
+    return Object.entries(players)
+      .sort(([, a], [, b]) => b.score - a.score)
+      .map(([sessionId]) => sessionId);
   }, [players]);
-  const displayIds = isExpanded ? ids : ids.slice(0, 5);
+  const displayIds = isExpanded ? sessionIds : sessionIds.slice(0, 5);
 
   return (
     <div className="glass-panel custom-scrollbar" style={{
@@ -101,7 +101,7 @@ const Leaderboard = React.memo(() => {
         <h3 className="label-caps" style={{ margin: 0, color: "var(--on-surface-variant)" }}>
           {isExpanded ? "Bảng Xếp Hạng" : "Top 5"}
         </h3>
-        {ids.length > 5 && (
+        {sessionIds.length > 5 && (
           <button 
             onClick={() => setIsExpanded(!isExpanded)} 
             style={{ 
@@ -251,6 +251,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
     type: number;
     deadline: number
   } | null>(null);
+  const [answerResult, setAnswerResult] = useState<boolean | null>(null);
   const [matchStats, setMatchStats] = useState<MatchPlayer[] | null>(null);
   const [toast, setToast] = useState<{ message: string; visible: boolean }>({ message: "", visible: false });
 
@@ -350,14 +351,16 @@ export default function GameClient({ roomId }: { roomId: string }) {
 
 
       r.onMessage("questionStarted", (payload) => {
+        setAnswerResult(null);
         setActiveQuestion(payload);
       });
 
-      r.onMessage("answerResult", () => {
-        // Just let the overlay show the result, server will send closeQuestion later.
+      r.onMessage("answerResult", (payload) => {
+        setAnswerResult(!!payload.correct);
       });
 
       r.onMessage("closeQuestion", () => {
+        setAnswerResult(null);
         setActiveQuestion(null);
       });
 
@@ -373,6 +376,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
       });
 
       r.onMessage("timeUp", () => {
+        setAnswerResult(false);
         // Just let the overlay show the timeUp, server will send closeQuestion later.
       });
 
@@ -614,6 +618,7 @@ export default function GameClient({ roomId }: { roomId: string }) {
           options={activeQuestion.options}
           foodType={activeQuestion.type}
           deadline={activeQuestion.deadline}
+          answerResult={answerResult}
           onAnswer={handleAnswerSubmit}
         />
       )}
